@@ -2,20 +2,26 @@
 
 La versión de node que se va a utilizar es v18.18.2
 
-## Project Setup
+## Instalación del proyecto
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Arrancar proyecto
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Compilar para Producción
 
 ```sh
 npm run build
+```
+
+### Uso de iconos
+
+```sh
+Los iconos que se utilizan son de: https://yesicon.app/
 ```
