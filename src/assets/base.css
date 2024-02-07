@@ -1,21 +1,13 @@
 :root {
-  --headerFont: "Raleway", sans-serif;
-  --subtitleFont: 'Nunito Sans', sans-serif;
-  --countdownFont: 'Bebas Neue';
-  --bodyFont: "Barlow Semi Condensed", sans-serif;
-  --darkBluePalette: #44749d;
-  --lightBluePalette: #c6d4e1;
-  --white: #fff;
-  --lightBrownPalette: #ebe7e0;
-  --darkBrownPalette: #bdb8ad;
-  --greyPalette: #ececec;
-}
-
-* {
-  margin: 0px;
-  padding: 0px;
-}
-
-body{
-  font-family: var(--bodyFont);
+    --headerFont: "Raleway", sans-serif;
+    --subtitleFont: "Nunito Sans", sans-serif;
+    --countdownFont: "Bebas Neue";
+    --bodyFont: "Barlow Semi Condensed", sans-serif;
+    --darkBluePalette: #44749d;
+    --lightBluePalette: #c6d4e1;
+    --white: #fff;
+    --lightBrownPalette: #ebe7e0;
+    --darkBrownPalette: #bdb8ad;
+    --greyPalette: #ececec;
+    --orangePalette: #dba400;
 }

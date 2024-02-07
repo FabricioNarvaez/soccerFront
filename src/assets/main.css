@@ -1,66 +1,14 @@
-@import './base.css';
+@import "./base.css";
 
-header{
-    background-color: var(--greyPalette);
+* {
+    margin: 0px;
+    padding: 0px;
 }
 
-.headerContainer{
-    display: flex;
-    align-items: center;
-    height: auto;
-    width: 80%;
-    margin: 0 auto;
+body {
+    font-family: var(--bodyFont);
 }
 
-.navMenu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    color: var(--darkBluePalette);
-    font-weight: bold;
-    width: 100%;
-}
-
-.navMenu a {
+a {
     text-decoration: none;
-    color: var(--darkBluePalette);
-    padding: 10px;
-}
-
-.icon {
-    color: orange;
-}
-
-/* Respuestas responsivas */
-@media (max-width: 768px) {
-    .navMenu {
-        flex-direction: column;
-    }
-
-    .navMenu a:not(:last-child) {
-        margin-bottom: 10px;
-    }
-}
-
-/* Opcional: Estilo para un menú de hamburguesa en vistas móviles */
-@media (max-width: 768px) {
-    .navMenu {
-        display: none; /* Ocultar el menú por defecto en móviles */
-    }
-
-    .navMenu.active {
-        display: flex; /* Mostrar el menú cuando esté activo */
-    }
-
-    /* Agregar un botón de hamburguesa visible solo en móviles */
-    .hamburger-menu {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #333;
-        color: white;
-        padding: 10px;
-        cursor: pointer;
-    }
 }
