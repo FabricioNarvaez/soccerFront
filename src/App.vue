@@ -12,8 +12,22 @@
             </div>
             <nav class="navMenu">
                 <RouterLink to="/">Inicio</RouterLink>
-                <RouterLink to="/Statistics">Estadísticas</RouterLink>
                 <RouterLink to="/classification">Clasificación</RouterLink>
+                <div class="dropdown">
+                    <RouterLink to="/playofss">Eliminatorias</RouterLink>
+                    <div class="dropdown-content">
+                        <RouterLink to="/playofss/champions">Champions</RouterLink>
+                        <RouterLink to="/playofss/uefa">Uefa</RouterLink>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <RouterLink to="/mvp">MVP</RouterLink>
+                    <div class="dropdown-content">
+                        <RouterLink to="/playofss/pichichi">Pichichi</RouterLink>
+                        <RouterLink to="/playofss/porteroDestacado">Portero Destacado</RouterLink>
+                    </div>
+                </div>
+                <RouterLink to="/rules">Reglamento</RouterLink>
                 <RouterLink to="/matchweeks">Jornadas</RouterLink>
                 <RouterLink to="/admin">
                     <img alt="Admin icon" class="icon" src="@/assets/images/PhUserCircle.svg" width="40" height="40" />

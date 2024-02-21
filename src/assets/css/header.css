@@ -23,7 +23,7 @@ header {
 }
 
 .navMenu .router-link-active {
-    text-decoration: underline;
+    border-bottom: 2px solid var(--darkBluePalette);
 }
 
 .navMenu a {
@@ -33,6 +33,10 @@ header {
 
 .navMenu a:last-child {
     margin-left: auto;
+}
+
+.navMenu a:hover {
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
 }
 
 .hamburger {
@@ -64,4 +68,39 @@ header {
 
 .hamburger.change span:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: block;
+    position: absolute;
+    margin-top: 5px;
+    background-color: var(--lightBrownPalette);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+        max-height 0.5s ease-in-out,
+        opacity 0.5s ease-in-out;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:not(:last-child) {
+    border-bottom: 1px solid var(--darkBrownPalette);
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    max-height: 200px;
 }
