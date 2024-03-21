@@ -29,6 +29,7 @@ header {
 .navMenu a {
     font-size: 18px;
     color: var(--darkBluePalette);
+    padding-right: 5px;
 }
 
 .navMenu a:last-child {
@@ -39,46 +40,17 @@ header {
     text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
 }
 
-.hamburger {
-    display: none;
-    cursor: pointer;
-    width: 30px;
-}
-
-.hamburger span {
-    display: block;
-    width: 30px;
-    height: 3px;
-    margin-bottom: 5px;
-    background-color: #333;
-    transition: all 0.3s ease;
-}
-
-.hamburger span:last-child {
-    margin-bottom: 0;
-}
-
-.hamburger.change span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.hamburger.change span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.change span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
 .dropdown {
     position: relative;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    color: var(--darkBluePalette);
 }
 
 .dropdown-content {
     display: block;
     position: absolute;
-    margin-top: 5px;
+    margin-top: 120px;
     background-color: var(--lightBrownPalette);
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;

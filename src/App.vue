@@ -1,36 +1,47 @@
 <template>
     <header>
         <div class="headerContainer">
-            <img alt="AAPD Logo" class="headerLogo"
-                src="https://res.cloudinary.com/dzd68sxue/image/upload/v1697728432/WEBP/Logo_ybmlsh.webp" />
+            <img
+                alt="AAPD Logo"
+                class="headerLogo"
+                src="https://res.cloudinary.com/dzd68sxue/image/upload/v1708167851/AAPD_ratkzi.png"
+            />
 
             <!-- <HelloWorld msg="You did it!" /> -->
-            <div class="hamburger" :class="{ change: isActive }" @click="toggleMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
             <nav class="navMenu">
                 <RouterLink to="/">Inicio</RouterLink>
                 <RouterLink to="/classification">Clasificación</RouterLink>
                 <div class="dropdown">
                     <RouterLink to="/playofss">Eliminatorias</RouterLink>
+                    <Icon icon="bxs:down-arrow" />
                     <div class="dropdown-content">
-                        <RouterLink to="/playofss/champions">Champions</RouterLink>
-                        <RouterLink to="/playofss/uefa">Uefa</RouterLink>
+                        <RouterLink to="/playofss/champions"
+                            >Champions</RouterLink
+                        >
+                        <RouterLink to="/playofss/uefa">UEFA</RouterLink>
                     </div>
                 </div>
                 <div class="dropdown">
                     <RouterLink to="/mvp">MVP</RouterLink>
+                    <Icon icon="bxs:down-arrow" />
                     <div class="dropdown-content">
-                        <RouterLink to="/playofss/pichichi">Pichichi</RouterLink>
-                        <RouterLink to="/playofss/porteroDestacado">Portero Destacado</RouterLink>
+                        <RouterLink to="/playofss/pichichi"
+                            >Pichichi</RouterLink
+                        >
+                        <RouterLink to="/playofss/porteroDestacado"
+                            >Portero</RouterLink
+                        >
                     </div>
                 </div>
                 <RouterLink to="/rules">Reglamento</RouterLink>
                 <RouterLink to="/matchweeks">Jornadas</RouterLink>
                 <RouterLink to="/admin">
-                    <img alt="Admin icon" class="icon" src="@/assets/images/PhUserCircle.svg" width="40" height="40" />
+                    <Icon
+                        icon="mingcute:user-4-fill"
+                        width="40"
+                        height="40"
+                        style="color: #dba400"
+                    />
                 </RouterLink>
             </nav>
         </div>
@@ -40,13 +51,14 @@
 </template>
 
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { Icon } from "@iconify/vue";
+import { RouterLink, RouterView } from "vue-router";
 // import HelloWorld from './components/HelloWorld.vue'
-import { ref } from 'vue';
+import { ref } from "vue";
 
-const isActive = ref(false);
-function toggleMenu() {
-    isActive.value = !isActive.value;
-    // emit('toggle');
-}
+// const isActive = ref(false);
+// function toggleMenu() {
+//     isActive.value = !isActive.value;
+//     // emit('toggle');
+// }
 </script>
