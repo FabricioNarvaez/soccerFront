@@ -23,5 +23,5 @@ npm run build
 ### Uso de iconos
 
 ```sh
-Los iconos que se utilizan son de: https://yesicon.app/
+Utilizar la librería iconify https://icon-sets.iconify.design/
 ```
