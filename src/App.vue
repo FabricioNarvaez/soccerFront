@@ -14,6 +14,7 @@
             <nav class="navMenu" :class="{ 'menuActive': isActive }">
                 <Icon class="crossIcon" @click="toggleMenu"  icon="radix-icons:cross-1" />
                 <RouterLink to="/">Inicio</RouterLink>
+                <RouterLink to="/teams">Equipos</RouterLink>
                 <RouterLink to="/classification">Clasificación</RouterLink>
                 <div class="dropdown">
                     <RouterLink to="/playoffs">Eliminatorias</RouterLink>
