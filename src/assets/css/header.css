@@ -26,7 +26,8 @@ header {
     border-bottom: 2px solid var(--darkBluePalette);
 }
 
-.navMenu a {
+.navMenu a, 
+.navMenu p{
     font-size: 18px;
     color: var(--darkBluePalette);
     padding-right: 5px;
@@ -72,7 +73,8 @@ header {
     border-bottom: 1px solid var(--darkBrownPalette);
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdownActive{
     opacity: 1;
     max-height: 200px;
 }

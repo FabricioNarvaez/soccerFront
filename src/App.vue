@@ -12,14 +12,14 @@
                 <Icon width="25" height="25" icon="bi:list" />
             </div>
             <nav class="navMenu" :class="{ 'menuActive': isActive }">
-                <Icon class="crossIcon" @click="toggleMenu"  icon="radix-icons:cross-1" />
+                <Icon class="crossIcon" icon="radix-icons:cross-1" />
                 <RouterLink to="/">Inicio</RouterLink>
                 <RouterLink to="/teams">Equipos</RouterLink>
                 <RouterLink to="/classification">Clasificación</RouterLink>
                 <div class="dropdown">
-                    <RouterLink to="/playoffs">Eliminatorias</RouterLink>
+                    <p @click="toggleDropdown">Eliminatorias</p>
                     <Icon icon="bxs:down-arrow" />
-                    <div class="dropdown-content">
+                    <div class="dropdown-content" :class="{ 'dropdownActive': isActiveDropdown }">
                         <RouterLink to="/playoffs/champions"
                             >Champions</RouterLink
                         >
@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="dropdown">
-                    <RouterLink to="/mvp">MVP</RouterLink>
+                    <p>MVP</p>
                     <Icon icon="bxs:down-arrow" />
                     <div class="dropdown-content">
                         <RouterLink to="/playoffs/pichichi"
@@ -62,8 +62,11 @@ import { RouterLink, RouterView } from "vue-router";
 import { ref } from "vue";
 
 const isActive = ref(false);
+const isActiveDropdown = ref(false);
 function toggleMenu() {
     isActive.value = !isActive.value;
-    // emit('toggle');
+}
+function toggleDropdown() {
+    isActiveDropdown.value = !isActiveDropdown.value;
 }
 </script>
