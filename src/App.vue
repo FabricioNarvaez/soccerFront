@@ -12,23 +12,23 @@
                 <RouterLink to="/">Inicio</RouterLink>
                 <RouterLink to="/classification">Clasificación</RouterLink>
                 <div class="dropdown">
-                    <RouterLink to="/playofss">Eliminatorias</RouterLink>
+                    <RouterLink to="/playoffs">Eliminatorias</RouterLink>
                     <Icon icon="bxs:down-arrow" />
                     <div class="dropdown-content">
-                        <RouterLink to="/playofss/champions"
+                        <RouterLink to="/playoffs/champions"
                             >Champions</RouterLink
                         >
-                        <RouterLink to="/playofss/uefa">UEFA</RouterLink>
+                        <RouterLink to="/playoffs/uefa">UEFA</RouterLink>
                     </div>
                 </div>
                 <div class="dropdown">
                     <RouterLink to="/mvp">MVP</RouterLink>
                     <Icon icon="bxs:down-arrow" />
                     <div class="dropdown-content">
-                        <RouterLink to="/playofss/pichichi"
+                        <RouterLink to="/playoffs/pichichi"
                             >Pichichi</RouterLink
                         >
-                        <RouterLink to="/playofss/porteroDestacado"
+                        <RouterLink to="/playoffs/porteroDestacado"
                             >Portero</RouterLink
                         >
                     </div>
