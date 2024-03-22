@@ -8,7 +8,11 @@
             />
 
             <!-- <HelloWorld msg="You did it!" /> -->
-            <nav class="navMenu">
+            <div @click="toggleMenu" class="hamburger">
+                <Icon width="25" height="25" icon="bi:list" />
+            </div>
+            <nav class="navMenu" :class="{ 'menuActive': isActive }">
+                <Icon class="crossIcon" @click="toggleMenu"  icon="radix-icons:cross-1" />
                 <RouterLink to="/">Inicio</RouterLink>
                 <RouterLink to="/classification">Clasificación</RouterLink>
                 <div class="dropdown">
@@ -56,9 +60,9 @@ import { RouterLink, RouterView } from "vue-router";
 // import HelloWorld from './components/HelloWorld.vue'
 import { ref } from "vue";
 
-// const isActive = ref(false);
-// function toggleMenu() {
-//     isActive.value = !isActive.value;
-//     // emit('toggle');
-// }
+const isActive = ref(false);
+function toggleMenu() {
+    isActive.value = !isActive.value;
+    // emit('toggle');
+}
 </script>

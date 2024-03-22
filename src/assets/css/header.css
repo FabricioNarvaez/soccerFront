@@ -76,3 +76,59 @@ header {
     opacity: 1;
     max-height: 200px;
 }
+
+.hamburger,
+.crossIcon{
+    display: none;
+}
+
+@media (max-width: 1110px) {
+    .hamburger{
+        display: block;
+        margin-left: auto;
+    }
+
+    .crossIcon{
+        display: block;
+        width: 25px;
+        height: 25px;
+        padding-top: 60px;
+        margin-right: auto;
+    }
+
+    .navMenu{
+        position: absolute;
+        flex-direction: column;
+        max-width: 300px;
+        background-color: var(--lightBrownPalette);
+        left: 0;
+        top: 0;
+        height: 100%;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
+
+    .menuActive {
+        transform: translateX(0);
+        height: 100%;
+    }
+
+    .navMenu a:last-child {
+        margin-top: auto;
+        margin-left: 0;
+        margin: auto 0 50px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .navMenu{
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0px;
+    }
+
+    .crossIcon{
+        padding-left: 40px;
+    }
+}
