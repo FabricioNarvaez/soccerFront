@@ -12,7 +12,7 @@
                 <Icon width="25" height="25" icon="bi:list" />
             </div>
             <nav class="navMenu" :class="{ 'menuActive': isActive }">
-                <Icon class="crossIcon" icon="radix-icons:cross-1" />
+                <Icon @click="toggleMenu" class="crossIcon" icon="radix-icons:cross-1" />
                 <RouterLink to="/">Inicio</RouterLink>
                 <RouterLink to="/teams">Equipos</RouterLink>
                 <RouterLink to="/classification">Clasificación</RouterLink>
@@ -65,6 +65,7 @@ const isActive = ref(false);
 const isActiveDropdown = ref(false);
 function toggleMenu() {
     isActive.value = !isActive.value;
+    console.log(isActive)
 }
 function toggleDropdown() {
     isActiveDropdown.value = !isActiveDropdown.value;
