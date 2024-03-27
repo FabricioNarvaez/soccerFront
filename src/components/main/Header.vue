@@ -4,7 +4,7 @@
             <img
                 alt="AAPD Logo"
                 class="headerLogo"
-                src="https://res.cloudinary.com/dzd68sxue/image/upload/v1708167851/AAPD_ratkzi.png"
+                src="https://res.cloudinary.com/dzd68sxue/image/upload/v1708167596/WEBP/AAPD_2024_W_belugq.webp"
             />
 
             <!-- <HelloWorld msg="You did it!" /> -->
