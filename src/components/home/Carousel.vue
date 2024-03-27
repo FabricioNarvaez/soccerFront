@@ -30,6 +30,6 @@
   
   
 <style scoped>
-    @import "src/assets/css/home/carousel.css";
+    @import "../../assets/css/home/carousel.css";
 </style>
   
