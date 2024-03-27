@@ -1,0 +1,151 @@
+header {
+    background-color: var(--greyPalette);
+}
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.headerLogo {
+    width: 100px;
+}
+
+.navMenu {
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    gap: 40px;
+    width: 100%;
+}
+
+.navMenu .router-link-active {
+    border-bottom: 2px solid var(--darkBluePalette);
+}
+
+.navMenu a, 
+.navMenu p{
+    font-size: 18px;
+    color: var(--darkBluePalette);
+    padding-right: 5px;
+}
+
+.navMenu a:last-child {
+    margin-left: auto;
+}
+
+.navMenu a:hover {
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--darkBluePalette);
+}
+
+.dropdown-content {
+    display: block;
+    position: absolute;
+    margin-top: 120px;
+    background-color: var(--lightBrownPalette);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+        max-height 0.5s ease-in-out,
+        opacity 0.5s ease-in-out;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:not(:last-child) {
+    border-bottom: 1px solid var(--darkBrownPalette);
+}
+
+.dropdown:hover .dropdown-content,
+.dropdownActive{
+    opacity: 1;
+    max-height: 200px;
+}
+
+.hamburger,
+.crossIcon{
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .hamburger{
+        display: block;
+        margin-left: auto;
+        margin-right: 20px;
+    }
+
+    .crossIcon{
+        display: block;
+        width: 25px;
+        height: 25px;
+        padding-top: 60px;
+        margin-right: auto;
+    }
+
+    .navMenu{
+        position: absolute;
+        flex-direction: column;
+        max-width: 300px;
+        background-color: var(--lightBrownPalette);
+        left: 0;
+        top: 0;
+        height: 100%;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
+
+    .menuActive {
+        transform: translateX(0);
+        height: 100%;
+    }
+
+    .navMenu a:last-child {
+        margin-top: auto;
+        margin-left: 0;
+        margin: auto 0 50px 0;
+    }
+
+    .dropdown{
+        justify-content: center;
+    }
+
+    .dropdown .dropdown-content {
+        margin: 130px 0px 0px 0px;
+    }
+
+    .dropdown .dropdown-content a{
+        margin-bottom: 0;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navMenu{
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0px;
+    }
+
+    .crossIcon{
+        padding-left: 40px;
+    }
+}
