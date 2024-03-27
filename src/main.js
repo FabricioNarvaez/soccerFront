@@ -1,5 +1,5 @@
 import "./assets/main.css";
-import "./assets/css/header.css";
+import "./assets/css/main/header.css";
 
 import { createApp } from "vue";
 import App from "./App.vue";
