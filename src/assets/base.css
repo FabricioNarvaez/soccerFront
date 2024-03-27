@@ -9,6 +9,7 @@
     --lightBrownPalette: #ebe7e0;
     --darkBrownPalette: #bdb8ad;
     --greyPalette: #ececec;
+    --greyPaletteRGBA: 236, 236, 236;
     --orangePalette: #dba400;
     --vc-nav-width: 80px !important;
 }

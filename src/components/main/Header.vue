@@ -70,5 +70,5 @@
 </script>
 
 <style scoped>
-    @import "src/assets/css/main/header.css";
+    @import "../../assets/css/main/header.css";
 </style>
