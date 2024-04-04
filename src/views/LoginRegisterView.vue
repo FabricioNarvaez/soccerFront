@@ -2,12 +2,12 @@
     <div class="loginRegisterContainer">
         <h1 class="subtitle">{{ title }}</h1>
         <div class="switch-container">
-            <span>Directivo</span>
+            <span :class="{ boldText : !selectedOption}">Directivo</span>
             <label class="switch">
                 <input type="checkbox" v-model="selectedOption" />
                 <span class="slider round"></span>
             </label>
-            <span>Admin</span>
+            <span :class="{ boldText : selectedOption}">Admin</span>
         </div>
         <RouterLink to="/registrar" v-if="hideRegister">Crear cuenta</RouterLink>
     </div>

@@ -15,4 +15,9 @@ a {
 
 .subtitle {
     font-family: var(--subtitleFont);
+    padding-top: 20px;
+}
+
+.boldText{
+    font-weight: bold;
 }

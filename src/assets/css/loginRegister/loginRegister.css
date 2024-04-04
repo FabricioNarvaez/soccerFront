@@ -11,6 +11,8 @@
 .switch-container {
     display: flex;
     align-items: center;
+    justify-content: center;
+    padding-top: 35px;
 }
 
 .switch-container span {
