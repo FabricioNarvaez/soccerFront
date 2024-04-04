@@ -9,18 +9,7 @@
             </label>
             <span :class="{ boldText : selectedOption}">Admin</span>
         </div>
-        <Form :message="'tesgfesfdt'" />
-        <div v-if="hideRegister" class="formGroup">
-            <input type="input" class="formField" placeholder="Nombre de usuario o Email" name="name" id='name' required />
-            <input type="password" class="formField" placeholder="Contraseña" name="password" id='password' required />
-            <button @click="login">Iniciar sesión</button>
-        </div>
-        <div v-else class="formGroup">
-            <input type="input" class="formField" placeholder="Nombre de usuario o Email" name="name" id='name' required />
-            <input type="number" class="formField" placeholder="Teléfono" name="phoneNumber" id='phoneNumber' required />
-            <input type="password" class="formField" placeholder="Contraseña" name="password" id='password' required />
-            <button @click="login">Registrar</button>
-        </div>
+        <Form :buttonText="buttonText" :hideRegister="hideRegister"/>
         <p v-if="hideRegister">¿Quieres participar? <RouterLink class="colorDarkBluePalette boldText" to="/registrar">Crear cuenta</RouterLink></p>
     </div>
 </template>
@@ -35,6 +24,7 @@
     const selectedOption = ref(false);
     const route = useRoute();
     const title = ref("");
+    const buttonText = ref("");
     const hideRegister = ref(false);
 
     watch(() => {
@@ -42,6 +32,7 @@
             .replace(/\//g, "")
             .replace(/^\w/, (letra) => letra.toUpperCase());
         hideRegister.value = title.value === "Login" ? true : false;
+        buttonText.value = hideRegister.value ? "Iniciar Sesión" : "Registrar";
     });
 
     const login = async () => {

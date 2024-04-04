@@ -1,0 +1,20 @@
+.formGroup {
+    width: 90%;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+  
+.formField {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+  
+.formField:focus {
+    outline: none;
+    border-color: var(--darkBluePalette);
+}
