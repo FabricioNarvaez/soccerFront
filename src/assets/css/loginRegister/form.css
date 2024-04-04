@@ -1,9 +1,7 @@
 .formGroup {
     width: 90%;
     margin: 30px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    padding-bottom: 20px;
 }
   
 .formField {
@@ -17,4 +15,11 @@
 .formField:focus {
     outline: none;
     border-color: var(--darkBluePalette);
+}
+
+.formGroup,
+.registerElements{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
