@@ -14,7 +14,7 @@
             <input type="password" class="formField" placeholder="Contraseña" name="password" id='password' required />
             <button @click="login">Iniciar sesión</button>
         </div>
-        <p>¿Quieres participar? <RouterLink class="colorDarkBluePalette boldText" to="/registrar" v-if="hideRegister">Crear cuenta</RouterLink></p>
+        <p v-if="hideRegister">¿Quieres participar? <RouterLink class="colorDarkBluePalette boldText" to="/registrar">Crear cuenta</RouterLink></p>
     </div>
 </template>
 
