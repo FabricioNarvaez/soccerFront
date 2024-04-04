@@ -1,14 +1,16 @@
 <template>
-    <h1>{{ title }}</h1>
-    <div class="switch-container">
-        <span>Directivo</span>
-        <label class="switch">
-            <input type="checkbox" v-model="selectedOption" />
-            <span class="slider round"></span>
-        </label>
-        <span>Admin</span>
+    <div class="loginRegisterContainer">
+        <h1 class="subtitle">{{ title }}</h1>
+        <div class="switch-container">
+            <span>Directivo</span>
+            <label class="switch">
+                <input type="checkbox" v-model="selectedOption" />
+                <span class="slider round"></span>
+            </label>
+            <span>Admin</span>
+        </div>
+        <RouterLink to="/registrar" v-if="hideRegister">Crear cuenta</RouterLink>
     </div>
-    <RouterLink to="/registrar" v-if="hideRegister">Crear cuenta</RouterLink>
 </template>
 
 <script>
