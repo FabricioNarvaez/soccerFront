@@ -9,6 +9,7 @@
             </label>
             <span :class="{ boldText : selectedOption}">Admin</span>
         </div>
+        <Form :message="'tesgfesfdt'" />
         <div v-if="hideRegister" class="formGroup">
             <input type="input" class="formField" placeholder="Nombre de usuario o Email" name="name" id='name' required />
             <input type="password" class="formField" placeholder="Contraseña" name="password" id='password' required />
@@ -24,59 +25,49 @@
     </div>
 </template>
 
-<script>
+<script setup>
     import { ref, watch } from "vue";
     import { useRoute } from "vue-router";
+    import Form from '../components/loginRegister/Form.vue'
 
-    export default {
-        data() {
-            return {
-                username: '',
-                password: ''
-            };
-        },
-        setup() {
-            const selectedOption = ref(false);
-            const route = useRoute();
-            const title = ref("");
-            const hideRegister = ref(false);
+    const username = ref('');
+    const password = ref('');
+    const selectedOption = ref(false);
+    const route = useRoute();
+    const title = ref("");
+    const hideRegister = ref(false);
 
-            watch(() => {
-                title.value = route.fullPath
-                    .replace(/\//g, "")
-                    .replace(/^\w/, (letra) => letra.toUpperCase());
-                hideRegister.value = title.value === "Login" ? true : false;
+    watch(() => {
+        title.value = route.fullPath
+            .replace(/\//g, "")
+            .replace(/^\w/, (letra) => letra.toUpperCase());
+        hideRegister.value = title.value === "Login" ? true : false;
+    });
+
+    const login = async () => {
+        try {
+            const response = await fetch('URL_DEL_ENDPOINT_DE_LOGIN', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: username.value,
+                    password: password.value
+                })
             });
 
-            return { selectedOption, title, hideRegister };
-        },
-        methods: {
-            async login() {
-                try {
-                    const response = await fetch('URL_DEL_ENDPOINT_DE_LOGIN', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            username: this.username,
-                            password: this.password
-                        })
-                    });
+            const data = await response.json();
 
-                    const data = await response.json();
-
-                    if (response.ok) {
-                        console.log('Inicio de sesión exitoso');
-                    } else {
-                        console.error('Error al iniciar sesión:', data.message);
-                    }
-                } catch (error) {
-                    console.error('Error de red:', error);
-                }
+            if (response.ok) {
+                console.log('Inicio de sesión exitoso');
+            } else {
+                console.error('Error al iniciar sesión:', data.message);
             }
+        } catch (error) {
+            console.error('Error de red:', error);
         }
-    };
+    }
 </script>
 
 <style scoped>
