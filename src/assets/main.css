@@ -13,6 +13,18 @@ a {
     text-decoration: none;
 }
 
+button{
+    color: var(--darkBluePalette);
+    background-color: var(--lightBlue2Palette);
+    border: none;
+    border-radius: 3px;
+    font-family: var(--subtitleFont);
+    font-size: 16px;
+    padding: 5px 7px;
+    width: fit-content;
+    margin: 10px auto;
+}
+
 .subtitle {
     font-family: var(--subtitleFont);
     padding-top: 20px;
@@ -20,4 +32,8 @@ a {
 
 .boldText{
     font-weight: bold;
+}
+
+.colorDarkBluePalette{
+    color: var(--darkBluePalette);
 }
