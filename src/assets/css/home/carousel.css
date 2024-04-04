@@ -1,0 +1,33 @@
+.carousel {
+    width: 80%;
+    margin: auto;
+}
+
+.carousel__item {
+    min-height: 200px;
+    height: 550px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.carouselTeamText{
+    font-size: 60px;
+    padding: 30px;
+    width: 100%;
+    background-color: rgba(var(--greyPaletteRGBA), 0.5);
+    text-align: left;
+}
+
+/* .carousel__slide {
+    padding: 10px;
+} */
+
+.carousel__prev,
+.carousel__next {
+    box-sizing: content-box;
+    border: 5px solid white;
+}

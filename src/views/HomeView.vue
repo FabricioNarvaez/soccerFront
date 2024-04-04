@@ -1,9 +1,9 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-</script>
-
 <template>
   <main>
-    <TheWelcome />
+    <Carousel />
   </main>
 </template>
+
+<script setup>
+  import Carousel from '../components/home/Carousel.vue'
+</script>

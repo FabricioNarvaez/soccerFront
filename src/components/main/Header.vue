@@ -68,3 +68,7 @@
         isActiveDropdown.value = !isActiveDropdown.value;
     }
 </script>
+
+<style scoped>
+    @import "../../assets/css/main/header.css";
+</style>
