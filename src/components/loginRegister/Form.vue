@@ -1,5 +1,7 @@
 <template>
     <div>
+        <p v-if="hideRegister">Inicia sesión con tu cuenta de Directivo</p>
+        <p v-else>Date de alta como Directivo y crea tu Equipo</p>
         <div class="formGroup">
             <input v-if="hideRegister" type="input" class="formField" placeholder="Nombre de usuario o Email" v-model="username" required />
             <input v-else type="input" class="formField" placeholder="Nombre" v-model="name" required />
@@ -16,7 +18,7 @@
 </template>
 
 <script setup>
-    import { defineProps, ref } from 'vue';
+    import { ref } from 'vue';
 
     const props = defineProps({
         buttonText: {
@@ -38,12 +40,15 @@
 
     const loginRegister = async () => {
         try {
+            const APIUrl = import.meta.env.VITE_API_URL;
             let formData = {};
+            let postUrl = APIUrl;
             if (props.hideRegister) {
                 formData = {
                     username: username.value,
                     password: password.value
                 };
+                postUrl += "coaches/register";
             } else {
                 formData = {
                     name: name.value,
@@ -52,9 +57,11 @@
                     phoneNumber: phoneNumber.value,
                     password: password.value
                 };
+                postUrl += "/coaches/register";
             }
+
             
-            const response = await fetch('URL_DEL_ENDPOINT_DE_LOGIN_O_REGISTRO', {
+            const response = await fetch(postUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
