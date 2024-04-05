@@ -14,9 +14,10 @@
             <input type="password" class="formField" placeholder="Contraseña *" v-model="password" required />
             <div v-if="!hideRegister" class="checkboxContainer">
                 <input type="checkbox" id="terms-checkbox" class="checkboxInput" v-model="checkboxTerms"/>
+                <!-- TODO: Redirect to terms and conditions page -->
                 <label for="terms-checkbox" class="checkboxLabel">He leído y acepto los <RouterLink to="/registrar" class="checkbox-link">términos y condiciones</RouterLink></label>
             </div>
-            <p v-if="errorTerms" class="errorMessage">Debe aceptar los términos y condiciones para poderse registrar en nuestro sitio web.</p>
+            <p v-if="showError" class="errorMessage">{{ errorMessage }}</p>
             <button type="submit">{{ buttonText }}</button>
             <p v-if="hideRegister">¿Quieres participar? <RouterLink class="colorDarkBluePalette boldText" to="/registrar">Crear cuenta</RouterLink></p>
         </form>
@@ -44,13 +45,17 @@
     const team = ref('');
     const phoneNumber = ref('');
     const password = ref('');
+    const errorMessage = ref('');
     const formRef = ref(null);
     const checkboxTerms = ref(false);
-    const errorTerms = ref(false);
+    const showError = ref(false);
 
     const loginRegister = async () => {
-        errorTerms.value = checkboxTerms.value ? false : true;
-        if(errorTerms.value) return
+        showError.value = checkboxTerms.value ? false : true;
+        if(showError.value){
+            errorMessage.value = 'Debe aceptar los términos y condiciones para poderse registrar en nuestro sitio web.'
+            return
+        }
         try {
             const APIUrl = import.meta.env.VITE_API_URL;
             let formData = {};
@@ -83,6 +88,11 @@
             });
 
             const data = await response.json();
+            if(response.status === 409){
+                showError.value = true;
+                errorMessage.value = data.message;
+                return
+            }
 
             if (response.ok) {
                 console.log('Operación exitosa');
