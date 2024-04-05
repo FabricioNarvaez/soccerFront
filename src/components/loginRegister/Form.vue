@@ -36,11 +36,10 @@
     const phoneNumber = ref('');
     const password = ref('');
 
-    const loginRegister = async (hideRegister) => {
+    const loginRegister = async () => {
         try {
             let formData = {};
-            console.log(hideRegister);
-            if (hideRegister) {
+            if (props.hideRegister) {
                 formData = {
                     username: username.value,
                     password: password.value
