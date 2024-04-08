@@ -25,6 +25,7 @@
         <div class="modal" v-if="isModalOpen">
             <modal class="modalContent">
                 <p>{{ modalMessage }}</p>
+                <!-- TODO: Redirect to login page -->
                 <button @click="closeModal">Volver a inicio</button>
             </modal>
         </div>
