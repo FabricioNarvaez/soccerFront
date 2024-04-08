@@ -21,6 +21,15 @@
             <button type="submit">{{ buttonText }}</button>
             <p v-if="hideRegister">¿Quieres participar? <RouterLink class="colorDarkBluePalette boldText" to="/registrar">Crear cuenta</RouterLink></p>
         </form>
+
+        <div class="modal" v-if="isModalOpen">
+            <modal class="modalContent">
+                <p>Gracias por Registrarte <b></b></p>
+                <p>En breve, un administrador del torneo se pondrá en contacto con usted para validar su cuenta.</p>
+                <button @click="closeModal">Volver a inicio</button>
+            </modal>
+        </div>
+
     </div>
 </template>
 
@@ -49,6 +58,16 @@
     const formRef = ref(null);
     const checkboxTerms = ref(false);
     const showError = ref(false);
+
+    const isModalOpen = ref(false);
+
+  const openModal = () => {
+    isModalOpen.value = true;
+  };
+
+  const closeModal = () => {
+    isModalOpen.value = false;
+  };
 
     const loginRegister = async () => {
         showError.value = checkboxTerms.value ? false : true;
@@ -94,10 +113,9 @@
                 return
             }
 
-            if (response.ok) {
-                console.log('Operación exitosa');
-            } else {
-                console.error('Error:', data.message);
+            if(response.status === 200){
+                isModalOpen.value = true;
+                return
             }
         } catch (error) {
             console.error('Error de red:', error);
