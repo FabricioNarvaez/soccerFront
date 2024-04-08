@@ -5,8 +5,8 @@
         <form class="formGroup" @submit.prevent="loginRegister" ref="formRef">
             <input v-if="hideRegister" type="input" class="formField" placeholder="Nombre de usuario o Email" v-model="loginUsername" required />
             <div class="registerElements" v-if="!hideRegister">
-                <input type="input" class="formField" placeholder="Nombre" v-model="name" />
-                <input type="input" class="formField" placeholder="Nombre de usuario *" v-model="username" required />
+                <input type="input" class="formField" placeholder="Nombre *" v-model="name" required />
+                <input type="input" class="formField" placeholder="DNI *" v-model="dni" required />
                 <input type="email" class="formField" placeholder="Email *" v-model="email"  />
                 <input type="input" class="formField" placeholder="Nombre del Equipo *" v-model="team" required />
                 <input type="number" class="formField" placeholder="Teléfono *" v-model="phoneNumber" required />
@@ -48,7 +48,7 @@
     });
 
     const loginUsername = ref('');
-    const username = ref('');
+    const dni = ref('');
     const name = ref('');
     const email = ref('');
     const team = ref('');
@@ -88,7 +88,7 @@
             } else {
                 formData = {
                     name: name.value,
-                    username: username.value,
+                    dni: dni.value,
                     email: email.value,
                     team: team.value,
                     phoneNumber: phoneNumber.value,
