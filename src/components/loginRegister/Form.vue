@@ -24,8 +24,7 @@
 
         <div class="modal" v-if="isModalOpen">
             <modal class="modalContent">
-                <p>Gracias por Registrarte <b></b></p>
-                <p>En breve, un administrador del torneo se pondrá en contacto con usted para validar su cuenta.</p>
+                <p>{{ modalMessage }}</p>
                 <button @click="closeModal">Volver a inicio</button>
             </modal>
         </div>
@@ -55,6 +54,7 @@
     const phoneNumber = ref('');
     const password = ref('');
     const errorMessage = ref('');
+    const modalMessage = ref('');
     const formRef = ref(null);
     const checkboxTerms = ref(false);
     const showError = ref(false);
@@ -114,6 +114,7 @@
             }
 
             if(response.status === 200){
+                modalMessage.value = data.message;
                 isModalOpen.value = true;
                 return
             }
