@@ -3,7 +3,7 @@
         <p v-if="hideRegister">Inicia sesión con tu cuenta de Directivo</p>
         <p v-else>Date de alta como Directivo y crea tu Equipo</p>
         <form class="formGroup" @submit.prevent="loginRegister" ref="formRef">
-            <input v-if="hideRegister" type="input" class="formField" placeholder="Nombre de usuario o Email" v-model="loginUsername" required />
+            <input v-if="hideRegister" type="input" class="formField" placeholder="DNI o Email" v-model="loginUsername" required />
             <div class="registerElements" v-if="!hideRegister">
                 <input type="input" class="formField" placeholder="Nombre *" v-model="name" required />
                 <input type="input" class="formField" placeholder="DNI *" v-model="dni" required />
@@ -35,6 +35,8 @@
 
 <script setup>
     import { ref } from 'vue';
+    import { useRouter } from 'vue-router';
+    const router = useRouter();
 
     const props = defineProps({
         buttonText: {
@@ -62,13 +64,10 @@
 
     const isModalOpen = ref(false);
 
-  const openModal = () => {
-    isModalOpen.value = true;
-  };
-
-  const closeModal = () => {
-    isModalOpen.value = false;
-  };
+    const closeModal = () => {
+        isModalOpen.value = false;
+        router.push('/login');
+    };
 
     const loginRegister = async () => {
         showError.value = checkboxTerms.value ? false : true;
