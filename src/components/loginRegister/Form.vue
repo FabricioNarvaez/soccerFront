@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p v-if="hideRegister">Inicia sesión con tu cuenta de Directivo</p>
+        <p v-if="hideRegister">{{ subtitle }}</p>
         <p v-else>Date de alta como Directivo y crea tu Equipo</p>
         <form class="formGroup" @submit.prevent="loginRegister" ref="formRef">
             <input v-if="hideRegister" type="input" class="formField" placeholder="DNI o Email *" v-model="loginUsername" required />
@@ -34,6 +34,10 @@
     const router = useRouter();
 
     const props = defineProps({
+        subtitle: {
+            type: String,
+            required: true
+        },
         buttonText: {
             type: String,
             required: true
