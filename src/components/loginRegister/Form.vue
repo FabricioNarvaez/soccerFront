@@ -3,7 +3,7 @@
         <p v-if="hideRegister">Inicia sesión con tu cuenta de Directivo</p>
         <p v-else>Date de alta como Directivo y crea tu Equipo</p>
         <form class="formGroup" @submit.prevent="loginRegister" ref="formRef">
-            <input v-if="hideRegister" type="input" class="formField" placeholder="DNI o Email" v-model="loginUsername" required />
+            <input v-if="hideRegister" type="input" class="formField" placeholder="DNI o Email *" v-model="loginUsername" required />
             <div class="registerElements" v-if="!hideRegister">
                 <input type="input" class="formField" placeholder="Nombre *" v-model="name" required />
                 <input type="input" class="formField" placeholder="DNI *" v-model="dni" required />
@@ -65,10 +65,12 @@
     };
 
     const loginRegister = async () => {
-        showError.value = checkboxTerms.value ? false : true;
-        if(showError.value){
-            errorMessage.value = 'Debe aceptar los términos y condiciones para poderse registrar en nuestro sitio web.'
-            return
+        if(!props.hideRegister){
+            showError.value = checkboxTerms.value ? false : true;
+            if(showError.value){
+                errorMessage.value = 'Debe aceptar los términos y condiciones para poderse registrar en nuestro sitio web.'
+                return
+            }
         }
         try {
             const APIUrl = import.meta.env.VITE_API_URL;
@@ -79,7 +81,7 @@
                     loginUsername: loginUsername.value,
                     password: password.value
                 };
-                postUrl += "coaches/register";
+                postUrl += "/coaches/login";
             } else {
                 formData = {
                     name: name.value,
@@ -102,13 +104,17 @@
             });
 
             const data = await response.json();
-            if(response.status === 409){
+            if(response.status === 409 || response.status === 401){
                 showError.value = true;
                 errorMessage.value = data.message;
                 return
             }
 
-            if(response.status === 200){
+            if(response.status === 200 && data.coachData){
+                router.push('/');
+            }
+
+            if(response.status === 200 || response.status === 500){
                 modalMessage.value = data.message;
                 isModalOpen.value = true;
                 return
