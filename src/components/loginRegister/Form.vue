@@ -22,12 +22,7 @@
             <p v-if="hideRegister">¿Quieres participar? <RouterLink class="colorDarkBluePalette boldText" to="/registrar">Crear cuenta</RouterLink></p>
         </form>
 
-        <div class="modal" v-if="isModalOpen">
-            <modal class="modalContent">
-                <p>{{ modalMessage }}</p>
-                <button @click="closeModal">Volver a inicio</button>
-            </modal>
-        </div>
+        <ModalMod :isModalOpen="isModalOpen" :modalMessage="modalMessage" :modalFunction="closeModal" />
 
     </div>
 </template>
@@ -35,6 +30,7 @@
 <script setup>
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
+    import ModalMod from '../common/ModalMod.vue'
     const router = useRouter();
 
     const props = defineProps({
