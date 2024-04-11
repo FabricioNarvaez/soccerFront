@@ -9,7 +9,7 @@
             </label>
             <span :class="{ boldText : selectedOption}">Admin</span>
         </div>
-        <Form :subtitle="subtitle" :buttonText="buttonText" :hideRegister="hideRegister"/>
+        <Form :selectedOption="selectedOption" :subtitle="subtitle" :buttonText="buttonText" :hideRegister="hideRegister"/>
     </div>
 </template>
 

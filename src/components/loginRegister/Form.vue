@@ -45,6 +45,10 @@
         hideRegister: {
             type: Boolean,
             required: true
+        },
+        selectedOption: {
+            type: Boolean,
+            required: true
         }
     });
 
@@ -85,7 +89,7 @@
                     loginUsername: loginUsername.value,
                     password: password.value
                 };
-                postUrl += "/coaches/login";
+                postUrl += `/${props.selectedOption ? 'admins': 'coaches'}/login`;
             } else {
                 formData = {
                     name: name.value,
