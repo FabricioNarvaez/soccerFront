@@ -11,15 +11,22 @@
             <div @click="toggleMenu" class="hamburger">
                 <Icon width="25" height="25" icon="bi:list" />
             </div>
-            <nav class="navMenu" :class="{ 'menuActive': isActive }">
-                <Icon @click="toggleMenu" class="crossIcon" icon="radix-icons:cross-1" />
+            <nav class="navMenu" :class="{ menuActive: isActive }">
+                <Icon
+                    @click="toggleMenu"
+                    class="crossIcon"
+                    icon="radix-icons:cross-1"
+                />
                 <RouterLink to="/">Inicio</RouterLink>
                 <RouterLink to="/teams">Equipos</RouterLink>
                 <RouterLink to="/classification">Clasificación</RouterLink>
                 <div class="dropdown">
                     <p @click="toggleDropdown">Eliminatorias</p>
                     <Icon icon="bxs:down-arrow" />
-                    <div class="dropdown-content" :class="{ 'dropdownActive': isActiveDropdown }">
+                    <div
+                        class="dropdown-content"
+                        :class="{ dropdownActive: isActiveDropdown }"
+                    >
                         <RouterLink to="/playoffs/champions"
                             >Champions</RouterLink
                         >
@@ -40,7 +47,7 @@
                 </div>
                 <RouterLink to="/rules">Reglamento</RouterLink>
                 <RouterLink to="/matchweeks">Jornadas</RouterLink>
-                <RouterLink to="/admin">
+                <RouterLink to="/login">
                     <Icon
                         icon="mingcute:user-4-fill"
                         width="40"
@@ -54,19 +61,19 @@
 </template>
 
 <script setup>
-    import { Icon } from "@iconify/vue";
-    import { RouterLink } from "vue-router";
-    import { ref } from "vue";
+import { Icon } from "@iconify/vue";
+import { RouterLink } from "vue-router";
+import { ref } from "vue";
 
-    const isActive = ref(false);
-    const isActiveDropdown = ref(false);
-    function toggleMenu() {
-        isActive.value = !isActive.value;
-        console.log(isActive)
-    }
-    function toggleDropdown() {
-        isActiveDropdown.value = !isActiveDropdown.value;
-    }
+const isActive = ref(false);
+const isActiveDropdown = ref(false);
+function toggleMenu() {
+    isActive.value = !isActive.value;
+    console.log(isActive);
+}
+function toggleDropdown() {
+    isActiveDropdown.value = !isActiveDropdown.value;
+}
 </script>
 
 <style scoped>
