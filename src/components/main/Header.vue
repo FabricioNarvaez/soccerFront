@@ -18,7 +18,7 @@
                     icon="radix-icons:cross-1"
                 />
                 <RouterLink to="/">Inicio</RouterLink>
-                <RouterLink to="/teams">Equipos</RouterLink>
+                <RouterLink to="/equipos">Equipos</RouterLink>
                 <RouterLink to="/classification">Clasificación</RouterLink>
                 <div class="dropdown">
                     <p @click="toggleDropdown">Eliminatorias</p>
