@@ -1,11 +1,13 @@
 <template>
     <header>
         <div class="headerContainer">
-            <img
-                alt="AAPD Logo"
-                class="headerLogo"
-                src="https://res.cloudinary.com/dzd68sxue/image/upload/v1708167596/WEBP/AAPD_2024_W_belugq.webp"
-            />
+            <RouterLink to="/">
+                <img
+                    alt="AAPD Logo"
+                    class="headerLogo"
+                    src="https://res.cloudinary.com/dzd68sxue/image/upload/v1708167596/WEBP/AAPD_2024_W_belugq.webp"
+                />
+            </RouterLink>
 
             <!-- <HelloWorld msg="You did it!" /> -->
             <div @click="toggleMenu" class="hamburger">
