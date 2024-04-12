@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div class="contentTeamsView">
         <h1 class="subtitle">Equipos Temporada Verano 2024</h1>
         <div class="cardsCollection">
             <div class="card" v-for="team in allTeams">

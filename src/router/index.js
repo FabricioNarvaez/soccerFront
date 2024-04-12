@@ -23,12 +23,12 @@ const router = createRouter({
     {
       path: "/equipos",
       name: "Equipos",
-      component: () => import("../views/Teams.vue"),
+      component: () => import("../views/TeamsView.vue"),
     },
     {
       path: "/equipo",
       name: "Equipo",
-      component: HomeView,
+      component: () => import("../views/ClubView.vue"),
       props: (route) => ({ id: route.query.id, name: route.query.name })
     },
     {
