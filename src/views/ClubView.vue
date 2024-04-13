@@ -8,6 +8,7 @@
                 <p><i>Grupo</i>: A</p>
             </div>
         </div>
+        <div class="gradient"></div>
     </div>
 </template>
 
