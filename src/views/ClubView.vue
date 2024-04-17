@@ -18,6 +18,23 @@
             <RouterLink to="/">Resultados</RouterLink>
             <RouterLink to="/">Sanciones</RouterLink>
         </nav>
+
+        <div class="nextMatch">
+            <div class="countdown">
+                <h2 class="countTitle">Próximo partido</h2>
+                <div class="date">
+                    <div v-if="hasDate" class="countdownClock">
+                    </div>
+                    <p v-else><i>Sin Definir</i></p>
+                </div>
+            </div>
+            <div v-if="hasDate">
+                <!-- TODO: Next Match info -->
+                <p>test</p>
+            </div>
+        </div>
+
+        
     </div>
 </template>
 

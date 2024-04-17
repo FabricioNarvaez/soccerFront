@@ -9,3 +9,15 @@
     padding: 0 8px;
     color: var(--black);
 }
+
+.nextMatch{
+    font-size: 46px;
+    text-align: center;
+    background-color: var(--lightBlue2Palette);
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.date{
+    padding-top: 15px;
+}
