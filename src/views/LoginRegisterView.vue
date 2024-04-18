@@ -1,6 +1,6 @@
 <template>
     <div class="loginRegisterContainer">
-        <h1 class="subtitle">{{ title }}</h1>
+        <h2 class="subtitle">{{ title }}</h2>
         <div class="switchContainer">
             <span :class="{ boldText : !selectedOption}">Directivo</span>
             <label class="switch">

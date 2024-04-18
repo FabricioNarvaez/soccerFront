@@ -21,3 +21,65 @@
 .date{
     padding-top: 15px;
 }
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    max-height: 360px;
+    max-width: 1400px;
+    margin: 30px auto;
+}
+
+.boxLegend{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+    border: 1px solid var(--lightBrownPalette);
+}
+
+.boxCube {
+    width: 26px;
+    height: 32px;
+    margin-right: 40px;
+    border-radius: 3px;
+}
+
+.cards {
+    width: 20px;
+    height: 28px;
+    border-radius: 3px;
+    margin: 7px auto;
+}
+
+.cardsBox {
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid var(--lightBrownPalette);
+    /* TODO: Check after add footer */
+    margin-bottom: 60px;
+    padding: 15px 0;
+    font-size: 18px;
+}
+
+.cardsSection {
+    text-align: center;
+}
+
+.cardBlue {
+    background-color: blue;
+}
+
+.cardYellow {
+    background-color: yellow;
+}
+
+.cardRed {
+    background-color: red;
+}
+
+.cardDoubleYellow {
+    background: rgb(255,248,0);
+    background: linear-gradient(132deg, rgba(255,248,0,1) 49%, rgba(255,0,0,1) 49%);    
+}

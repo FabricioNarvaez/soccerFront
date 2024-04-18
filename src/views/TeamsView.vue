@@ -1,6 +1,6 @@
 <template>
     <div class="contentTeamsView">
-        <h1 class="subtitle">Equipos Temporada Verano 2024</h1>
+        <h2 class="subtitle">Equipos Temporada Verano 2024</h2>
         <div class="cardsCollection">
             <div class="card" v-for="team in allTeams">
                 <RouterLink class="cardContent" :to="{ path: '/equipo/', query: { id: team._id, name: team.name }}" >
