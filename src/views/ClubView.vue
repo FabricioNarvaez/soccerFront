@@ -1,7 +1,7 @@
 <template>
     <div class="content80">
         <div class="clubBanner">
-            <div class="flexCenterF20">
+            <div class="flexCenterF20 positionAbsolute">
                 <img src="https://res.cloudinary.com/dzd68sxue/image/upload/v1695395236/WEBP/Cancheritos_qdbnsw.webp"/>
                 <div class="cardTeamInfo">
                     <p><b>Chancheritos</b></p>

@@ -83,3 +83,24 @@
     background: rgb(255,248,0);
     background: linear-gradient(132deg, rgba(255,248,0,1) 49%, rgba(255,0,0,1) 49%);    
 }
+
+
+@media screen and (max-width: 1200px) {
+    .doughnutBox{
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .doughnutBox{
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .box{
+        flex-direction: column;
+        gap: 20px;
+        max-height: fit-content;
+    }
+}

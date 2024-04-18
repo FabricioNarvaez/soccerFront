@@ -30,7 +30,7 @@
         align-items: end;
     }
 
-    .flexCenterF20{
+    .positionAbsolute{
         position: absolute;
     }
 }
@@ -43,14 +43,14 @@
         height: 35vh;
     }
 
-    .flexCenterF20{
+    .positionAbsolute{
         font-size: 18px;
         width: 100%;
         background-color: rgba(var(--greyPaletteRGBA), 0.5);
         color: var(--black);
     }
 
-    .flexCenterF20 img{
+    .positionAbsolute img{
         height: 130px;
     }
 }
