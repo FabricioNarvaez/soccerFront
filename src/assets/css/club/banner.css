@@ -7,7 +7,7 @@
 }
 
 .gradient {
-    background: linear-gradient(90deg, blue 0%, rgba(255, 255, 255, 0) 20%), url(https://res.cloudinary.com/dzd68sxue/image/upload/v1712935635/WEBP/plantillas/cancheritos_pq9bvg.jpg);
+    background: linear-gradient(90deg, blue -15%, rgba(255, 255, 255, 0) 20%), url(https://res.cloudinary.com/dzd68sxue/image/upload/v1712935635/WEBP/plantillas/cancheritos_pq9bvg.jpg);
     background-size: cover;
     background-position: center;
     min-height: 250px;
