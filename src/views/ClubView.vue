@@ -13,18 +13,30 @@
         </div>
     
         <nav class="clubNav">
-            <RouterLink to="/">General</RouterLink>
-            <RouterLink to="/">Plantilla</RouterLink>
-            <RouterLink to="/">Resultados</RouterLink>
-            <RouterLink to="/">Sanciones</RouterLink>
+            <RouterLink :to="{ path: '/equipo/General', query: { id: id, name: name }}">General</RouterLink>
+            <RouterLink :to="{ path: '/equipo/Plantilla', query: { id: id, name: name }}">Plantilla</RouterLink>
+            <RouterLink :to="{ path: '/equipo/Resultados', query: { id: id, name: name }}">Resultados</RouterLink>
+            <RouterLink :to="{ path: '/equipo/Sanciones', query: { id: id, name: name }}">Sanciones</RouterLink>
         </nav>
 
-        <GeneralInfo />
+        <GeneralInfo v-if="actualPath === 'General'" />
+        <p v-else>Not General</p>
     </div>
 </template>
 
 <script setup>
+    import { ref, watch } from "vue";
     import GeneralInfo from '../components/club/GeneralInfo.vue';
+    import { useRoute } from 'vue-router';
+
+    const route = useRoute();
+
+    const id = route.query.id;
+    const name = route.query.name;
+    const actualPath = ref('');
+    watch(() => {
+        actualPath.value = route.path.split('/')[2];
+    })
 </script>
 
 <style scoped>

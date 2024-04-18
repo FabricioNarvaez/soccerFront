@@ -26,8 +26,26 @@ const router = createRouter({
       component: () => import("../views/TeamsView.vue"),
     },
     {
-      path: "/equipo",
-      name: "Equipo",
+      path: "/equipo/General",
+      name: "Equipo | General",
+      component: () => import("../views/ClubView.vue"),
+      props: (route) => ({ id: route.query.id, name: route.query.name })
+    },
+    {
+      path: "/equipo/Plantilla",
+      name: "Equipo | Plantilla",
+      component: () => import("../views/ClubView.vue"),
+      props: (route) => ({ id: route.query.id, name: route.query.name })
+    },
+    {
+      path: "/equipo/Resultados",
+      name: "Equipo | Resultados",
+      component: () => import("../views/ClubView.vue"),
+      props: (route) => ({ id: route.query.id, name: route.query.name })
+    },
+    {
+      path: "/equipo/Sanciones",
+      name: "Equipo | Sanciones",
       component: () => import("../views/ClubView.vue"),
       props: (route) => ({ id: route.query.id, name: route.query.name })
     },
