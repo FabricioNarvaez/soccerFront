@@ -53,6 +53,10 @@
         height: 35vh;
     }
 
+    .flexCenterF20{
+        justify-content: flex-start;
+    }
+
     .positionAbsolute{
         font-size: 18px;
         width: 100%;
@@ -78,6 +82,14 @@
 @media screen and (max-width: 500px) {
     .gradient{
         height: 20vh;
+    }
+
+    .flexCenterF20{
+        height: 90px;
+    }
+
+    .flexCenterF20 img{
+        height: 90px;
     }
 
     .clubBannerLeft img{
