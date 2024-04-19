@@ -1,13 +1,19 @@
 .clubBanner{
-    background-color: blue;
+    background-color: var(--backgroundColor);
     color: var(--white);
     font-family: var(--subtitleFont);
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
 
+.notPhoto{
+    grid-template-columns: 1fr;
+    height: 50vh;
+    justify-items: center;
+}
+
 .gradient {
-    background: linear-gradient(90deg, blue -15%, rgba(255, 255, 255, 0) 20%), url(https://res.cloudinary.com/dzd68sxue/image/upload/v1712935635/WEBP/plantillas/cancheritos_pq9bvg.jpg);
+    background: linear-gradient(90deg, var(--backgroundColor) -15%, rgba(255, 255, 255, 0) 20%), var(--backgroundImage);
     background-size: cover;
     background-position: center;
     min-height: 250px;
@@ -30,6 +36,10 @@
         align-items: end;
     }
 
+    .notPhoto{
+        align-items: center;
+    }
+
     .positionAbsolute{
         position: absolute;
     }
@@ -37,7 +47,7 @@
 
 @media screen and (max-width: 800px) {
     .gradient{
-        background: url(https://res.cloudinary.com/dzd68sxue/image/upload/v1712935635/WEBP/plantillas/cancheritos_pq9bvg.jpg);
+        background: var(--backgroundImage);
         background-size: cover;
         background-position: center;
         height: 35vh;
@@ -48,6 +58,16 @@
         width: 100%;
         background-color: rgba(var(--greyPaletteRGBA), 0.5);
         color: var(--black);
+    }
+
+    .notPhoto{
+        height: auto;
+    }
+
+    .notPhoto2Level{
+        background-color: unset;
+        color: white;
+        justify-content: center;
     }
 
     .positionAbsolute img{

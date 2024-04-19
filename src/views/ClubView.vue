@@ -1,15 +1,18 @@
 <template>
     <div class="content80">
-        <div class="clubBanner">
-            <div class="flexCenterF20 positionAbsolute">
-                <img src="https://res.cloudinary.com/dzd68sxue/image/upload/v1695395236/WEBP/Cancheritos_qdbnsw.webp"/>
+        <div :style="{ '--backgroundColor': `${teamData.color}`}"
+            class="clubBanner"
+            :class="{ notPhoto: !hasPhoto }">
+            <div class="flexCenterF20 positionAbsolute"
+                :class="{ notPhoto2Level: !hasPhoto }">
+                <img :src="teamData.shield"/>
                 <div class="cardTeamInfo">
-                    <p><b>Chancheritos</b></p>
-                    <p><i>Directivo</i>: Fabricio Narvaez</p>
-                    <p><i>Grupo</i>: A</p>
+                    <p><b>{{ teamData.name }}</b></p>
+                    <p><i>Directivo</i>: {{ teamData.coachName }}</p>
+                    <p><i>Grupo</i>: {{ teamData.group }}</p>
                 </div>
             </div>
-            <div class="gradient"></div>
+            <div v-if="hasPhoto" :style="{ '--backgroundImage': `url(${teamData.teamPhoto})`, '--backgroundColor': `${teamData.color}`}" class="gradient"></div>
         </div>
     
         <nav class="clubNav">
@@ -25,17 +28,33 @@
 </template>
 
 <script setup>
-    import { ref, watch } from "vue";
-    import GeneralInfo from '../components/club/GeneralInfo.vue';
+    import { ref, watch, onMounted } from "vue";
     import { useRoute } from 'vue-router';
+    import GeneralInfo from '../components/club/GeneralInfo.vue';
 
+    const APIUrl = import.meta.env.VITE_API_URL;
     const route = useRoute();
 
     const id = route.query.id;
     const name = route.query.name;
     const actualPath = ref('');
+    const teamData = ref('');
+    const hasPhoto = ref(false);
+
     watch(() => {
         actualPath.value = route.path.split('/')[2];
+    })
+
+    onMounted(async () => {
+        try {
+            const response = await fetch(`${APIUrl}/teams/team/${id}`);
+            const data = await response.json();
+            teamData.value = data;
+            hasPhoto.value = Boolean(data.teamPhoto);
+            console.log(hasPhoto.value)
+        } catch (error) {
+            console.error('Error al obtener datos:', error);
+        }
     })
 </script>
 
