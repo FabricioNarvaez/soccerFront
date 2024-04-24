@@ -9,7 +9,7 @@
                 <div class="cardTeamInfo">
                     <p><b>{{ teamData.name }}</b></p>
                     <p><i>Directivo</i>: {{ teamData.coachName }}</p>
-                    <p><i>Grupo</i>: {{ teamData.group }}</p>
+                    <p v-if="teamData.group"><i>Grupo</i>: {{ teamData.group }}</p>
                 </div>
             </div>
             <div v-if="hasPhoto" :style="{ '--backgroundImage': `url(${teamData.teamPhoto})`, '--backgroundColor': `${teamData.color}`}" class="gradient"></div>
@@ -22,7 +22,7 @@
             <RouterLink :to="{ path: '/equipo/Sanciones', query: { id: id, name: name }}">Sanciones</RouterLink>
         </nav>
 
-        <GeneralInfo v-if="actualPath === 'General'" />
+        <GeneralInfo v-if="actualPath === 'General'" :teamData="teamData"/>
         <p v-else>Not General</p>
     </div>
 </template>
@@ -51,7 +51,7 @@
             const data = await response.json();
             teamData.value = data;
             hasPhoto.value = Boolean(data.teamPhoto);
-            console.log(hasPhoto.value)
+            // console.log(teamData.value)
         } catch (error) {
             console.error('Error al obtener datos:', error);
         }

@@ -24,41 +24,41 @@
         <div class="boxLegend">
             <div class="flexCenterF20">
                 <div class="boxCube" style="background-color: #c6d4e1;"></div>
-                <p>Victorias: <b>0</b></p>
+                <p>Victorias: <b>{{ teamData.PG }}</b></p>
             </div>
             <hr>
             <div class="flexCenterF20">
                 <div class="boxCube" style="background-color: #a9d2f8;"></div>
-                <p>Empates: <b>0</b></p>
+                <p>Empates: <b>{{ teamData.PE }}</b></p>
             </div>
             <hr>
             <div class="flexCenterF20">
                 <div class="boxCube" style="background-color: #44749d;"></div>
-                <p>Derrotas: <b>0</b></p>
+                <p>Derrotas: <b>{{ teamData.PP }}</b></p>
             </div>
             <hr>
-            <p class="flexCenterF20">Partidos Jugados: <b>0</b></p>
+            <p class="flexCenterF20">Partidos Jugados: <b>{{ teamData.PP + teamData.PE + teamData.PG }}</b></p>
         </div>
     </div>
     <div class="cardsBox">
         <div class="cardsSection">
             <div class="cards cardBlue"></div>
-            <p>0</p>
+            <p>{{ teamData.TAZ }}</p>
             <p>Azules</p>
         </div>
         <div class="cardsSection">
             <div class="cards cardYellow"></div>
-            <p>0</p>
+            <p>{{ teamData.TAM }}</p>
             <p>Amarilla</p>
         </div>
         <div class="cardsSection">
             <div class="cards cardDoubleYellow" ></div>
-            <p>0</p>
+            <p>{{ teamData.DAM }}</p>
             <p>Doble A.</p>
         </div>
         <div class="cardsSection">
             <div class="cards cardRed"></div>
-            <p>0</p>
+            <p>{{ teamData.TRO }}</p>
             <p>Roja</p>
         </div>
     </div>
@@ -70,13 +70,29 @@
 
     ChartJS.register(ArcElement, Tooltip, Legend);
 
+    const props = defineProps({
+        teamData: {
+            type: Object,
+            required: true
+        }
+    })
+
+    function isCero(number){
+        return number === 0;
+    }
+
+    const doughnutData = isCero(props.teamData.PG) && isCero(props.teamData.PE) && isCero(props.teamData.PP)
+        ? [10, 10, 10] 
+        : [props.teamData.PG, props.teamData.PE, props.teamData.PP];
+
+    console.log(doughnutData);
 
     const data = {
         labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
         datasets: [
             {
                 backgroundColor: ['#c6d4e1', '#a9d2f8', '#44749d',],
-                data: [10, 10, 10],
+                data: doughnutData,
                 borderWidth: 5,
                 hoverBorderWidth: 10,
             }
