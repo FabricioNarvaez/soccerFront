@@ -27,9 +27,19 @@
                 <p v-else><i>Sin Definir</i></p>
             </div>
         </div>
-        <div v-if="hasDate">
-            <!-- TODO: Next Match info -->
-            <p>test</p>
+        <div v-if="formattedDate" class="nextMatchInfo">
+            <div class="localInfo">
+                <img class="teamImage" :src="localInfo.shield"/>
+                <p class="teamName">{{ localInfo.name }}</p>
+            </div>
+            <div class="dateInfo">
+                <p>{{ formattedDate }}</p>
+                <p>{{ formattedHour }}</p>
+            </div>
+            <div class="visitorInfo">
+                <img class="teamImage" :src="visitorInfo.shield"/>
+                <p class="teamName">{{ visitorInfo.name }}</p>
+            </div>
         </div>
     </div>
 
@@ -102,6 +112,10 @@
 
     const targetDate = new Date(props.nextMatchInfo.hour);
     const timeRemaining = ref(0);
+    const formattedDate = ref('');
+    const formattedHour = ref('');
+    const localInfo = ref({});
+    const visitorInfo = ref({});
 
     const calculateTimeRemaining = () => {
         const now = new Date();
@@ -118,6 +132,22 @@
     onMounted(() => {
         calculateTimeRemaining();
         timerId = setInterval(calculateTimeRemaining, 1000);
+
+
+        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+        const [formattedDateHelper, formattedHourHelper] = targetDate.toLocaleDateString('es-ES', options).split(',');
+        formattedDate.value = formattedDateHelper.split(' de').join(' ');
+        formattedHour.value = formattedHourHelper;
+
+        localInfo.value = {
+            name: props.nextMatchInfo.localId.name,
+            shield: props.nextMatchInfo.localId.shield
+        };
+
+        visitorInfo.value = {
+            name: props.nextMatchInfo.visitorId.name,
+            shield: props.nextMatchInfo.visitorId.shield
+        };
     });
     
     onUnmounted(() => {
