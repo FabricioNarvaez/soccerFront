@@ -3,8 +3,26 @@
         <div class="countdown">
             <h3 class="countTitle">Próximo partido</h3>
             <div class="date">
-                <div v-if="hasDate" class="countdownClock">
-
+                <div v-if="nextMatchInfo" class="countdownClock">
+                    <div class="clock">
+                        <p class="clockData">{{ days }}</p>
+                        <p class="clockText">DÍAS</p>
+                    </div>
+                    <p>:</p>
+                    <div class="clock">
+                        <p class="clockData">{{ hours }}</p>
+                        <p class="clockText">HORAS</p>
+                    </div>
+                    <p>:</p>
+                    <div class="clock">
+                        <p class="clockData">{{ minutes }}</p>
+                        <p class="clockText">MINS</p>
+                    </div>
+                    <p>:</p>
+                    <div class="clock">
+                        <p class="clockData">{{ seconds }}</p>
+                        <p class="clockText">SEC</p>
+                    </div>
                 </div>
                 <p v-else><i>Sin Definir</i></p>
             </div>
@@ -66,6 +84,7 @@
 </template>
 
 <script setup>
+    import { ref, computed, onMounted, onUnmounted } from 'vue';
     import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
     import { Doughnut } from 'vue-chartjs'
 
@@ -80,6 +99,30 @@
             type: Object
         }
     })
+
+    const targetDate = new Date(props.nextMatchInfo.hour);
+    const timeRemaining = ref(0);
+
+    const calculateTimeRemaining = () => {
+        const now = new Date();
+        const difference = targetDate - now;
+        timeRemaining.value = difference > 0 ? difference : 0;
+    };
+
+    const days = computed(() => Math.floor(timeRemaining.value / (1000 * 60 * 60 * 24)));
+    const hours = computed(() => Math.floor((timeRemaining.value % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+    const minutes = computed(() => Math.floor((timeRemaining.value % (1000 * 60 * 60)) / (1000 * 60)));
+    const seconds = computed(() => Math.floor((timeRemaining.value % (1000 * 60)) / 1000));
+
+    let timerId;
+    onMounted(() => {
+        calculateTimeRemaining();
+        timerId = setInterval(calculateTimeRemaining, 1000);
+    });
+    
+    onUnmounted(() => {
+        clearInterval(timerId);
+    });
 
     console.log(props.nextMatchInfo);
 

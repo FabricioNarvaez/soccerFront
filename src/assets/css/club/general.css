@@ -1,3 +1,19 @@
+.countdown{
+    color: white;
+    text-shadow: -1px -1px 0 #000,  
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+}
+
+.countdownClock{
+    font-family: var(--countdownFont);
+    display: flex;
+    gap: 20px;
+    margin: 0 auto;
+    width: fit-content;
+    
+}
 
 .nextMatch{
     font-size: 46px;
@@ -91,5 +107,13 @@
         flex-direction: column;
         gap: 20px;
         max-height: fit-content;
+    }
+
+    .countdown{
+        font-size: 32px;
+    }
+
+    .countdownClock{
+        gap: 10px;
     }
 }
