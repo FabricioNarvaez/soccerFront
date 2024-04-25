@@ -1,0 +1,98 @@
+.clubBanner{
+    background-color: var(--backgroundColor);
+    color: var(--white);
+    font-family: var(--subtitleFont);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.notPhoto{
+    grid-template-columns: 1fr;
+    height: 50vh;
+    justify-items: center;
+}
+
+.gradient {
+    background: linear-gradient(90deg, var(--backgroundColor) -15%, rgba(255, 255, 255, 0) 20%), var(--backgroundImage);
+    background-size: cover;
+    background-position: center;
+    min-height: 250px;
+    height: 50vh;
+    width: 100%;
+}
+  
+
+.clubBannerRight{
+    margin-left: 20%;
+    width: 80%;
+    max-width: 900px;
+}
+
+@media screen and (max-width: 1200px) {
+    .clubBanner{
+        width: 100%;
+        grid-template-columns: 1fr;
+        min-height: 250px;
+        align-items: end;
+    }
+
+    .notPhoto{
+        align-items: center;
+    }
+
+    .positionAbsolute{
+        position: absolute;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .gradient{
+        background: var(--backgroundImage);
+        background-size: cover;
+        background-position: center;
+        height: 35vh;
+    }
+
+    .flexCenterF20{
+        justify-content: flex-start;
+    }
+
+    .positionAbsolute{
+        font-size: 18px;
+        width: 100%;
+        background-color: rgba(var(--greyPaletteRGBA), 0.5);
+        color: var(--black);
+    }
+
+    .notPhoto{
+        height: auto;
+    }
+
+    .notPhoto2Level{
+        background-color: unset;
+        color: white;
+        justify-content: center;
+    }
+
+    .positionAbsolute img{
+        height: 130px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .gradient{
+        height: 20vh;
+    }
+
+    .flexCenterF20{
+        height: 90px;
+    }
+
+    .flexCenterF20 img{
+        height: 90px;
+    }
+
+    .clubBannerLeft img{
+        height: 100px;
+    }
+}

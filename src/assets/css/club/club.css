@@ -1,0 +1,11 @@
+.clubNav{
+    padding: 15px 0;
+    font-weight: bold;
+    width: 100%;
+    border-bottom: 1px solid var(--black);
+}
+
+.clubNav a {
+    padding: 0 8px;
+    color: var(--black);
+}
