@@ -22,7 +22,7 @@
             <RouterLink :to="{ path: '/equipo/Sanciones', query: { id: id, name: name }}">Sanciones</RouterLink>
         </nav>
 
-        <GeneralInfo v-if="actualPath === 'General'" :teamData="teamData"/>
+        <GeneralInfo v-if="actualPath === 'General' && teamData" :teamData="teamData" :nextMatchInfo="nextMatchInfo"/>
         <p v-else>Not General</p>
     </div>
 </template>
@@ -39,18 +39,39 @@
     const name = route.query.name;
     const actualPath = ref('');
     const teamData = ref('');
+    const nextMatchInfo = ref({});
+    const currentDate = ref('');
     const hasPhoto = ref(false);
 
     watch(() => {
         actualPath.value = route.path.split('/')[2];
     })
 
+    const getCurrentDate = () => {
+        const date = new Date();
+        const formattedDate = date.toISOString().slice(0, 10) + 'T00:00:00.000+00:00';
+        currentDate.value = formattedDate;
+    };
+
     onMounted(async () => {
         try {
-            const response = await fetch(`${APIUrl}/teams/team/${id}`);
-            const data = await response.json();
-            teamData.value = data;
-            hasPhoto.value = Boolean(data.teamPhoto);
+            const [ teamResponse, matchWeekResponse ] = await Promise.all([
+                fetch(`${APIUrl}/teams/team/${id}`),
+                fetch(`${APIUrl}/matchweek/all`)
+            ]) ;
+
+            const [teamDataResult, matchWeekDataResult] = await Promise.all([
+                teamResponse.json(),
+                matchWeekResponse.json()
+            ]);
+
+            const nextMatchWeek = matchWeekDataResult.find(matchWeek => matchWeek.date > currentDate.value && matchWeek.matches.some(match => match.localId._id === id || match.visitorId._id === id))
+            nextMatchInfo.value = nextMatchWeek ?
+                                     nextMatchWeek.matches.find(match => match.localId._id === id || match.visitorId._id === id)
+                                     : false;
+
+            teamData.value = teamDataResult;
+            hasPhoto.value = Boolean(teamDataResult.teamPhoto);
             // console.log(teamData.value)
         } catch (error) {
             console.error('Error al obtener datos:', error);

@@ -4,6 +4,7 @@
             <h3 class="countTitle">Próximo partido</h3>
             <div class="date">
                 <div v-if="hasDate" class="countdownClock">
+
                 </div>
                 <p v-else><i>Sin Definir</i></p>
             </div>
@@ -74,8 +75,13 @@
         teamData: {
             type: Object,
             required: true
+        },
+        nextMatchInfo: {
+            type: Object
         }
     })
+
+    console.log(props.nextMatchInfo);
 
     function isCero(number){
         return number === 0;
@@ -84,8 +90,6 @@
     const doughnutData = isCero(props.teamData.PG) && isCero(props.teamData.PE) && isCero(props.teamData.PP)
         ? [10, 10, 10] 
         : [props.teamData.PG, props.teamData.PE, props.teamData.PP];
-
-    console.log(doughnutData);
 
     const data = {
         labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
