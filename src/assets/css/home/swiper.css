@@ -3,3 +3,9 @@
     align-items: flex-end;
     justify-content: space-between;
 }
+
+.headerSubtitle a{
+    font-style: italic;
+    color: var(--black);
+    padding-bottom: 5px;
+}
