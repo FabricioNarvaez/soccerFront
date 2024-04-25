@@ -139,22 +139,22 @@
         formattedDate.value = formattedDateHelper.split(' de').join(' ');
         formattedHour.value = formattedHourHelper;
 
-        localInfo.value = {
-            name: props.nextMatchInfo.localId.name,
-            shield: props.nextMatchInfo.localId.shield
-        };
-
-        visitorInfo.value = {
-            name: props.nextMatchInfo.visitorId.name,
-            shield: props.nextMatchInfo.visitorId.shield
-        };
+        if(props.nextMatchInfo){
+            localInfo.value = {
+                name: props.nextMatchInfo.localId.name,
+                shield: props.nextMatchInfo.localId.shield
+            };
+    
+            visitorInfo.value = {
+                name: props.nextMatchInfo.visitorId.name,
+                shield: props.nextMatchInfo.visitorId.shield
+            };
+        }
     });
     
     onUnmounted(() => {
         clearInterval(timerId);
     });
-
-    console.log(props.nextMatchInfo);
 
     function isCero(number){
         return number === 0;
