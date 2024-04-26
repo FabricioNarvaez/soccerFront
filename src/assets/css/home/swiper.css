@@ -6,6 +6,22 @@
 
 .headerSubtitle a{
     font-style: italic;
-    color: var(--black);
+    color: var(--darkBluePalette);
     padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.headerSubtitle a:hover{
+    text-decoration: underline;
+}
+
+.swiper-slide{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.swiper-slide img{
+    max-width: 200px;
 }
