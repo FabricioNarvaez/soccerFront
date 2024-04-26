@@ -8,9 +8,10 @@
         :breakpoints="swiperBreakpoints"
         >
         <swiper-slide v-if="teamsToSwiper" v-for="(team, key) in teamsToSwiper" :key="key" >
-            <!-- TODO: add link to club page -->
-            <img :src="team.shield"/> 
-            <p>{{ team.name }}</p>
+            <RouterLink :to="{ path: '/equipo/General', query: { id: team._id, name: team.name }}" >
+                <img :src="team.shield"/> 
+                <p>{{ team.name }}</p>
+            </RouterLink>
         </swiper-slide>
     </swiper>
 </template>
