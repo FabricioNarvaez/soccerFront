@@ -24,7 +24,7 @@
         try {
             const allTeamsResponse = await fetch(`${APIUrl}/teams/all`);
             allTeams.value = await allTeamsResponse.json();
-            if(Object.keys(allTeams).length) swiperReady.value = true;
+            if(Object.keys(allTeams.value.A).length || Object.keys(allTeams.value.B).length ) swiperReady.value = true;
             console.log(allTeams.value)
         } catch (error) {
             console.error('Error al obtener datos:', error);
