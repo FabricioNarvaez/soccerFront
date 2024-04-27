@@ -1,0 +1,13 @@
+.homeMain {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.leftMain {
+    padding-right: 20px;
+}
+
+.rightMain {
+    padding-top: 20px;
+}
