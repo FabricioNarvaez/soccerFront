@@ -7,6 +7,8 @@
         <div class="homeMain">
             <div class="leftMain">
                 <HeaderSubtitle :subtitle="'Próxima Jornada'" :link="'/'" :linkText="'TODAS LAS JORNADAS'" />
+                <p v-if="hasMatchweeks">Upcoming matchweek</p>
+                <p v-else class="subtitle">Las jornadas aún no están definidas</p>
             </div>
             <div class="rightMain">
                 <p>tabla clasificaciones</p>
@@ -24,6 +26,7 @@
     const APIUrl = import.meta.env.VITE_API_URL;
 
     const swiperReady = ref(false);
+    const hasMatchweeks = ref(false);
     const allTeams = ref({});
 
     onMounted(async () => {
