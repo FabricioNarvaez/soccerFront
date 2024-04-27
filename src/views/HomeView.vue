@@ -1,21 +1,12 @@
 <template>
     <main>
-        <div class="headerSubtitle">
-            <h3 class="subtitle">Equipos</h3>
-            <RouterLink to="/equipos">TODOS LOS EQUIPOS</RouterLink>
-        </div>
-        <hr>
+        <HeaderSubtitle :subtitle="'Equipos'" :link="'/equipos'" :linkText="'TODOS LOS EQUIPOS'" />
         <SwiperComponent v-if="swiperReady" :allTeams="allTeams" />
         <p v-else class="subtitle">Aún no hay equipos en el torneo</p>
         <!-- <Carousel /> -->
         <div class="homeMain">
             <div class="leftMain">
-                <div class="headerSubtitle">
-                    <h3 class="subtitle">Próxima Jornada</h3>
-                    <!-- TODO: Redirect to all matchweeks -->
-                    <RouterLink to="/">TODAS LAS JORNADAS</RouterLink>
-                </div>
-                <hr>
+                <HeaderSubtitle :subtitle="'Próxima Jornada'" :link="'/'" :linkText="'TODAS LAS JORNADAS'" />
             </div>
             <div class="rightMain">
                 <p>tabla clasificaciones</p>
@@ -27,6 +18,8 @@
 <script setup>
     // import Carousel from '../components/home/Carousel.vue'
     import SwiperComponent from '../components/home/SwiperComponent.vue';
+    import HeaderSubtitle from '../components/common/HeaderSubtitle.vue';
+
     import { ref, onMounted } from "vue";
     const APIUrl = import.meta.env.VITE_API_URL;
 
