@@ -1,20 +1,3 @@
-.headerSubtitle{
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-}
-
-.headerSubtitle a{
-    font-style: italic;
-    color: var(--darkBluePalette);
-    padding-bottom: 5px;
-    font-weight: bold;
-}
-
-.headerSubtitle a:hover{
-    text-decoration: underline;
-}
-
 .swiper-slide{
     margin-bottom: 30px;
 }
