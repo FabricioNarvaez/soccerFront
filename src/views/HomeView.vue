@@ -6,8 +6,21 @@
         </div>
         <hr>
         <SwiperComponent v-if="swiperReady" :allTeams="allTeams" />
-        <h3 v-else class="subtitle">Aún no hay equipos en el torneo</h3>
+        <p v-else class="subtitle">Aún no hay equipos en el torneo</p>
         <!-- <Carousel /> -->
+        <div class="homeMain">
+            <div class="leftMain">
+                <div class="headerSubtitle">
+                    <h3 class="subtitle">Próxima Jornada</h3>
+                    <!-- TODO: Redirect to all matchweeks -->
+                    <RouterLink to="/">TODAS LAS JORNADAS</RouterLink>
+                </div>
+                <hr>
+            </div>
+            <div class="rightMain">
+                <p>tabla clasificaciones</p>
+            </div>
+        </div>
     </main>
 </template>
 
@@ -31,3 +44,7 @@
         }
     })
 </script>
+
+<style setup>
+    @import "../assets/css/home/home.css";
+</style>
