@@ -23,7 +23,7 @@
         </nav>
 
         <GeneralInfo v-if="actualPath === 'General' && teamData" :teamData="teamData" :nextMatchInfo="nextMatchInfo"/>
-        <p v-else>Not Ready yet</p>
+        <p v-else class="WIP">Esta sección está en desarrollo. En breve, estará disponible.</p>
     </div>
 </template>
 
