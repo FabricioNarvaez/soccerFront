@@ -25,6 +25,8 @@
     font-size: 46px;
     text-align: center;
     margin-bottom: 30px;
+    padding-bottom: 20px;
+    border: solid 1px var(--black);
 }
 
 .date{
@@ -34,6 +36,8 @@
 .nextMatchInfo{
     font-size: 32px;
     align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .box {
