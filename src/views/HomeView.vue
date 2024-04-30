@@ -11,7 +11,8 @@
                 <p v-else class="subtitle">Las jornadas aún no están definidas</p>
             </div>
             <div class="rightMain">
-                <p>tabla clasificaciones</p>
+                <p v-if="classifications">tabla clasificaciones</p>
+                <p v-else>Las tablas de clasificaciones no están definidas aún.</p>
             </div>
         </div>
     </main>

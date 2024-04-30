@@ -11,3 +11,17 @@
 .rightMain {
     padding-top: 20px;
 }
+
+@media screen and (max-width: 1300px) {
+    .homeMain{
+        grid-template-columns: 1fr;
+    }
+
+    .leftMain {
+        order: 2;
+    }
+
+    .rightMain {
+        order: 1;
+    }
+}
