@@ -15,7 +15,7 @@ a {
 
 button{
     color: var(--darkBluePalette);
-    background-color: var(--lightBlue2Palette);
+    background-color: var(--blueLevel3Palette);
     border: none;
     border-radius: 3px;
     font-family: var(--subtitleFont);
@@ -28,7 +28,7 @@ button{
 
 button:hover,
 .card:hover {
-    box-shadow: 0px 0px 5px var(--lightBlue2Palette) ;
+    box-shadow: 0px 0px 10px var(--blueLevel2Palette) ;
 }
 
 .subtitle {

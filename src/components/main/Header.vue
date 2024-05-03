@@ -54,7 +54,7 @@
                         icon="mingcute:user-4-fill"
                         width="40"
                         height="40"
-                        style="color: #dba400"
+                        style="color: #FFF"
                     />
                 </RouterLink>
             </nav>

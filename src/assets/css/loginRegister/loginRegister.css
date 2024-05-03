@@ -69,7 +69,7 @@
 }
 
 input:checked + .slider {
-    background-color: var(--lightBlue2Palette);
+    background-color: var(--blueLevel3Palette);
 }
 
 input:checked + .slider:before {

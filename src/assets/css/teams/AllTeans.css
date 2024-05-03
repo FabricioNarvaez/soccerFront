@@ -13,7 +13,7 @@
     font-size: 18px;
     padding: 5px 8px;
     border-radius: 5px;
-    background-color: var(--greyPalette);
+    background-color: var(--blueLevel3Palette);
 }
 
 .cardContent {

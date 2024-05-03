@@ -1,7 +1,7 @@
 .countdown{
     padding-top: 25px;
     padding-bottom: 25px;
-    background-color: var(--lightBlue2Palette);
+    background-color: var(--blueLevel3Palette);
     color: white;
     text-shadow: -1px -1px 0 #000,  
                 1px -1px 0 #000,
