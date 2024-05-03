@@ -1,5 +1,5 @@
 header {
-    background-color: var(--greyPalette);
+    background-color: var(--blueLevel3Palette);
     font-family: var(--headerFont);
     font-weight: 500;
 }
@@ -22,6 +22,7 @@ header {
     padding-left: 40px;
     gap: 40px;
     width: 100%;
+    color: white;
 }
 
 .navMenu .router-link-active {
@@ -105,13 +106,23 @@ header {
         position: absolute;
         flex-direction: column;
         max-width: 300px;
-        background-color: var(--lightBrownPalette);
+        background-color: var(--blueLevel4Palette);
         left: 0;
         top: 0;
         height: 100%;
         transform: translateX(-100%);
         transition: transform 0.3s ease;
         z-index: 1000;
+    }
+
+    .navMenu a,
+    .dropdown,
+    .navMenu p{
+        color: var(--white);
+    }
+
+    .navMenu .router-link-active {
+        border-bottom: 2px solid var(--white);
     }
 
     .menuActive {

@@ -3,15 +3,18 @@
     --subtitleFont: "Nunito Sans", sans-serif;
     --countdownFont: "Bebas Neue";
     --bodyFont: "Barlow Semi Condensed", sans-serif;
-    --darkBluePalette: #44749d;
-    --lightBluePalette: #c6d4e1;
-    --lightBlue2Palette: #a9d2f8;
+    --blueLevel1Palette: #bdfdff;
+    --blueLevel2Palette: #a3e4f3;
+    --blueLevel3Palette: #89cbe7;
+    --blueLevel4Palette: #6eb2db;
+    --blueLevel5Palette: #5499cf;
+    --darkBluePalette: #206192;
     --white: #fff;
     --black: #000;
     --lightBrownPalette: #ebe7e0;
     --darkBrownPalette: #bdb8ad;
     --greyPalette: #ececec;
     --greyPaletteRGBA: 236, 236, 236;
-    --orangePalette: #dba400;
+    --orangePalette: #ffbf00;
     --vc-nav-width: 80px !important;
 }
