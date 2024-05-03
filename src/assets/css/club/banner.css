@@ -1,6 +1,5 @@
 .clubBanner{
-    background-color: var(--backgroundColor);
-    color: var(--white);
+    background-color: var(--greyPalette);
     font-family: var(--subtitleFont);
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -13,7 +12,7 @@
 }
 
 .gradient {
-    background: linear-gradient(90deg, var(--backgroundColor) -15%, rgba(255, 255, 255, 0) 20%), var(--backgroundImage);
+    background: linear-gradient(90deg, var(--greyPalette) -15%, rgba(255, 255, 255, 0) 20%), var(--backgroundImage);
     background-size: cover;
     background-position: center;
     min-height: 250px;

@@ -1,7 +1,6 @@
 <template>
     <div class="content80">
-        <div :style="{ '--backgroundColor': `${teamData.color}`}"
-            class="clubBanner"
+        <div class="clubBanner"
             :class="{ notPhoto: !hasPhoto }">
             <div class="flexCenterF20 positionAbsolute"
                 :class="{ notPhoto2Level: !hasPhoto }">
