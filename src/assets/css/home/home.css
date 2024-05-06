@@ -12,6 +12,35 @@
     padding-top: 20px;
 }
 
+.matchOfMatchweekContainer{
+    width: fit-content;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid var(--lightGrey);
+}
+
+.matchTeams{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    padding: 7px 0;
+}
+
+.matchTeamsImg{
+    max-width: 170px;
+}
+
+.versus{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.matchHour{
+    background-color: var(--greyPalette);
+    padding: 15px 0;
+}
+
 @media screen and (max-width: 1300px) {
     .homeMain{
         grid-template-columns: 1fr;
