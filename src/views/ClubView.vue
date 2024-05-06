@@ -46,11 +46,11 @@
         actualPath.value = route.path.split('/')[2];
     })
 
-    const getCurrentDate = () => {
-        const date = new Date();
-        const formattedDate = date.toISOString().slice(0, 10) + 'T00:00:00.000+00:00';
-        currentDate.value = formattedDate;
-    };
+    // const getCurrentDate = () => {
+    //     const date = new Date();
+    //     const formattedDate = date.toISOString().slice(0, 10) + 'T00:00:00.000+00:00';
+    //     currentDate.value = formattedDate;
+    // };
 
     onMounted(async () => {
         try {
