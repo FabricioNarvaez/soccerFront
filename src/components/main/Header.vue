@@ -49,6 +49,7 @@
                 </div>
                 <RouterLink to="/rules">Reglamento</RouterLink>
                 <RouterLink to="/matchweeks">Jornadas</RouterLink>
+                <RouterLink to="/galería">Galería</RouterLink>
                 <RouterLink to="/login">
                     <Icon
                         icon="mingcute:user-4-fill"
