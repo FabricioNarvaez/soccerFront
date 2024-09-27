@@ -6,7 +6,7 @@
         <!-- <Carousel /> -->
         <div class="homeMain">
             <NextMatchday :upcomingMatchweek="upcomingMatchweek"/>
-            <SmallTable :groupA="allTeams.A" :groupB="allTeams.B"/>
+            <GroupsTables v-if="allTeams.A || allTeams.B" :groupA="allTeams.A" :groupB="allTeams.B"/>
         </div>
     </main>
 </template>
@@ -16,7 +16,7 @@
     import HeaderSubtitle from '../components/common/HeaderSubtitle.vue';
     import SwiperComponent from '../components/home/SwiperComponent.vue';
     import NextMatchday from '../components/home/NextMatchday.vue';
-    import SmallTable from '../components/home/SmallTable.vue';
+    import GroupsTables from '../components/home/GroupsTables.vue';
 
     import { ref, onMounted } from "vue";
     const APIUrl = import.meta.env.VITE_API_URL;

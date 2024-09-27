@@ -1,23 +1,38 @@
 <template>
-    <div class="rightMain">
-        <HeaderSubtitle :subtitle="'Tabla Clasificaciones'" :link="'/'" :linkText="'Mostrar tablas completas'" />
-        <p v-if="groupA || groupB">tabla clasificaciones</p>
-        <p v-else>Las tablas de clasificaciones aún no están definidas.</p>
+    <div>
+        <h3 class="subtitle">Grupo {{ groupName }}</h3>
+        <table>
+                <thead>
+                    <tr>
+                        <th>Pos</th>
+                        <th>Nombre</th>
+                        <th>PJ</th>
+                        <th>Dif. Goles</th>
+                        <th>Pts.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item, index) in groupData" :key="groupData">
+                        <td>{{ index + 1}}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.PE + item.PP + item.PG  }}</td>
+                        <td>{{ item.GD }}</td>
+                        <td>{{ item.Pts }}</td>
+                    </tr>
+                </tbody>
+            </table>
     </div>
 </template>
 
 <script setup>
-    import { ref, onMounted } from "vue";
-    import HeaderSubtitle from '../common/HeaderSubtitle.vue';
-
     defineProps({
-        groupA: {
-            type: Array,
+        groupName: {
+            type: String,
             required: true
         },
-        groupB: {
+        groupData: {
             type: Array,
             required: true
-        },
+        }
     })
 </script>
