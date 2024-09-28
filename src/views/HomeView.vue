@@ -6,19 +6,17 @@
         <!-- <Carousel /> -->
         <div class="homeMain">
             <NextMatchday :upcomingMatchweek="upcomingMatchweek"/>
-            <div class="rightMain">
-                <p v-if="classifications">tabla clasificaciones</p>
-                <p v-else>Las tablas de clasificaciones aún no están definidas.</p>
-            </div>
+            <GroupsTables v-if="allTeams.A || allTeams.B" :groupA="allTeams.A" :groupB="allTeams.B"/>
         </div>
     </main>
 </template>
 
 <script setup>
     // import Carousel from '../components/home/Carousel.vue'
-    import SwiperComponent from '../components/home/SwiperComponent.vue';
     import HeaderSubtitle from '../components/common/HeaderSubtitle.vue';
+    import SwiperComponent from '../components/home/SwiperComponent.vue';
     import NextMatchday from '../components/home/NextMatchday.vue';
+    import GroupsTables from '../components/home/GroupsTables.vue';
 
     import { ref, onMounted } from "vue";
     const APIUrl = import.meta.env.VITE_API_URL;
@@ -52,7 +50,6 @@
                 }
             }
             if(Object.keys(allTeams.value.A).length || Object.keys(allTeams.value.B).length ) swiperReady.value = true;
-            console.log(upcomingMatchweek.value)
         } catch (error) {
             console.error('Error al obtener datos:', error);
         }

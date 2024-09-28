@@ -1,0 +1,42 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--darkBrownPalette);
+}
+
+tr:nth-child(even) {
+    background-color: var(--greyPalette);
+}
+
+tr:nth-child(-n+2) > td:first-child {
+    border-left: 3px solid green;
+}
+
+tr:nth-child(n+3) > td:first-child {
+    border-left: 3px solid orange;
+}
+
+.legend{
+    display: flex;
+    gap: 50px;
+    padding-top: 15px;
+}
+
+.champions {
+    border-left: 5px solid green;
+    padding-left: 5px;
+}
+  
+.uefa {
+    border-left: 5px solid orange;
+    padding-left: 5px;
+}
