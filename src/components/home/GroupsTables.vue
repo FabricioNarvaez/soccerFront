@@ -1,15 +1,22 @@
 <template>
     <div class="rightMain">
         <HeaderSubtitle :subtitle="'Clasificaciones'" :link="'/classification'" :linkText="'Clasificación completa'" />
-        <SmallTable v-if="groupA" :groupData="groupA" :groupName="'A'" />
-        <SmallTable v-if="groupB" :groupData="groupB" :groupName="'B'" />
+        <div v-if="groupA || groupB">
+            <SmallTable v-if="groupA" :groupData="groupA" :groupName="'A'" />
+            <SmallTable v-if="groupB" :groupData="groupB" :groupName="'B'" />
+        </div>
         <p v-else>Las tablas de clasificaciones aún no están definidas.</p>
+
+        <div class="legend">
+            <span class="champions">Champions</span>
+            <span class="uefa">UEFA</span>
+        </div>
     </div>
 </template>
 
 <script setup>
     import HeaderSubtitle from '../common/HeaderSubtitle.vue';
-    import SmallTable from './SmallTable.vue'
+    import SmallTable from './SmallTable.vue';
 
     defineProps({
         groupA: {
