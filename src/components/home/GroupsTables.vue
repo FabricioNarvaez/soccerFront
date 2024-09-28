@@ -1,6 +1,6 @@
 <template>
     <div class="rightMain">
-        <HeaderSubtitle :subtitle="'Clasificaciones'" :link="'/classification'" :linkText="'Clasificación completa'" />
+        <HeaderSubtitle :subtitle="'Clasificaciones'" :link="'/clasificaciones'" :linkText="'Clasificación completa'" />
         <div v-if="groupA || groupB">
             <SmallTable v-if="groupA" :groupData="groupA" :groupName="'A'" />
             <SmallTable v-if="groupB" :groupData="groupB" :groupName="'B'" />

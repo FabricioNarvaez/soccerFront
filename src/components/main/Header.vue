@@ -21,7 +21,7 @@
                 />
                 <RouterLink to="/">Inicio</RouterLink>
                 <RouterLink to="/equipos">Equipos</RouterLink>
-                <RouterLink to="/classification">Clasificación</RouterLink>
+                <RouterLink to="/clasificaciones">Clasificación</RouterLink>
                 <div class="dropdown">
                     <p @click="toggleDropdown">Eliminatorias</p>
                     <Icon icon="bxs:down-arrow" />
