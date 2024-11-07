@@ -17,7 +17,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(item, index) in groupData" :key="groupData">
+                    <tr class="tableItem" v-for="(item, index) in groupData" :key="groupData" @click="handleClick(item._id, item.name)">
                         <td>{{ index + 1}}</td>
                         <td class="teamNameWithShield">
                             <img :src=item.shield />
@@ -44,6 +44,7 @@
 
 <script setup>
     import { onMounted, onUnmounted, ref } from 'vue';
+    import { useRouter } from 'vue-router';
 
     defineProps({
         groupName: {
@@ -67,5 +68,18 @@
 
     function handleResize() {
         screenWidth.value = window.innerWidth;
+    }
+
+
+    const router = useRouter();
+    const handleClick = (id, name) => {
+        router.push(`/equipo/General`)
+        router.push({
+            path: "/equipo/General",
+            query: {
+                id: id,
+                name: name
+            }
+        });
     }
 </script>
