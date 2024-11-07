@@ -24,7 +24,7 @@ td:first-child {
 }
 
 tr:nth-child(even) {
-    background-color: var(--lightBrown);
+    background-color: var(--lightGreyF4);
 }
 
 tr:nth-child(-n+2) > td:first-child {
@@ -43,6 +43,11 @@ tr:nth-child(n+3) > td:first-child {
 
 .teamNameWithShield img{
     max-height: 52px;
+}
+
+.tableItem:hover {
+    background-color: var(--lightGrey);
+    cursor: pointer;
 }
 
 .legend{
