@@ -21,7 +21,12 @@
                         <td>{{ index + 1}}</td>
                         <td class="teamNameWithShield">
                             <img :src=item.shield />
-                            {{ item.name }}
+                            <span v-if="screenWidth >= 420">
+                                {{ item.name }}
+                            </span>
+                            <span v-else>
+                                {{ item.acronym }}
+                            </span>
                         </td>
                         <td>{{ item.PE + item.PP + item.PG  }}</td>
                         <td>{{ item.PG }}</td>
@@ -38,6 +43,8 @@
 </template>
 
 <script setup>
+    import { onMounted, onUnmounted, ref } from 'vue';
+
     defineProps({
         groupName: {
             type: String,
@@ -48,4 +55,17 @@
             required: true
         }
     });
+
+    const screenWidth = ref(window.innerWidth);
+    onMounted(() => {
+        window.addEventListener('resize', handleResize);
+    });
+
+    onUnmounted(() => {
+        window.removeEventListener('resize', handleResize);   
+    });
+
+    function handleResize() {
+        screenWidth.value = window.innerWidth;
+    }
 </script>
