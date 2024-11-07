@@ -6,7 +6,8 @@
         <!-- <Carousel /> -->
         <div class="homeMain">
             <NextMatchday :upcomingMatchweek="upcomingMatchweek"/>
-            <GroupsTables v-if="allTeams.A || allTeams.B" :groupA="allTeams.A" :groupB="allTeams.B"/>
+            <GroupsTables v-if="allTeams.A || allTeams.B" :groupA="allTeams.A" :groupB="allTeams.B" :isSmallTable="true"/>
+            <!-- TODO: Añadir v-else con imagen que diga que no hay clasificaciones -->
         </div>
     </main>
 </template>
@@ -16,7 +17,7 @@
     import HeaderSubtitle from '../components/common/HeaderSubtitle.vue';
     import SwiperComponent from '../components/home/SwiperComponent.vue';
     import NextMatchday from '../components/home/NextMatchday.vue';
-    import GroupsTables from '../components/home/GroupsTables.vue';
+    import GroupsTables from '../components/common/GroupsTables.vue';
 
     import { ref, onMounted } from "vue";
     const APIUrl = import.meta.env.VITE_API_URL;

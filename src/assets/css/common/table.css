@@ -4,17 +4,27 @@ table {
 }
 
 th, td {
-    border: 1px solid #ddd;
+    border-left: 1px solid #ddd;
     padding: 8px;
-    text-align: left;
+    text-align: center;
+}
+
+th:last-child,
+td:last-child{
+    font-weight: bold;
 }
 
 th {
-    background-color: var(--darkBrownPalette);
+    background-color: var(--greyPalette);
+    font-weight: 500;
+}
+
+td:first-child {
+    width: 15px;
 }
 
 tr:nth-child(even) {
-    background-color: var(--greyPalette);
+    background-color: var(--lightBrown);
 }
 
 tr:nth-child(-n+2) > td:first-child {
@@ -23,6 +33,16 @@ tr:nth-child(-n+2) > td:first-child {
 
 tr:nth-child(n+3) > td:first-child {
     border-left: 3px solid orange;
+}
+
+.teamNameWithShield {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.teamNameWithShield img{
+    max-height: 52px;
 }
 
 .legend{
@@ -39,4 +59,31 @@ tr:nth-child(n+3) > td:first-child {
 .uefa {
     border-left: 5px solid orange;
     padding-left: 5px;
+}
+
+@media screen and (max-width: 800px) {
+    table{
+        font-size: 13px;
+    }
+
+    td {
+        width: 10px;
+        padding: 7px 3px;
+    }
+
+    .teamNameWithShield {
+        width: auto;
+    }
+
+    .teamNameWithShield img{
+        max-height: 30px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    
+    /* td {
+        width: 8px;
+        padding: 7px 3px;
+    } */
 }

@@ -50,6 +50,11 @@ const router = createRouter({
       props: (route) => ({ id: route.query.id, name: route.query.name })
     },
     {
+      path: "/clasificaciones",
+      name: "clasificaciones",
+      component: () => import("../views/ClassificationsView.vue"),
+    },
+    {
       path: "/about",
       name: "about",
       component: () => import("../views/AboutView.vue"),
