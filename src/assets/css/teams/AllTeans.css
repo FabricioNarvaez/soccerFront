@@ -11,13 +11,13 @@
 
 .card {
     font-size: 18px;
-    padding: 5px 8px;
     border-radius: 5px;
     background-color: var(--blueLevel3Palette);
 }
 
 .cardContent {
-    width: fit-content;
+    width: 100%;
+    padding: 5px 0px;
     display: flex;
     align-items: center;
     color: var(--Black);
