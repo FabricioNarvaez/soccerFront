@@ -1,15 +1,13 @@
 <template>
-    <main>
-        <HeaderSubtitle :subtitle="'Equipos'" :link="'/equipos'" :linkText="'TODOS LOS EQUIPOS'" />
-        <SwiperComponent v-if="swiperReady" :allTeams="allTeams" />
-        <p v-else class="subtitle">Aún no hay equipos en el torneo</p>
-        <!-- <Carousel /> -->
-        <div class="homeMain">
-            <NextMatchday :upcomingMatchweek="upcomingMatchweek"/>
-            <GroupsTables v-if="allTeams.A || allTeams.B" :groupA="allTeams.A" :groupB="allTeams.B" :isSmallTable="true"/>
-            <!-- TODO: Añadir v-else con imagen que diga que no hay clasificaciones -->
-        </div>
-    </main>
+    <HeaderSubtitle :subtitle="'Equipos'" :link="'/equipos'" :linkText="'TODOS LOS EQUIPOS'" />
+    <SwiperComponent v-if="swiperReady" :allTeams="allTeams" />
+    <p v-else class="subtitle">Aún no hay equipos en el torneo</p>
+    <!-- <Carousel /> -->
+    <div class="homeMain">
+        <NextMatchday :upcomingMatchweek="upcomingMatchweek"/>
+        <GroupsTables v-if="allTeams.A || allTeams.B" :groupA="allTeams.A" :groupB="allTeams.B" :isSmallTable="true"/>
+        <!-- TODO: Añadir v-else con imagen que diga que no hay clasificaciones -->
+    </div>
 </template>
 
 <script setup>

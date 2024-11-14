@@ -1,29 +1,27 @@
 <template>
-    <div class="content80">
-        <div class="clubBanner"
-            :class="{ notPhoto: !hasPhoto }">
-            <div class="flexCenterF20 positionAbsolute"
-                :class="{ notPhoto2Level: !hasPhoto }">
-                <img :src="teamData.shield"/>
-                <div class="cardTeamInfo">
-                    <p><b>{{ teamData.name }}</b></p>
-                    <p><i>Directivo</i>: {{ teamData.coachName }}</p>
-                    <p v-if="teamData.group"><i>Grupo</i>: {{ teamData.group }}</p>
-                </div>
+    <div class="clubBanner"
+        :class="{ notPhoto: !hasPhoto }">
+        <div class="flexCenterF20 positionAbsolute"
+            :class="{ notPhoto2Level: !hasPhoto }">
+            <img :src="teamData.shield"/>
+            <div class="cardTeamInfo">
+                <p><b>{{ teamData.name }}</b></p>
+                <p><i>Directivo</i>: {{ teamData.coachName }}</p>
+                <p v-if="teamData.group"><i>Grupo</i>: {{ teamData.group }}</p>
             </div>
-            <div v-if="hasPhoto" :style="{ '--backgroundImage': `url(${teamData.teamPhoto})`, '--backgroundColor': `${teamData.color}`}" class="gradient"></div>
         </div>
-    
-        <nav class="clubNav">
-            <RouterLink :to="{ path: '/equipo/General', query: { id: id, name: name }}">General</RouterLink>
-            <RouterLink :to="{ path: '/equipo/Plantilla', query: { id: id, name: name }}">Plantilla</RouterLink>
-            <RouterLink :to="{ path: '/equipo/Resultados', query: { id: id, name: name }}">Resultados</RouterLink>
-            <RouterLink :to="{ path: '/equipo/Sanciones', query: { id: id, name: name }}">Sanciones</RouterLink>
-        </nav>
-
-        <GeneralInfo v-if="actualPath === 'General' && teamData" :teamData="teamData" :nextMatchInfo="nextMatchInfo"/>
-        <p v-else class="WIP">Esta sección está en desarrollo. En breve, estará disponible.</p>
+        <div v-if="hasPhoto" :style="{ '--backgroundImage': `url(${teamData.teamPhoto})`, '--backgroundColor': `${teamData.color}`}" class="gradient"></div>
     </div>
+
+    <nav class="clubNav">
+        <RouterLink :to="{ path: '/equipo/General', query: { id: id, name: name }}">General</RouterLink>
+        <RouterLink :to="{ path: '/equipo/Plantilla', query: { id: id, name: name }}">Plantilla</RouterLink>
+        <RouterLink :to="{ path: '/equipo/Resultados', query: { id: id, name: name }}">Resultados</RouterLink>
+        <RouterLink :to="{ path: '/equipo/Sanciones', query: { id: id, name: name }}">Sanciones</RouterLink>
+    </nav>
+
+    <GeneralInfo v-if="actualPath === 'General' && teamData" :teamData="teamData" :nextMatchInfo="nextMatchInfo"/>
+    <p v-else class="WIP">Esta sección está en desarrollo. En breve, estará disponible.</p>
 </template>
 
 <script setup>
