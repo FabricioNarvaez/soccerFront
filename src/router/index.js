@@ -51,8 +51,13 @@ const router = createRouter({
     },
     {
       path: "/clasificaciones",
-      name: "clasificaciones",
+      name: "Clasificaciones",
       component: () => import("../views/ClassificationsView.vue"),
+    },
+    {
+      path: "/reglamento",
+      name: "Reglamento",
+      component: () => import("../views/RulesView.vue"),
     },
     {
       path: "/about",
