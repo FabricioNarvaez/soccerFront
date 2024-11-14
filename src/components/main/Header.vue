@@ -47,7 +47,7 @@
                         >
                     </div>
                 </div>
-                <RouterLink to="/rules">Reglamento</RouterLink>
+                <RouterLink to="/reglamento">Reglamento</RouterLink>
                 <RouterLink to="/matchweeks">Jornadas</RouterLink>
                 <RouterLink to="/galería">Galería</RouterLink>
                 <RouterLink to="/login">

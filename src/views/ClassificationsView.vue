@@ -1,11 +1,9 @@
 <template>
-    <main>
-        <h2 class="subtitle">Clasificaciones</h2>
-        <!-- TODO: Crear un seleccionador de temporada -->
-        <!-- <h3>Seleccionador de temporada</h3> -->
-        <GroupsTables v-if="allTeams.A || allTeams.B" :groupA="allTeams.A" :groupB="allTeams.B" :isBigTable="true"/>
-        <!-- TODO: Añadir v-else con imagen que diga que no hay clasificaciones -->
-    </main>
+    <h2 class="subtitle">Clasificaciones</h2>
+    <!-- TODO: Crear un seleccionador de temporada -->
+    <!-- <h3>Seleccionador de temporada</h3> -->
+    <GroupsTables v-if="allTeams.A || allTeams.B" :groupA="allTeams.A" :groupB="allTeams.B" :isBigTable="true"/>
+    <!-- TODO: Añadir v-else con imagen que diga que no hay clasificaciones -->
 </template>
 
 <script setup>
