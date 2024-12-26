@@ -1,7 +1,7 @@
-const { SitemapStream, streamToPromise } = require('sitemap');
-const { writeFileSync } = require('fs');
-const path = require('path');
-const { routes } = require('./src/router/index.js');
+import { SitemapStream, streamToPromise } from 'sitemap';
+import { writeFileSync } from 'fs';
+import path from 'path';
+import { routes } from '@/router/index.js';
 
 (async () => {
     // TODO: Replace the url
