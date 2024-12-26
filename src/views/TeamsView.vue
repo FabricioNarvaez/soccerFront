@@ -33,5 +33,5 @@
 </script>
 
 <style scoped>
-    @import "../assets/css/teams/AllTeans.css"
+    @import "../assets/css/teams/AllTeams.css";
 </style>
