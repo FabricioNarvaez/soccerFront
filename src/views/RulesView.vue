@@ -90,12 +90,5 @@
 </template>
 
 <style>
-    .section{
-        margin: 20px 0px;
-        padding: 0px 10px;
-    }
-
-    ul {
-        padding: 5px 0px 5px 40px;
-    }
+    @import "../assets/css/rules/rules.css";
 </style>

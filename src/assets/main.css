@@ -31,11 +31,19 @@ button:hover,
     box-shadow: 0px 0px 10px var(--blueLevel2Palette) ;
 }
 
+
+h2.subtitle {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .subtitle {
     font-style: italic;
     font-family: var(--subtitleFont);
+    color: var(--darkBluePalette);
     padding-top: 20px;
-    font-size: 26px;
+    font-size: 2rem;
 }
 
 .boldText{
