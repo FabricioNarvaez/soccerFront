@@ -4,7 +4,7 @@
     <p v-else class="subtitle">Aún no hay equipos en el torneo</p>
     <!-- <Carousel /> -->
     <div class="homeMain">
-        <NextMatchday :upcomingMatchweek="upcomingMatchweek"/>
+        <NextMatchDay :upcomingMatchweek="upcomingMatchweek"/>
         <GroupsTables v-if="allTeams.A || allTeams.B" :groupA="allTeams.A" :groupB="allTeams.B" :isSmallTable="true"/>
         <!-- TODO: Añadir v-else con imagen que diga que no hay clasificaciones -->
     </div>
@@ -14,7 +14,7 @@
     // import Carousel from '@components/home/Carousel.vue'
     import HeaderSubtitle from '@components/common/HeaderSubtitle.vue';
     import SwiperComponent from '@components/home/SwiperComponent.vue';
-    import NextMatchday from '@components/home/NextMatchday.vue';
+    import NextMatchDay from '@components/home/NextMatchDay.vue';
     import GroupsTables from '@components/common/GroupsTables.vue';
 
     import { ref, onMounted } from "vue";
@@ -39,6 +39,10 @@
 
             allTeams.value = teamDataResult;
             upcomingMatchweek.value = matchWeekDataResult.find(matchWeek => matchWeek.date > currentDate.value);
+            // TODO: Eliminar estas dos líneas de abajo una vez se tengan más jornadas
+            upcomingMatchweek.value.matches = upcomingMatchweek.value.matches.concat(upcomingMatchweek.value.matches);
+            upcomingMatchweek.value.matches = upcomingMatchweek.value.matches.concat(upcomingMatchweek.value.matches);
+            
             if(upcomingMatchweek.value.matches){
                 const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
                 for(let match of upcomingMatchweek.value.matches){

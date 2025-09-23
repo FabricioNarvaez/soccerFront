@@ -1,0 +1,14 @@
+.flexSpaceAround {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 16px;
+}
+
+.flexSpaceAround > * {
+    flex: 1 1 45%;
+    max-width: 45%;
+    min-width: 200px;
+    box-sizing: border-box;
+}
