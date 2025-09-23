@@ -2,7 +2,6 @@
     <HeaderSubtitle :subtitle="'Equipos'" :link="'/equipos'" :linkText="'TODOS LOS EQUIPOS'" />
     <p v-if="teamsStore.loading" class="subtitle">Aún no hay equipos en el torneo</p>
     <SwiperComponent v-else :allTeams="teamsStore.allTeams" />
-    <!-- <Carousel /> -->
     <div class="homeMain">
         <NextMatchDay :upcomingMatchweek="matchWeeksStore.upcomingMatchweek"/>
         <GroupsTables v-if="teamsStore.allTeams.A || teamsStore.allTeams.B" :groupA="teamsStore.allTeams.A" :groupB="teamsStore.allTeams.B" :isSmallTable="true"/>
@@ -11,7 +10,6 @@
 </template>
 
 <script setup>
-    // import Carousel from '@components/home/Carousel.vue'
     import HeaderSubtitle from '@components/common/HeaderSubtitle.vue';
     import SwiperComponent from '@components/home/SwiperComponent.vue';
     import NextMatchDay from '@components/home/NextMatchDay.vue';
