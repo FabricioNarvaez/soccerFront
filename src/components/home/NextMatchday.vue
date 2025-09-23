@@ -2,7 +2,7 @@
     <div class="leftMain">
         <HeaderSubtitle :subtitle="'Próxima Jornada'" :link="'/'" :linkText="'TODAS LAS JORNADAS'" />
         <div class="flexSpaceAround">
-            <div class="matchOfMatchweekContainer" v-if="upcomingMatchweek" v-for="(match, key) in upcomingMatchweek.matches" :key="key">
+            <div class="matchOfMatchweekContainer" v-if="matchWeeksStore.upcomingMatchweek" v-for="(match, key) in matchWeeksStore.upcomingMatchweek.matches" :key="key">
                 <div class="matchTeams">
                     <div class="localInfo">
                         <img class="matchTeamsImg" :src="match.localId.shield" />
@@ -23,13 +23,9 @@
 
 <script setup>
     import HeaderSubtitle from '@components/common/HeaderSubtitle.vue';
-
-    defineProps({
-        upcomingMatchweek: {
-            type: Object,
-            required: true
-        }
-    });
+    
+    import { useMatchWeeksStore } from '@/store/matchWeeksStore';
+    const matchWeeksStore = useMatchWeeksStore();
 </script>
 
 <style>
