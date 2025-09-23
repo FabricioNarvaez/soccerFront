@@ -1,11 +1,11 @@
 <template>
     <HeaderSubtitle :subtitle="'Equipos'" :link="'/equipos'" :linkText="'TODOS LOS EQUIPOS'" />
-    <SwiperComponent v-if="swiperReady" :allTeams="allTeams" />
-    <p v-else class="subtitle">Aún no hay equipos en el torneo</p>
+    <p v-if="teamsStore.loading" class="subtitle">Aún no hay equipos en el torneo</p>
+    <SwiperComponent v-else :allTeams="teamsStore.allTeams" />
     <!-- <Carousel /> -->
     <div class="homeMain">
         <NextMatchDay :upcomingMatchweek="upcomingMatchweek"/>
-        <GroupsTables v-if="allTeams.A || allTeams.B" :groupA="allTeams.A" :groupB="allTeams.B" :isSmallTable="true"/>
+        <GroupsTables v-if="teamsStore.allTeams.A || teamsStore.allTeams.B" :groupA="teamsStore.allTeams.A" :groupB="teamsStore.allTeams.B" :isSmallTable="true"/>
         <!-- TODO: Añadir v-else con imagen que diga que no hay clasificaciones -->
     </div>
 </template>
@@ -16,28 +16,25 @@
     import SwiperComponent from '@components/home/SwiperComponent.vue';
     import NextMatchDay from '@components/home/NextMatchDay.vue';
     import GroupsTables from '@components/common/GroupsTables.vue';
+    import { useTeamsStore } from '@store/teamsStore.js';
+    const teamsStore = useTeamsStore();
 
     import { ref, onMounted } from "vue";
     const APIUrl = import.meta.env.VITE_API_URL;
 
-    const swiperReady = ref(false);
     const upcomingMatchweek = ref(false);
-    const allTeams = ref({});
     const currentDate = ref('');
 
     onMounted(async () => {
         try {
-            const [allTeamsResponse, matchWeeksResponse] = await Promise.all([
-                fetch(`${APIUrl}/teams/all`),
+            const [matchWeeksResponse] = await Promise.all([
                 fetch(`${APIUrl}/matchweek/all`)
             ]) ;
             
-            const [teamDataResult, matchWeekDataResult] = await Promise.all([
-                allTeamsResponse.json(),
+            const [matchWeekDataResult] = await Promise.all([
                 matchWeeksResponse.json()
             ]);
 
-            allTeams.value = teamDataResult;
             upcomingMatchweek.value = matchWeekDataResult.find(matchWeek => matchWeek.date > currentDate.value);
             // TODO: Eliminar estas dos líneas de abajo una vez se tengan más jornadas
             upcomingMatchweek.value.matches = upcomingMatchweek.value.matches.concat(upcomingMatchweek.value.matches);
@@ -52,7 +49,7 @@
                     match.formattedHour = formattedHourHelper;
                 }
             }
-            if(Object.keys(allTeams.value.A).length || Object.keys(allTeams.value.B).length ) swiperReady.value = true;
+            
         } catch (error) {
             console.error('Error al obtener datos:', error);
         }
