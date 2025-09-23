@@ -26,6 +26,18 @@ const routes = [
     meta: { priority: 1.0 }
   },
   {
+    path: "/clasificaciones",
+    name: "Clasificaciones",
+    component: () => import("../views/ClassificationsView.vue"),
+    meta: { priority: 1.0 }
+  },
+  {
+    path: "/playoffs/champions",
+    name: "Champions",
+    component: () => import("../views/ChampionsView.vue"),
+    meta: { priority: 1.0 }
+  },
+  {
     path: "/equipo/General",
     name: "Equipo | General",
     component: () => import("../views/ClubView.vue"),
@@ -48,12 +60,6 @@ const routes = [
     name: "Equipo | Sanciones",
     component: () => import("../views/ClubView.vue"),
     props: (route) => ({ id: route.query.id, name: route.query.name }),
-    meta: { priority: 1.0 }
-  },
-  {
-    path: "/clasificaciones",
-    name: "Clasificaciones",
-    component: () => import("../views/ClassificationsView.vue"),
     meta: { priority: 1.0 }
   },
   {
