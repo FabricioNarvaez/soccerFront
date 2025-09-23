@@ -3,14 +3,16 @@ import { defineStore } from "pinia";
 import soccerService from "@services/soccerService";
 
 export const useTeamsStore = defineStore("teams", () => {
-    const allTeams = ref({});
+    const allGroups = ref({});
+    const allTeams = ref([]);
     const loading = ref(false);
 
     onMounted(async () => {
         loading.value = true;
         try {
             const response = await soccerService.getAllTeams();
-            allTeams.value = response.data;
+            allGroups.value = response.data;
+            allTeams.value = allGroups.value.A.concat(allGroups.value.B || []);
         } catch (error) {
             console.error("Error fetching teams:", error);
         } finally {
@@ -19,6 +21,7 @@ export const useTeamsStore = defineStore("teams", () => {
     });
 
     return { 
+        allGroups,
         allTeams,
         loading
     };

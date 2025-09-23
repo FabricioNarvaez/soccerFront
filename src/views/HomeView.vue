@@ -1,10 +1,9 @@
 <template>
     <HeaderSubtitle :subtitle="'Equipos'" :link="'/equipos'" :linkText="'TODOS LOS EQUIPOS'" />
-    <p v-if="teamsStore.loading" class="subtitle">Aún no hay equipos en el torneo</p>
-    <SwiperComponent v-else :allTeams="teamsStore.allTeams" />
+    <SwiperComponent />
     <div class="homeMain">
         <NextMatchDay :upcomingMatchweek="matchWeeksStore.upcomingMatchweek"/>
-        <GroupsTables v-if="teamsStore.allTeams.A || teamsStore.allTeams.B" :groupA="teamsStore.allTeams.A" :groupB="teamsStore.allTeams.B" :isSmallTable="true"/>
+        <GroupsTables v-if="teamsStore.allGroups.A || teamsStore.allGroups.B" :groupA="teamsStore.allGroups.A" :groupB="teamsStore.allGroups.B" :isSmallTable="true"/>
         <!-- TODO: Añadir v-else con imagen que diga que no hay clasificaciones -->
     </div>
 </template>
