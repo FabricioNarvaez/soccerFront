@@ -30,7 +30,7 @@
 <script setup>
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
-    import ModalMod from '../common/ModalMod.vue'
+    import ModalMod from '@components/common/ModalMod.vue'
     const router = useRouter();
 
     const props = defineProps({
@@ -134,5 +134,5 @@
 </script>
 
 <style scoped>
-    @import "../../assets/css/loginRegister/form.css";
+    @import "@css/loginRegister/form.css";
 </style>

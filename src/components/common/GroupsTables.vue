@@ -20,9 +20,9 @@
 </template>
 
 <script setup>
-    import HeaderSubtitle from '../common/HeaderSubtitle.vue';
-    import SmallTable from '../common/SmallTable.vue';
-    import BigTable from '../common/BigTable.vue';
+    import HeaderSubtitle from '@components/common/HeaderSubtitle.vue';
+    import SmallTable from '@components/common/SmallTable.vue';
+    import BigTable from '@components/common/BigTable.vue';
 
     defineProps({
         groupA: {
@@ -45,5 +45,5 @@
 </script>
 
 <style setup>
-    @import "../../assets/css/common/table.css";
+    @import "@css/common/table.css";
 </style>

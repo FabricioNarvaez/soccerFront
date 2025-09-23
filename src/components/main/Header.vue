@@ -80,5 +80,5 @@ function toggleDropdown() {
 </script>
 
 <style scoped>
-    @import "../../assets/css/main/header.css";
+    @import "@css/main/header.css";
 </style>

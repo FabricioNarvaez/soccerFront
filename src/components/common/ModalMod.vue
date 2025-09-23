@@ -22,6 +22,6 @@
   </script>
   
   <style scoped>
-    @import "../../assets/css/common/modal.css";
+    @import "@css/common/modal.css";
   </style>
   

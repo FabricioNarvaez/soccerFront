@@ -1,22 +1,22 @@
 <template>
     <div class="match" :class="{ final: isFinalRound }">
-      <div class="team">
-          <span>{{ match.team1 }}</span>
-          <span>{{ match.score1 }}</span>
-      </div>
-      <div class="team">
-          <span>{{ match.team2 }}</span>
-          <span>{{ match.score2 }}</span>
-      </div>
+        <div class="team">
+            <span>{{ match.team1 }}</span>
+            <span>{{ match.score1 }}</span>
+        </div>
+        <div class="team">
+            <span>{{ match.team2 }}</span>
+            <span>{{ match.score2 }}</span>
+        </div>
     </div>
-  </template>
-  
-  <script setup>
+</template>
+
+<script setup>
     defineProps({
-      match: {
+        match: {
         type: Object,
         required: true
-      },
-      isFinalRound: Boolean
+        },
+        isFinalRound: Boolean
     });
-  </script>
+</script>

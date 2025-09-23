@@ -11,11 +11,11 @@
 </template>
 
 <script setup>
-    // import Carousel from '../components/home/Carousel.vue'
-    import HeaderSubtitle from '../components/common/HeaderSubtitle.vue';
-    import SwiperComponent from '../components/home/SwiperComponent.vue';
-    import NextMatchday from '../components/home/NextMatchday.vue';
-    import GroupsTables from '../components/common/GroupsTables.vue';
+    // import Carousel from '@components/home/Carousel.vue'
+    import HeaderSubtitle from '@components/common/HeaderSubtitle.vue';
+    import SwiperComponent from '@components/home/SwiperComponent.vue';
+    import NextMatchday from '@components/home/NextMatchday.vue';
+    import GroupsTables from '@components/common/GroupsTables.vue';
 
     import { ref, onMounted } from "vue";
     const APIUrl = import.meta.env.VITE_API_URL;
@@ -56,5 +56,5 @@
 </script>
 
 <style setup>
-    @import "../assets/css/home/home.css";
+    @import "@css/home/home.css";
 </style>

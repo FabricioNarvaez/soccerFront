@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-    import GroupsTables from '../components/common/GroupsTables.vue';
+    import GroupsTables from '@components/common/GroupsTables.vue';
     import { ref, onMounted } from "vue";
     const APIUrl = import.meta.env.VITE_API_URL;
 

@@ -188,5 +188,5 @@
 </script>
 
 <style setup>
-    @import "../../assets/css/club/general.css";
+    @import "@css/club/general.css";
 </style>

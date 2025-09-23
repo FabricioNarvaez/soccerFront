@@ -90,5 +90,5 @@
 </template>
 
 <style>
-    @import "../assets/css/rules/rules.css";
+    @import "@css/rules/rules.css";
 </style>

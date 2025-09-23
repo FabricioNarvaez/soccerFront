@@ -70,5 +70,5 @@
 </script>
 
 <style setup>
-    @import "../../assets/css/home/swiper.css";
+    @import "@css/home/swiper.css";
 </style>

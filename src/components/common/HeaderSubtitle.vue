@@ -22,5 +22,5 @@
 </script>
 
 <style setup>
-    @import "../../assets/css/common/headerSubtitle.css";
+    @import "@css/common/headerSubtitle.css";
 </style>

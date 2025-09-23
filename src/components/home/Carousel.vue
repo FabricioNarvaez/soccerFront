@@ -41,6 +41,6 @@
   
   
 <style scoped>
-    @import "../../assets/css/home/carousel.css";
+    @import "@css/home/carousel.css";
 </style>
   

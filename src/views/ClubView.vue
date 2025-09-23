@@ -27,7 +27,7 @@
 <script setup>
     import { ref, watch, onMounted } from "vue";
     import { useRoute } from 'vue-router';
-    import GeneralInfo from '../components/club/GeneralInfo.vue';
+    import GeneralInfo from '@components/club/GeneralInfo.vue';
 
     const APIUrl = import.meta.env.VITE_API_URL;
     const route = useRoute();

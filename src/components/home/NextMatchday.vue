@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-    import HeaderSubtitle from '../common/HeaderSubtitle.vue';
+    import HeaderSubtitle from '@components/common/HeaderSubtitle.vue';
 
     defineProps({
         upcomingMatchweek: {

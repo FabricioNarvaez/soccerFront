@@ -16,7 +16,7 @@
 <script setup>
     import { ref, watch } from "vue";
     import { useRoute } from "vue-router";
-    import Form from '../components/loginRegister/Form.vue'
+    import Form from '@components/loginRegister/Form.vue'
 
     const selectedOption = ref(false);
     const route = useRoute();
@@ -38,5 +38,5 @@
 </script>
 
 <style scoped>
-    @import "../assets/css/loginRegister/loginRegister.css";
+    @import "@css/loginRegister/loginRegister.css";
 </style>
