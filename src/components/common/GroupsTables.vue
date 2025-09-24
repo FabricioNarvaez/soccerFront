@@ -23,16 +23,15 @@
     import HeaderSubtitle from '@components/common/HeaderSubtitle.vue';
     import SmallTable from '@components/common/SmallTable.vue';
     import BigTable from '@components/common/BigTable.vue';
+    
+    import { useTeamsStore } from '@store/teamsStore.js';
+    
+    const teamsStore = useTeamsStore();
+
+    const groupA = teamsStore.allGroups.A;
+    const groupB = teamsStore.allGroups.B;
 
     defineProps({
-        groupA: {
-            type: Array,
-            required: true
-        },
-        groupB: {
-            type: Array,
-            required: true
-        },
         isSmallTable: {
             type:Boolean,
             default: false
