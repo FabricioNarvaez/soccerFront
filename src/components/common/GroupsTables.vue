@@ -20,6 +20,7 @@
 </template>
 
 <script setup>
+    import { computed } from 'vue';
     import HeaderSubtitle from '@components/common/HeaderSubtitle.vue';
     import SmallTable from '@components/common/SmallTable.vue';
     import BigTable from '@components/common/BigTable.vue';
@@ -28,8 +29,8 @@
     
     const teamsStore = useTeamsStore();
 
-    const groupA = teamsStore.allGroups.A;
-    const groupB = teamsStore.allGroups.B;
+    const groupA = computed(()=> teamsStore.allGroups.A);
+    const groupB = computed(()=> teamsStore.allGroups.B);
 
     defineProps({
         isSmallTable: {
