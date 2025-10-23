@@ -4,7 +4,7 @@ export default {
         '^.+\\.vue$': '@vue/vue3-jest',
         '^.+\\.[jt]s$': 'babel-jest',
     },
-
+    setupFilesAfterEnv: ['<rootDir>/tests/setup.js'],
     moduleNameMapper: {
         '^@vue/test-utils$': '<rootDir>/node_modules/@vue/test-utils/dist/vue-test-utils.cjs.js',
         '^@/(.*)$': '<rootDir>/src/$1',

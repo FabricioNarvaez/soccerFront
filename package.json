@@ -27,6 +27,7 @@
     "@babel/core": "^7.28.4",
     "@babel/preset-env": "^7.28.3",
     "@iconify/vue": "^4.1.1",
+    "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/vue": "^8.1.0",
     "@vitejs/plugin-vue": "^5.0.3",
     "@vue/babel-preset-app": "^5.0.9",
