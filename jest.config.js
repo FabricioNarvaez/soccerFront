@@ -1,12 +1,12 @@
-module.exports = {
+export default {
     testEnvironment: 'jsdom',
-    testMatch: ['**/__tests__/**/*.spec.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
-        transform: {
+    transform: {
         '^.+\\.vue$': '@vue/vue3-jest',
         '^.+\\.[jt]s$': 'babel-jest',
     },
 
     moduleNameMapper: {
+        '^@vue/test-utils$': '<rootDir>/node_modules/@vue/test-utils/dist/vue-test-utils.cjs.js',
         '^@/(.*)$': '<rootDir>/src/$1',
         '^@router/(.*)$': '<rootDir>/src/router/$1',
         '^@assets/(.*)$': '<rootDir>/src/assets/$1',
@@ -20,4 +20,8 @@ module.exports = {
         '^@libs/(.*)$': '<rootDir>/src/libs/$1',
         '\\.(css|less|scss|sass)$': 'identity-obj-proxy'
     },
+    transformIgnorePatterns: [
+        'node_modules/(?!(swiper|axios|pinia|vue-chartjs|vue3-carousel|@testing-library/vue)/)', 
+        'node_modules/(?!.*(@iconify/vue|otros-paquetes-esm)/)',
+    ],
 };
