@@ -1,4 +1,4 @@
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import { defineStore } from "pinia";
 import soccerService from "@services/soccerService";
 
@@ -7,7 +7,7 @@ export const useTeamsStore = defineStore("teams", () => {
     const allTeams = ref([]);
     const loading = ref(false);
 
-    onMounted(async () => {
+    const getAllTeams = async () => {
         loading.value = true;
         try {
             const response = await soccerService.getAllTeams();
@@ -18,9 +18,10 @@ export const useTeamsStore = defineStore("teams", () => {
         } finally {
             loading.value = false;
         }
-    });
+    };
 
-    return { 
+    return {
+        getAllTeams,
         allGroups,
         allTeams,
         loading
