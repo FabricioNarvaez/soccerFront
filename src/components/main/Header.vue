@@ -9,7 +9,6 @@
                 />
             </RouterLink>
 
-            <!-- <HelloWorld msg="You did it!" /> -->
             <div @click="toggleMenu" class="hamburger">
                 <Icon width="25" height="25" icon="bi:list" />
             </div>
@@ -64,18 +63,18 @@
 </template>
 
 <script setup>
-import { Icon } from "@iconify/vue";
-import { RouterLink } from "vue-router";
-import { ref } from "vue";
+    import { Icon } from "@iconify/vue";
+    import { RouterLink } from "vue-router";
+    import { ref } from "vue";
 
-const isActive = ref(false);
-const isActiveDropdown = ref(false);
-function toggleMenu() {
-    isActive.value = !isActive.value;
-}
-function toggleDropdown() {
-    isActiveDropdown.value = !isActiveDropdown.value;
-}
+    const isActive = ref(false);
+    const isActiveDropdown = ref(false);
+    function toggleMenu() {
+        isActive.value = !isActive.value;
+    }
+    function toggleDropdown() {
+        isActiveDropdown.value = !isActiveDropdown.value;
+    }
 </script>
 
 <style scoped>
