@@ -72,7 +72,6 @@ const isActive = ref(false);
 const isActiveDropdown = ref(false);
 function toggleMenu() {
     isActive.value = !isActive.value;
-    console.log(isActive);
 }
 function toggleDropdown() {
     isActiveDropdown.value = !isActiveDropdown.value;
