@@ -2,6 +2,8 @@ import { render, screen, fireEvent } from '@testing-library/vue';
 import { createTestingPinia } from '@pinia/testing';
 import Header from "@components/main/Header.vue";
 
+global.innerWidth = 1025;
+
 let renderResult;
 
 beforeEach(() => {
@@ -15,7 +17,10 @@ beforeEach(() => {
                     })
                 ],
                 stubs: {
-                    RouterLink: { template: '<a><slot /></a>' }, 
+                    RouterLink: {
+                        props: ['to'],
+                        template: '<a :class="to === \'/\' ? \'router-link-active\' : \'\'"><slot /></a>' 
+                     }, 
                     Icon: true
                 }
             }
@@ -28,8 +33,11 @@ afterEach(() => {
 
 describe('Header Component', () => {
 
-    test('Should render logo image', () =>{
+    test('Should render logo image and check initial link state', () =>{
         const logo = screen.getByAltText('AAPD Logo');
         expect(logo).toBeInTheDocument();
+
+        const homeLink = screen.getByText('Inicio');
+        expect(homeLink).toHaveClass('router-link-active');
     })
 });
