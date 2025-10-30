@@ -42,7 +42,9 @@
             </nav>
 
             <div class="flex items-center space-x-4">
-                <RouterLink to="/login" class="user-link hidden lg:flex">
+                <RouterLink aria-label="Acceder a la cuenta"
+                    to="/login" class="user-link hidden lg:flex"
+                >
                     <Icon
                         icon="mingcute:user-4-fill"
                         class="w-7 h-7 text-white transition-colors hover:text-amber-400"

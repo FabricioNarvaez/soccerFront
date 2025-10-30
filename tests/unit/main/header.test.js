@@ -19,9 +19,12 @@ beforeEach(() => {
                 stubs: {
                     RouterLink: {
                         props: ['to'],
-                        template: '<a :class="to === \'/\' ? \'router-link-active\' : \'\'"><slot /></a>' 
+                        template: '<a role="link" :class="to === \'/\' ? \'router-link-active\' : \'\'"><slot /></a>' 
                      }, 
-                    Icon: true
+                    Icon: {
+                        props: ['icon'],
+                        template: '<span :data-testid="icon" :aria-label="icon.includes(\'list\') ? \'Abrir menú\' : icon.includes(\'cross\') ? \'Cerrar menú\' : icon.includes(\'user\') ? \'Ícono de usuario\' : \'Ícono\'"><slot /></span>'
+                    }
                 }
             }
         });
@@ -31,7 +34,7 @@ afterEach(() => {
     renderResult.unmount();
 });
 
-describe('Header Component', () => {
+describe('Header Component - Desktop', () => {
 
     test('Should render logo image and check initial link state', () =>{
         const logo = screen.getByAltText('AAPD Logo');
@@ -39,5 +42,21 @@ describe('Header Component', () => {
 
         const homeLink = screen.getByText('Inicio');
         expect(homeLink).toHaveClass('router-link-active');
-    })
+    });
+
+    test('Should render all static desktop navigation links and login icon', () => {
+        screen.getAllByRole('link'); 
+        
+        expect(screen.getByText('Equipos')).toBeInTheDocument();
+        expect(screen.getByText('Clasificación')).toBeInTheDocument();
+        expect(screen.getByText('Reglamento')).toBeInTheDocument();
+        expect(screen.getByText('Jornadas')).toBeInTheDocument();
+        expect(screen.getByText('Galería')).toBeInTheDocument();
+        
+        const loginLinkMobile = screen.queryByText('Acceder');
+        expect(loginLinkMobile).toBeNull();
+
+        const userIconLink = screen.getByRole('link', { name: /acceder a la cuenta/i });
+        expect(userIconLink).toBeInTheDocument();
+    });
 });
