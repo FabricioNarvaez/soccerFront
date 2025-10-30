@@ -114,5 +114,23 @@ describe('Header Component - Mobile', () => {
         expect(screen.getByLabelText('UEFA')).not.toBeVisible();
     });
 
-    
+    test('Should toggle "MPV" mobile dropdown', async () => {
+        const menuButton = screen.getByLabelText('menuButton');
+        await fireEvent.click(menuButton);
+
+        const MVPHeader = screen.getByLabelText('MVP');
+        
+        expect(screen.getByLabelText('Pichichi')).not.toBeVisible(); 
+        expect(screen.getByLabelText('Portero')).not.toBeVisible();
+
+        await fireEvent.click(MVPHeader);
+
+        expect(screen.getByLabelText('Pichichi')).toBeInTheDocument();
+        expect(screen.getByLabelText('Portero')).toBeInTheDocument();
+
+        await fireEvent.click(MVPHeader);
+
+        expect(screen.getByLabelText('Pichichi')).not.toBeVisible();
+        expect(screen.getByLabelText('Portero')).not.toBeVisible();
+    });
 });

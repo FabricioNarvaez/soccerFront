@@ -105,7 +105,8 @@
                             </div>
                             
                             <div class="group mobile-link-container">
-                                <div @click="() => isActiveDropdownMVP = !isActiveDropdownMVP" class="flex items-center justify-between cursor-pointer">
+                                <div aria-label="MVP" @click="() => isActiveDropdownMVP = !isActiveDropdownMVP"
+                                    class="flex items-center justify-between cursor-pointer">
                                     <p>MVP</p>
                                     <Icon 
                                         icon="bxs:down-arrow" 
@@ -114,8 +115,8 @@
                                     />
                                 </div>
                                 <div v-show="isActiveDropdownMVP" class="flex flex-col pl-4 py-2 space-y-1 bg-[#1a4e76]">
-                                    <RouterLink @click="toggleMenu" to="/playoffs/pichichi" class="mobile-sub-link">Pichichi</RouterLink>
-                                    <RouterLink @click="toggleMenu" to="/playoffs/porteroDestacado" class="mobile-sub-link">Portero</RouterLink>
+                                    <RouterLink @click="toggleMenu" to="/playoffs/pichichi" class="mobile-sub-link" aria-label="Pichichi">Pichichi</RouterLink>
+                                    <RouterLink @click="toggleMenu" to="/playoffs/porteroDestacado" class="mobile-sub-link" aria-label="Portero">Portero</RouterLink>
                                 </div>
                             </div>
 
