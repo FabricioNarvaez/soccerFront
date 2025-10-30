@@ -68,9 +68,9 @@ describe('Header Component - Mobile', () => {
 
     test('Should open and close the mobile menu via hamburger and close button', async () => {
         const menuButton = screen.getByLabelText('menuButton'); 
-        expect(screen.queryByRole('navigation', { name: /mobile menu/i })).not.toBeInTheDocument();
+        expect(screen.queryByRole('navigation', { name: /mobileNav/i })).not.toBeInTheDocument();
         expect(screen.queryByText('Acceder')).toBeNull();
-        
+
         await fireEvent.click(menuButton);
         
         const mobileNav = screen.getByLabelText('mobileNav');
@@ -80,7 +80,17 @@ describe('Header Component - Mobile', () => {
         const closeButton = screen.getByLabelText('closeNavButton'); 
         await fireEvent.click(closeButton);
 
-        expect(screen.queryByRole('navigation', { name: /mobile menu/i })).not.toBeInTheDocument();
+        expect(screen.queryByRole('navigation', { name: /mobileNav/i })).not.toBeInTheDocument();
         expect(screen.queryByText('Acceder')).toBeNull();
+    });
+
+    test('Should close the mobile menu when clicking a navigation link', async () => {
+        const menuButton = screen.getByLabelText('menuButton'); 
+        await fireEvent.click(menuButton);
+
+        const teamsLink = screen.getByLabelText('Equipos');
+        await fireEvent.click(teamsLink);
+
+        expect(screen.queryByRole('navigation', { name: /mobileNav/i })).not.toBeInTheDocument();
     });
 });

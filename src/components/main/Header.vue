@@ -85,7 +85,7 @@
                         
                         <div class="mt-16 flex flex-col divide-y divide-white/10 text-white font-semibold">
                             <RouterLink @click="toggleMenu" to="/" class="mobile-link">Inicio</RouterLink>
-                            <RouterLink @click="toggleMenu" to="/equipos" class="mobile-link">Equipos</RouterLink>
+                            <RouterLink @click="toggleMenu" to="/equipos" class="mobile-link" aria-label="Equipos">Equipos</RouterLink>
                             <RouterLink @click="toggleMenu" to="/clasificaciones" class="mobile-link">Clasificación</RouterLink>
 
                             <div class="group mobile-link-container">
