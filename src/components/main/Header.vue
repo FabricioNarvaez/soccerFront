@@ -89,7 +89,8 @@
                             <RouterLink @click="toggleMenu" to="/clasificaciones" class="mobile-link">Clasificación</RouterLink>
 
                             <div class="group mobile-link-container">
-                                <div @click="() => isActiveDropdownPlayoffs = !isActiveDropdownPlayoffs" class="flex items-center justify-between cursor-pointer">
+                                <div aria-label="Eliminatorias" @click="() => isActiveDropdownPlayoffs = !isActiveDropdownPlayoffs"
+                                    class="flex items-center justify-between cursor-pointer">
                                     <p>Eliminatorias</p>
                                     <Icon 
                                         icon="bxs:down-arrow" 
@@ -98,8 +99,8 @@
                                     />
                                 </div>
                                 <div v-show="isActiveDropdownPlayoffs" class="flex flex-col pl-4 py-2 space-y-1 bg-[#1a4e76]">
-                                    <RouterLink @click="toggleMenu" to="/playoffs/champions" class="mobile-sub-link">Champions</RouterLink>
-                                    <RouterLink @click="toggleMenu" to="/playoffs/uefa" class="mobile-sub-link">UEFA</RouterLink>
+                                    <RouterLink @click="toggleMenu" to="/playoffs/champions" class="mobile-sub-link" aria-label="Champions">Champions</RouterLink>
+                                    <RouterLink @click="toggleMenu" to="/playoffs/uefa" class="mobile-sub-link" aria-label="UEFA">UEFA</RouterLink>
                                 </div>
                             </div>
                             

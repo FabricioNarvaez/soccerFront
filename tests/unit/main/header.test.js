@@ -93,4 +93,26 @@ describe('Header Component - Mobile', () => {
 
         expect(screen.queryByRole('navigation', { name: /mobileNav/i })).not.toBeInTheDocument();
     });
+
+    test('Should toggle "Eliminatorias" mobile dropdown', async () => {
+        const menuButton = screen.getByLabelText('menuButton');
+        await fireEvent.click(menuButton);
+
+        const playoffsHeader = screen.getByLabelText('Eliminatorias');
+        
+        expect(screen.getByLabelText('Champions')).not.toBeVisible(); 
+        expect(screen.getByLabelText('UEFA')).not.toBeVisible();
+
+        await fireEvent.click(playoffsHeader);
+
+        expect(screen.getByLabelText('Champions')).toBeInTheDocument();
+        expect(screen.getByLabelText('UEFA')).toBeInTheDocument();
+
+        await fireEvent.click(playoffsHeader);
+
+        expect(screen.getByLabelText('Champions')).not.toBeVisible();
+        expect(screen.getByLabelText('UEFA')).not.toBeVisible();
+    });
+
+    
 });
