@@ -60,3 +60,27 @@ describe('Header Component - Desktop', () => {
         expect(userIconLink).toBeInTheDocument();
     });
 });
+
+describe('Header Component - Mobile', () => {
+    beforeAll(() => {
+        global.innerWidth = 768; 
+    });
+
+    test('Should open and close the mobile menu via hamburger and close button', async () => {
+        const menuButton = screen.getByLabelText('menuButton'); 
+        expect(screen.queryByRole('navigation', { name: /mobile menu/i })).not.toBeInTheDocument();
+        expect(screen.queryByText('Acceder')).toBeNull();
+        
+        await fireEvent.click(menuButton);
+        
+        const mobileNav = screen.getByLabelText('mobileNav');
+        expect(mobileNav).toBeVisible(); 
+        expect(screen.getByText('Acceder')).toBeInTheDocument(); 
+
+        const closeButton = screen.getByLabelText('closeNavButton'); 
+        await fireEvent.click(closeButton);
+
+        expect(screen.queryByRole('navigation', { name: /mobile menu/i })).not.toBeInTheDocument();
+        expect(screen.queryByText('Acceder')).toBeNull();
+    });
+});

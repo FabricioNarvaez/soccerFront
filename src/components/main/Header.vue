@@ -51,8 +51,10 @@
                     />
                 </RouterLink>
                 
-                <div @click="toggleMenu" class="lg:hidden cursor-pointer text-white">
-                    <Icon width="30" height="30" icon="bi:list" />
+                <div @click="toggleMenu" aria-label="menuButton"
+                    class="lg:hidden cursor-pointer text-white"
+                >
+                    <Icon  width="30" height="30" icon="bi:list" />
                 </div>
             </div>
 
@@ -67,12 +69,19 @@
                 <div v-if="isActive" class="fixed inset-0 z-[2000] lg:hidden">
                     <div @click="toggleMenu" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
 
-                    <nav class="absolute top-0 left-0 h-full w-full max-w-[300px] bg-[#206192] shadow-2xl overflow-y-auto pt-4 flex flex-col space-y-8">
-                        <Icon
+                    <nav aria-label="mobileNav"
+                        class="absolute top-0 left-0 h-full w-full max-w-[300px] bg-[#206192] shadow-2xl overflow-y-auto pt-4 flex flex-col space-y-8">
+                        <div 
                             @click="toggleMenu"
-                            class="crossIcon w-6 h-6 absolute top-4 right-4 text-white cursor-pointer"
-                            icon="radix-icons:cross-1"
-                        />
+                            role="button"
+                            aria-label="closeNavButton"
+                            class="crossIcon absolute top-4 right-4 cursor-pointer"
+                        >
+                            <Icon
+                                class="w-6 h-6 text-white"
+                                icon="radix-icons:cross-1"
+                            />
+                        </div>
                         
                         <div class="mt-16 flex flex-col divide-y divide-white/10 text-white font-semibold">
                             <RouterLink @click="toggleMenu" to="/" class="mobile-link">Inicio</RouterLink>
