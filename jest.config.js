@@ -18,10 +18,14 @@ export default {
         '^@utils/(.*)$': '<rootDir>/src/utils/$1',
         '^@services/(.*)$': '<rootDir>/src/services/$1',
         '^@libs/(.*)$': '<rootDir>/src/libs/$1',
-        '\\.(css|less|scss|sass)$': 'identity-obj-proxy'
+        '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+        'swiper/css': 'identity-obj-proxy',
+        'swiper/css/navigation': 'identity-obj-proxy',
+        'swiper/css/pagination': 'identity-obj-proxy',
+        'swiper/css/scrollbar': 'identity-obj-proxy',
+        'swiper/modules': '<rootDir>/tests/mocks/swiperModulesMock.js',
     },
     transformIgnorePatterns: [
-        'node_modules/(?!(swiper|axios|pinia|vue-chartjs|vue3-carousel|@testing-library/vue)/)', 
-        'node_modules/(?!.*(@iconify/vue|otros-paquetes-esm)/)',
+        'node_modules/(?!(swiper|swiper/vue|swiper/modules|axios|pinia|vue-chartjs|vue3-carousel|@testing-library/vue|@iconify/vue)/)', 
     ],
 };
