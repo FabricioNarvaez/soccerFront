@@ -57,4 +57,6 @@ describe('TeamsSwiper', () => {
         expect(screen.getByText('Aún no hay equipos en el torneo')).toBeInTheDocument();
         expect(screen.queryByText(/Cargando Equipos\.\.\./i)).not.toBeInTheDocument();
     });
+
+    // TODO: Add test for rendering teams when allTeams has data
 });
