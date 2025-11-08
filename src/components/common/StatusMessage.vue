@@ -1,14 +1,14 @@
 <template>
     <p class="text-xl text-gray-500 text-center font-medium">
-        {{ loadingText }}
+        {{ text }}
     </p>
 </template>
 
 <script setup>
     defineProps({
-        loadingText: {
+        text: {
             type: String,
-            default: 'Cargando...'
+            default: 'Vacío'
         }
     });
-</script>
+</script>script

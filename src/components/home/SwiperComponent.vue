@@ -1,11 +1,9 @@
 <template>
     <div class="py-8 px-4 sm:px-6 lg:px-8">
         <HeaderSubtitle :subtitle="'Equipos'" :link="'/equipos'" :linkText="'TODOS LOS EQUIPOS'" />
-        <LoadingText v-if="teamsStore.loading" :loadingText="'Cargando Equipos...'"/>
+        <StatusMessage v-if="teamsStore.loading" :text="'Cargando Equipos...'"/>
 
-        <p v-else-if="!teamsStore.allTeams || teamsStore.allTeams.length === 0" class="text-xl text-gray-500 text-center font-medium">
-            Aún no hay equipos en el torneo
-        </p>
+        <StatusMessage  v-else-if="!teamsStore.allTeams || teamsStore.allTeams.length === 0" :text="'Aún no hay equipos en el torneo'" />
 
         <swiper v-else class="pb-10" 
             :modules="modules"
@@ -37,7 +35,7 @@
 <script setup>
     import { Navigation, Pagination, A11y } from "swiper/modules";
     import { Swiper, SwiperSlide } from "swiper/vue";
-    import LoadingText from "@components/common/LoadingText.vue";
+    import StatusMessage from "@components/common/StatusMessage.vue";
     import HeaderSubtitle from '@components/common/HeaderSubtitle.vue';
 
     import "swiper/css";
