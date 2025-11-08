@@ -1,5 +1,6 @@
 <template>
-    <div class="py-8">
+    <div class="py-8 px-4 sm:px-6 lg:px-8">
+        <HeaderSubtitle :subtitle="'Equipos'" :link="'/equipos'" :linkText="'TODOS LOS EQUIPOS'" />
         <LoadingText v-if="teamsStore.loading" :loadingText="'Cargando Equipos...'"/>
 
         <p v-else-if="!teamsStore.allTeams || teamsStore.allTeams.length === 0" class="text-xl text-gray-500 text-center font-medium">
@@ -24,7 +25,7 @@
                         :alt="`Escudo del equipo ${team.name}`"
                     />
                     
-                    <p class="text-lg font-bold text-[#206192] mt-2 text-center truncate w-full px-2">
+                    <p class="text-lg font-bold text-dark-blue mt-2 text-center truncate w-full px-2">
                         {{ team.name }}
                     </p>
                 </RouterLink>
@@ -37,6 +38,7 @@
     import { Navigation, Pagination, A11y } from "swiper/modules";
     import { Swiper, SwiperSlide } from "swiper/vue";
     import LoadingText from "@components/common/LoadingText.vue";
+    import HeaderSubtitle from '@components/common/HeaderSubtitle.vue';
 
     import "swiper/css";
     import "swiper/css/navigation";
