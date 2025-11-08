@@ -1,5 +1,5 @@
 <template>
-    <div class="py-8 px-4 sm:px-6 lg:px-8">
+    <div class="pt-4 pb-8 px-4 sm:px-6 lg:px-8">
         <HeaderSubtitle :subtitle="'Equipos'" :link="'/equipos'" :linkText="'TODOS LOS EQUIPOS'" />
         <StatusMessage v-if="teamsStore.loading" :text="'Cargando Equipos...'"/>
 
