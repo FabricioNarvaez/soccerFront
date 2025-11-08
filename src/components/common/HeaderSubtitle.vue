@@ -1,7 +1,7 @@
 <template>
     <div class="headerSubtitle">
         <h3 class="subtitle">{{ subtitle }}</h3>
-        <RouterLink v-if="linkText" :to="link">{{ linkText }}</RouterLink>
+        <RouterLink v-if="linkText" :to="link" class="uppercase">{{ linkText }}</RouterLink>
     </div>
     <hr>
 </template>
