@@ -5,8 +5,10 @@
             :link="'/clasificaciones'" 
             :linkText="'Clasificación completa'" 
         />
-        
-        <div v-if="(teamsStore.groupA || teamsStore.groupB)" class="mt-4 space-y-6">
+
+        <StatusMessage v-if="teamsStore.loading" :text="'Cargando Tablas de clasificación...'"/>
+
+        <div v-else-if="(teamsStore.groupA.length || teamsStore.groupB.length)" class="mt-4 space-y-6">
             
             <div v-for="(groupData, groupName) in { 'A': teamsStore.groupA, 'B': teamsStore.groupB }" :key="groupName" class="overflow-x-auto">
                 
