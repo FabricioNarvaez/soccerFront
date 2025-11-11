@@ -30,10 +30,10 @@ export const useMatchWeeksStore = defineStore("matchWeeks", () => {
                 const matchWeekDate = new Date(matchWeek.date);
                 return matchWeekDate >= currentDate;
             });
-            // TODO: Eliminar las dos lineas siguientes cuando haya más partidos
-            upcomingMatchweek.value.matches = upcomingMatchweek.value.matches.concat(upcomingMatchweek.value.matches)
-            upcomingMatchweek.value.matches = upcomingMatchweek.value.matches.concat(upcomingMatchweek.value.matches)
             if (upcomingMatchweek.value) {
+                // TODO: Eliminar las dos lineas siguientes cuando haya más partidos
+                upcomingMatchweek.value.matches = upcomingMatchweek.value.matches.concat(upcomingMatchweek.value.matches)
+                upcomingMatchweek.value.matches = upcomingMatchweek.value.matches.concat(upcomingMatchweek.value.matches)
                 for(const match of upcomingMatchweek.value.matches) {
                     const { formattedDate, formattedHour } = formatDate(match.hour);
                     match.formattedDate = formattedDate;
