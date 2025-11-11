@@ -1,9 +1,15 @@
 <template>
-    <div class="headerSubtitle">
-        <h3 class="subtitle">{{ subtitle }}</h3>
-        <RouterLink v-if="linkText" :to="link" class="uppercase">{{ linkText }}</RouterLink>
+    <div class="flex items-end justify-between">
+        <h3 class="text-xl font-semibold text-gray-800">{{ subtitle }}</h3>
+        
+        <RouterLink class="uppercase italic text-blue-600 font-bold pb-1 transition-colors duration-200 hover:text-blue-800 hover:underline"
+            v-if="linkText" 
+            :to="link" 
+        >
+            {{ linkText }}
+        </RouterLink>
     </div>
-    <hr>
+    <hr class="border-t border-gray-300 mt-2">
 </template>
 
 <script setup>
@@ -20,7 +26,3 @@
         }
     })
 </script>
-
-<style setup>
-    @import "@css/common/headerSubtitle.css";
-</style>
