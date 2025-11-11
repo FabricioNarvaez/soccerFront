@@ -6,9 +6,9 @@
             :linkText="'Clasificación completa'" 
         />
         
-        <div v-if="(groupA || groupB)" class="mt-4 space-y-6">
+        <div v-if="(teamsStore.groupA || teamsStore.groupB)" class="mt-4 space-y-6">
             
-            <div v-for="(groupData, groupName) in { 'A': groupA, 'B': groupB }" :key="groupName" class="overflow-x-auto">
+            <div v-for="(groupData, groupName) in { 'A': teamsStore.groupA, 'B': teamsStore.groupB }" :key="groupName" class="overflow-x-auto">
                 
                 <div v-if="groupData && groupData.length > 0" class="min-w-full">
                     <h3 class="text-xl font-bold text-dark-blue mb-3">Grupo {{ groupName }}</h3>
@@ -95,7 +95,6 @@
 </template>
 
 <script setup>
-    import { computed } from 'vue';
     import { useRouter } from 'vue-router';
     import HeaderSubtitle from '@components/common/HeaderSubtitle.vue';
     import StatusMessage from "@components/common/StatusMessage.vue";
@@ -103,10 +102,6 @@
     import { useTeamsStore } from '@store/teamsStore.js';
     
     const teamsStore = useTeamsStore();
-
-    // Propiedades computadas del store
-    const groupA = computed(()=> teamsStore.allGroups.A);
-    const groupB = computed(()=> teamsStore.allGroups.B);
 
     defineProps({
         isSmallTable: {

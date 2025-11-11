@@ -5,6 +5,8 @@ import soccerService from "@services/soccerService";
 export const useTeamsStore = defineStore("teams", () => {
     const allGroups = ref({});
     const allTeams = ref([]);
+    const groupA = ref([]);
+    const groupB = ref([]);
     const loading = ref(false);
 
     const getAllTeams = async () => {
@@ -12,6 +14,8 @@ export const useTeamsStore = defineStore("teams", () => {
         try {
             const response = await soccerService.getAllTeams();
             allGroups.value = response.data;
+            groupA.value = allGroups.value.A || [];
+            groupB.value = allGroups.value.B || [];
             allTeams.value = allGroups.value.A.concat(allGroups.value.B || []);
         } catch (error) {
             console.error("Error fetching teams:", error);
@@ -24,6 +28,8 @@ export const useTeamsStore = defineStore("teams", () => {
         getAllTeams,
         allGroups,
         allTeams,
+        groupA,
+        groupB,
         loading
     };
 });
