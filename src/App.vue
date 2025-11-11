@@ -3,7 +3,7 @@
     <Header />
 
     <main class="flex-grow">
-      <div class="max-w-[1400px] w-4/5 mx-auto md:w-auto md:px-1.5">
+      <div class="max-w-[1400px] lg:w-4/5 mx-auto md:px-1.5">
         <RouterView />
       </div>
     </main>
