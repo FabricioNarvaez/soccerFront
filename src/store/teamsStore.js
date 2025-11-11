@@ -16,7 +16,7 @@ export const useTeamsStore = defineStore("teams", () => {
             allGroups.value = response.data;
             groupA.value = allGroups.value.A || [];
             groupB.value = allGroups.value.B || [];
-            allTeams.value = allGroups.value.A.concat(allGroups.value.B || []);
+            allTeams.value = (allGroups.value.A || []).concat(allGroups.value.B || []);
         } catch (error) {
             console.error("Error fetching teams:", error);
         } finally {
