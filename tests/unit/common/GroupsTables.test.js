@@ -15,7 +15,7 @@ const mockGroupsData = {
 
 const teamsStoreMock = {
     loading: false, 
-    allGroups: {}, // Usamos el nombre de propiedad del store real
+    allGroups: {},
 };
 
 jest.mock('@store/teamsStore.js', () => ({
@@ -24,7 +24,6 @@ jest.mock('@store/teamsStore.js', () => ({
 
 import { useTeamsStore } from '@store/teamsStore.js';
 
-// 2. Mock de Vue Router
 const mockRouter = {
     push: jest.fn(),
 };
@@ -33,7 +32,6 @@ jest.mock('vue-router', () => ({
     useRouter: () => mockRouter,
 }));
 
-// 3. Stubs para componentes hijos
 const StatusMessageStub = {
     name: 'StatusMessage',
     props: ['text'],
