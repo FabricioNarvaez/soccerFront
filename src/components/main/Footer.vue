@@ -1,7 +1,6 @@
 <template>
-    <footer class="bg-gray-800 text-white p-4 mt-8 w-full">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm space-y-2 md:space-y-0">
-            
+    <footer class="bg-gray-800 text-white p-4 pt-10 mt-8 w-full"> 
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm space-y-2 md:space-y-0">  
             <p class="text-center md:text-left text-gray-400">
                 &copy; {{ currentYear }} Amigos por el Deporte. Todos los derechos reservados.
             </p>
