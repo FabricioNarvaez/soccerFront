@@ -6,5 +6,8 @@ export default {
     },
     getAllMatchWeeks() {
         return soccerAPI.get('/matchweek/all');
+    },
+    getLastMatchWeekResults() {
+        return soccerAPI.get('/matchweek/last-results');
     }
 }

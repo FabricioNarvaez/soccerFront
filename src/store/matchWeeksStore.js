@@ -6,6 +6,7 @@ export const useMatchWeeksStore = defineStore("matchWeeks", () => {
     const allMatchWeeks = ref({});
     const loading = ref(false);
     const upcomingMatchweek = ref(null);
+    const lastMatchweekResults = ref(null);
 
     function formatDate(dateString) {
         const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
@@ -23,8 +24,12 @@ export const useMatchWeeksStore = defineStore("matchWeeks", () => {
     onMounted(async () => {
         loading.value = true;
         try {
-            const response = await soccerService.getAllMatchWeeks();
-            allMatchWeeks.value = response.data;
+            const [responseMatchWeeks, responseLastResults] = await Promise.all([
+                soccerService.getAllMatchWeeks(),
+                soccerService.getLastMatchWeekResults()
+            ]);
+            lastMatchweekResults.value = responseLastResults.data || [];
+            allMatchWeeks.value = responseMatchWeeks.data || [];
             upcomingMatchweek.value = allMatchWeeks.value.find(matchWeek => {
                 const currentDate = new Date();
                 const matchWeekDate = new Date(matchWeek.date);
@@ -50,6 +55,7 @@ export const useMatchWeeksStore = defineStore("matchWeeks", () => {
     return {
         allMatchWeeks,
         upcomingMatchweek,
+        lastMatchweekResults,
         loading
     }
 });
