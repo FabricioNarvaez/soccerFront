@@ -1,6 +1,6 @@
 <template>
-    <div class="p-4 bg-white rounded-xl h-full">
-        <HeaderSubtitle :subtitle="'Próxima Jornada'" :link="'/'" :linkText="'TODAS LAS JORNADAS'" />
+    <div class="p-4 bg-white rounded-xl h-fit">
+        <HeaderSubtitle :subtitle="'Próxima Jornada'" :link="'/'" :linkText="'Todas las Jornadas'" />
         <StatusMessage v-if="matchWeeksStore.loading" :text="'Cargando Próxima Jornada...'"/>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4"
