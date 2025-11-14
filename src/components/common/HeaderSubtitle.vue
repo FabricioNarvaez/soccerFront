@@ -2,7 +2,7 @@
     <div class="flex items-end justify-between">
         <h3 class="text-xl font-semibold text-gray-800">{{ subtitle }}</h3>
         
-        <RouterLink class="uppercase italic text-blue-600 font-bold pb-1 transition-colors duration-200 hover:text-blue-800 hover:underline"
+        <RouterLink class="text-sm capitalize font-semibold italic text-blue-600 pb-1 transition-colors duration-200 hover:text-blue-800 hover:underline"
             v-if="linkText" 
             :to="link" 
         >
