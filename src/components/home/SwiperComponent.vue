@@ -1,6 +1,6 @@
 <template>
     <div class="pt-4 pb-8 px-4 sm:px-6 lg:px-8">
-        <HeaderSubtitle :subtitle="'Equipos'" :link="'/equipos'" :linkText="'TODOS LOS EQUIPOS'" />
+        <HeaderSubtitle :subtitle="'Equipos'" :link="'/equipos'" :linkText="'todos los equipos'" />
         <StatusMessage v-if="teamsStore.loading" :text="'Cargando Equipos...'"/>
 
         <StatusMessage  v-else-if="!teamsStore.allTeams || teamsStore.allTeams.length === 0" :text="'Aún no hay equipos en el torneo'" />
