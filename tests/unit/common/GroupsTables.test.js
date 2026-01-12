@@ -1,17 +1,11 @@
 import { shallowMount } from '@vue/test-utils';
 import GroupsTables from '@components/common/GroupsTables.vue';
 
-const mockGroupsData = {
-    A: [
-        { _id: 'A1', name: 'Alpha FC', acronym: 'AFC', shield: 'shield_a1.png', Pts: 10, PG: 3, PE: 1, PP: 0, GF: 10, GC: 5, GD: 5 }, // Pos 1 (Champions)
-        { _id: 'A2', name: 'Beta United', acronym: 'BUT', shield: 'shield_a2.png', Pts: 7, PG: 2, PE: 1, PP: 1, GF: 8, GC: 4, GD: 4 }, // Pos 2 (Champions)
-        { _id: 'A3', name: 'Gamma Rovers', acronym: 'GRV', shield: 'shield_a3.png', Pts: 4, PG: 1, PE: 1, PP: 2, GF: 3, GC: 6, GD: -3 }, // Pos 3 (UEFA)
-        { _id: 'A4', name: 'Delta Kings', acronym: 'DKG', shield: 'shield_a4.png', Pts: 1, PG: 0, PE: 1, PP: 3, GF: 2, GC: 8, GD: -6 }, // Pos 4 (No clasifica)
-    ],
-    B: [
-        { _id: 'B1', name: 'Epsilon FC', acronym: 'EFC', shield: 'shield_b1.png', Pts: 12, PG: 4, PE: 0, PP: 0, GF: 15, GC: 3, GD: 12 },
-    ]
-};
+import { 
+    mockGroupsData, 
+    StatusMessageStub, 
+    HeaderSubtitleStub 
+} from '../fixtures/data';
 
 const teamsStoreMock = {
     loading: false, 
@@ -31,18 +25,6 @@ const mockRouter = {
 jest.mock('vue-router', () => ({
     useRouter: () => mockRouter,
 }));
-
-const StatusMessageStub = {
-    name: 'StatusMessage',
-    props: ['text'],
-    template: '<div class="status-message-mock">{{ text }}</div>'
-};
-
-const HeaderSubtitleStub = {
-    name: 'HeaderSubtitle',
-    props: ['subtitle'],
-    template: '<header-subtitle-mock>{{ subtitle }}</header-subtitle-mock>'
-};
 
 describe('GroupsTables', () => {
 

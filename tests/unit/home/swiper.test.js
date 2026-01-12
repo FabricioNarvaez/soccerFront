@@ -1,11 +1,6 @@
 import { render, screen } from '@testing-library/vue';
 import TeamsSwiper from '@components/home/SwiperComponent.vue';
 
-// const mockTeams = [
-//     { _id: '1', name: 'Pájaro Azul', shield: 'pajaro.webp' },
-//     { _id: '2', name: 'Spencer FC', shield: 'spencer.webp' },
-// ];
-
 jest.mock('@store/teamsStore.js', () => {
     const mockUseTeamsStore = jest.fn();
     return { useTeamsStore: mockUseTeamsStore };

@@ -1,6 +1,10 @@
 import { shallowMount } from '@vue/test-utils';
 import LastResults from '@components/home/LastResults.vue';
 
+import {
+    StatusMessageStub,
+} from '../fixtures/data';
+
 const matchWeeksStoreMock = {
     loading: false,
 };
@@ -10,12 +14,6 @@ jest.mock('@store/matchWeeksStore', () => ({
 }));
 
 import { useMatchWeeksStore } from '@store/matchWeeksStore';
-
-const StatusMessageStub = {
-    name: 'StatusMessage',
-    props: ['text'],
-    template: '<div class="status-message-mock">{{ text }}</div>'
-};
 
 describe('LastResults.vue', () => {
 

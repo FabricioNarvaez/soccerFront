@@ -3,6 +3,11 @@ import { shallowMount } from '@vue/test-utils';
 import NextMatchDay from '@components/home/NextMatchDay.vue';
 import HeaderSubtitle from '@components/common/HeaderSubtitle.vue';
 
+import {
+    StatusMessageStub,
+    mockUpcomingMatchweek
+} from '../fixtures/data';
+
 const matchWeeksStoreMock = {
     loading: false, 
     upcomingMatchweek: null,
@@ -13,29 +18,6 @@ jest.mock('@/store/matchWeeksStore', () => ({
 }));
 
 import { useMatchWeeksStore } from '@/store/matchWeeksStore';
-
-const mockUpcomingMatchweek = {
-    matches: [
-        {
-            localId: { shield: 'local_shield_1.png', name: 'Equipo Local A' },
-            visitorId: { shield: 'visitor_shield_1.png', name: 'Equipo Visitante X' },
-            formattedDate: '15/11/2025',
-            formattedHour: '20:00',
-        },
-        {
-            localId: { shield: 'local_shield_2.png', name: 'Equipo Local B' },
-            visitorId: { shield: 'visitor_shield_2.png', name: 'Equipo Visitante Y' },
-            formattedDate: '16/11/2025',
-            formattedHour: '18:00',
-        },
-    ]
-};
-
-const StatusMessageStub = {
-    name: 'StatusMessage',
-    props: ['text'],
-    template: '<div class="status-message-mock">{{ text }}</div>'
-};
 
 describe('NextMatchDay', () => {
 
