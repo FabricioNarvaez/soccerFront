@@ -9,11 +9,7 @@
                 Temporada Verano
                 </p>
             </header>
-
-            <div v-if="teamsStore.loading" class="flex flex-col items-center justify-center py-24">
-                <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-600 mb-4"></div>
-                <p class="text-slate-500 font-medium italic">Cargando equipos...</p>
-            </div>
+            <StatusMessage v-if="teamsStore.loading" :text="'Cargando Equipos...'"/>
 
             <div v-else-if="teamsStore.allTeams.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 <div v-for="team in teamsStore.allTeams" :key="team._id"
@@ -68,6 +64,7 @@
 <script setup>
     import { onMounted } from 'vue';
     import { useTeamsStore } from '@store/teamsStore.js';
+    import StatusMessage from "@components/common/StatusMessage.vue";
 
     const teamsStore = useTeamsStore();
 
