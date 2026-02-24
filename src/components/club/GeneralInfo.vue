@@ -1,192 +1,173 @@
 <template>
-    <div class="nextMatch">
-        <div class="countdown">
-            <h3 class="countTitle">Próximo partido</h3>
-            <div class="date">
-                <div v-if="nextMatchInfo" class="countdownClock">
-                    <div class="clock">
-                        <p class="clockData">{{ days }}</p>
-                        <p class="clockText">DÍAS</p>
+    <div class="space-y-10">
+        <section class="overflow-hidden bg-white rounded-2xl shadow-md border border-gray-100">
+            <div class="bg-slate-900 py-4 px-6">
+                <h3 class="text-white font-bold uppercase tracking-widest text-center text-sm">Próximo Encuentro</h3>
+            </div>
+            
+            <div class="p-8">
+                <div v-if="nextMatchInfo" class="grid grid-cols-1 md:grid-cols-3 items-center gap-8">
+                    <div class="flex flex-col items-center text-center order-2 md:order-1">
+                        <img :src="localInfo.shield" class="w-24 h-24 object-contain mb-3 drop-shadow-md" />
+                        <p class="text-xl font-bold text-gray-800">{{ localInfo.name }}</p>
                     </div>
-                    <p>:</p>
-                    <div class="clock">
-                        <p class="clockData">{{ hours }}</p>
-                        <p class="clockText">HORAS</p>
+
+                    <div class="flex flex-col items-center order-1 md:order-2 bg-gray-50 p-6 rounded-xl border border-gray-100">
+                        <div class="flex text-center">
+                            <div v-for="(val, label) in countdownItems" :key="label" class="flex items-center">
+                                <div>
+                                    <p class="text-3xl font-black text-blue-600 tabular-nums">{{ val }}</p>
+                                    <p class="text-[10px] font-bold text-gray-400 uppercase">{{ label }}</p>
+                                </div>
+                                <p v-if="label !== 'seg'" class="text-3xl font-black text-gray-300 px-4">:</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200 w-full text-center text-l">
+                            <p class="font-bold text-gray-600">{{ formattedDate }}</p>
+                            <p class="text-blue-600 font-extrabold">{{ formattedHour }}</p>
+                        </div>
                     </div>
-                    <p>:</p>
-                    <div class="clock">
-                        <p class="clockData">{{ minutes }}</p>
-                        <p class="clockText">MINS</p>
-                    </div>
-                    <p>:</p>
-                    <div class="clock">
-                        <p class="clockData">{{ seconds }}</p>
-                        <p class="clockText">SEC</p>
+
+                    <div class="flex flex-col items-center text-center order-3">
+                        <img :src="visitorInfo.shield" class="w-24 h-24 object-contain mb-3 drop-shadow-md" />
+                        <p class="text-xl font-bold text-gray-800">{{ visitorInfo.name }}</p>
                     </div>
                 </div>
-                <p v-else><i>Sin Definir</i></p>
+                <StatusMessage v-else text="No hay partidos programados próximamente." />
             </div>
-        </div>
-        <div v-if="formattedDate" class="nextMatchInfo">
-            <div class="localInfo">
-                <img class="teamImage" :src="localInfo.shield"/>
-                <p class="teamName">{{ localInfo.name }}</p>
-            </div>
-            <div class="dateInfo">
-                <p>{{ formattedDate }}</p>
-                <p>{{ formattedHour }}</p>
-            </div>
-            <div class="visitorInfo">
-                <img class="teamImage" :src="visitorInfo.shield"/>
-                <p class="teamName">{{ visitorInfo.name }}</p>
-            </div>
-        </div>
-    </div>
+        </section>
 
-    <h3 class="subtitle">Estadísticas</h3>
-    <hr>
+        <section class="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+            <HeaderSubtitle subtitle="Estadísticas de Temporada" />
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8 items-center">
+                <div class="h-[300px] w-full max-w-[300px] mx-auto">
+                    <Doughnut :data="chartData" :options="chartOptions" />
+                </div>
 
-    <div class="box">
-        <div class="doughnutBox">
-            <Doughnut :data="data" :options="options" />
-        </div>
-        <div class="boxLegend">
-            <div class="flexCenterF20">
-                <div class="boxCube" style="background-color: #c6d4e1;"></div>
-                <p>Victorias: <b>{{ teamData.PG }}</b></p>
+                <div class="space-y-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-xl bg-green-50 border border-blue-100 flex items-center justify-between">
+                            <span class="font-bold text-green-900">Victorias</span>
+                            <span class="text-2xl font-black text-green-600">{{ teamData.PG }}</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+                            <span class="font-bold text-slate-700">Empates</span>
+                            <span class="text-2xl font-black text-slate-500">{{ teamData.PE }}</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-red-50 border border-red-100 flex items-center justify-between">
+                            <span class="font-bold text-red-900">Derrotas</span>
+                            <span class="text-2xl font-black text-red-600">{{ teamData.PP }}</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-gray-900 flex items-center justify-between">
+                            <span class="font-bold text-white">Jugados</span>
+                            <span class="text-2xl font-black text-blue-400">{{ teamData.PG + teamData.PE + teamData.PP }}</span>
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                        <HeaderSubtitle subtitle="Tarjetas" />
+                        <div class="flex justify-around mt-3">
+                            <div v-for="(val, key) in disciplineCards" :key="key" class="text-center">
+                                <div :class="['w-6 h-8 mx-auto rounded-sm mb-2 shadow-sm', key]"></div>
+                                <p class="text-lg font-black text-gray-800">{{ val }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <hr>
-            <div class="flexCenterF20">
-                <div class="boxCube" style="background-color: #a9d2f8;"></div>
-                <p>Empates: <b>{{ teamData.PE }}</b></p>
-            </div>
-            <hr>
-            <div class="flexCenterF20">
-                <div class="boxCube" style="background-color: #44749d;"></div>
-                <p>Derrotas: <b>{{ teamData.PP }}</b></p>
-            </div>
-            <hr>
-            <p class="flexCenterF20">Partidos Jugados: <b>{{ teamData.PP + teamData.PE + teamData.PG }}</b></p>
-        </div>
-    </div>
-    <div class="cardsBox">
-        <div class="cardsSection">
-            <div class="cards cardBlue"></div>
-            <p>{{ teamData.TAZ }}</p>
-            <p>Azules</p>
-        </div>
-        <div class="cardsSection">
-            <div class="cards cardYellow"></div>
-            <p>{{ teamData.TAM }}</p>
-            <p>Amarilla</p>
-        </div>
-        <div class="cardsSection">
-            <div class="cards cardDoubleYellow" ></div>
-            <p>{{ teamData.DAM }}</p>
-            <p>Doble A.</p>
-        </div>
-        <div class="cardsSection">
-            <div class="cards cardRed"></div>
-            <p>{{ teamData.TRO }}</p>
-            <p>Roja</p>
-        </div>
+        </section>
     </div>
 </template>
 
 <script setup>
     import { ref, computed, onMounted, onUnmounted } from 'vue';
-    import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
-    import { Doughnut } from 'vue-chartjs'
+    import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+    import { Doughnut } from 'vue-chartjs';
+    import HeaderSubtitle from '@components/common/HeaderSubtitle.vue';
+    import StatusMessage from "@components/common/StatusMessage.vue";
 
     ChartJS.register(ArcElement, Tooltip, Legend);
 
     const props = defineProps({
-        teamData: {
-            type: Object,
-            required: true
-        },
-        nextMatchInfo: {
-            type: Object
-        }
-    })
+        teamData: { type: Object, required: true },
+        nextMatchInfo: { type: Object }
+    });
 
-    const targetDate = new Date(props.nextMatchInfo.hour);
     const timeRemaining = ref(0);
-    const formattedDate = ref('');
-    const formattedHour = ref('');
-    const localInfo = ref({});
-    const visitorInfo = ref({});
+    const timerId = ref(null);
+    const targetDate = computed(() => props.nextMatchInfo?.hour ? new Date(props.nextMatchInfo.hour) : null);
 
-    const calculateTimeRemaining = () => {
-        const now = new Date();
-        const difference = targetDate - now;
-        timeRemaining.value = difference > 0 ? difference : 0;
+    const countdownItems = computed(() => ({
+        días: Math.floor(timeRemaining.value / (1000 * 60 * 60 * 24)),
+        horas: Math.floor((timeRemaining.value % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        min: Math.floor((timeRemaining.value % (1000 * 60 * 60)) / (1000 * 60)),
+        seg: Math.floor((timeRemaining.value % (1000 * 60)) / 1000)
+    }));
+
+    const formattedDate = computed(() => {
+        if (!targetDate.value) return '';
+        return targetDate.value.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+    });
+
+    const formattedHour = computed(() => {
+        if (!targetDate.value) return '';
+        return targetDate.value.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }) + ' H';
+    });
+
+    const localInfo = computed(() => props.nextMatchInfo?.localId || {});
+    const visitorInfo = computed(() => props.nextMatchInfo?.visitorId || {});
+
+    const disciplineCards = computed(() => ({
+        'bg-blue-600': props.teamData.TAZ || 0,
+        'bg-yellow-400': props.teamData.TAM || 0,
+        'bg-gradient-to-br from-yellow-400 to-red-600': props.teamData.DAM || 0,
+        'bg-red-600': props.teamData.TRO || 0
+    }));
+
+    const chartData = computed(() => {
+        const pg = props.teamData.PG || 0;
+        const pe = props.teamData.PE || 0;
+        const pp = props.teamData.PP || 0;
+        const isZero = pg === 0 && pe === 0 && pp === 0;
+
+        return {
+            labels: ['Derrotas', 'Empates', 'Victorias'],
+            datasets: [{
+                backgroundColor: ['#f74040', '#7f91ab', '#26cb63'],
+                data: isZero ? [1, 1, 1] : [pp, pe, pg],
+                borderWidth: 5,
+                hoverBorderWidth: 5,
+            }]
+        };
+    });
+
+    const chartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: false },
+        }
     };
 
-    const days = computed(() => Math.floor(timeRemaining.value / (1000 * 60 * 60 * 24)));
-    const hours = computed(() => Math.floor((timeRemaining.value % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-    const minutes = computed(() => Math.floor((timeRemaining.value % (1000 * 60 * 60)) / (1000 * 60)));
-    const seconds = computed(() => Math.floor((timeRemaining.value % (1000 * 60)) / 1000));
-
-    let timerId;
     onMounted(() => {
-        calculateTimeRemaining();
-        timerId = setInterval(calculateTimeRemaining, 1000);
-
-
-        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
-        const [formattedDateHelper, formattedHourHelper] = targetDate.toLocaleDateString('es-ES', options).split(',');
-        formattedDate.value = formattedDateHelper.split(' de').join(' ');
-        formattedHour.value = formattedHourHelper;
-
-        if(props.nextMatchInfo){
-            localInfo.value = {
-                name: props.nextMatchInfo.localId.name,
-                shield: props.nextMatchInfo.localId.shield
+        if (targetDate.value) {
+            const calculate = () => {
+                const now = new Date();
+                const diff = targetDate.value - now;
+                timeRemaining.value = diff > 0 ? diff : 0;
             };
-    
-            visitorInfo.value = {
-                name: props.nextMatchInfo.visitorId.name,
-                shield: props.nextMatchInfo.visitorId.shield
-            };
+            calculate();
+            timerId.value = setInterval(calculate, 1000);
         }
     });
-    
+
     onUnmounted(() => {
-        clearInterval(timerId);
+        if (timerId.value) clearInterval(timerId.value);
     });
-
-    function isCero(number){
-        return number === 0;
-    }
-
-    const doughnutData = isCero(props.teamData.PG) && isCero(props.teamData.PE) && isCero(props.teamData.PP)
-        ? [10, 10, 10] 
-        : [props.teamData.PG, props.teamData.PE, props.teamData.PP];
-
-    const data = {
-        labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
-        datasets: [
-            {
-                backgroundColor: ['#c6d4e1', '#a9d2f8', '#44749d',],
-                data: doughnutData,
-                borderWidth: 5,
-                hoverBorderWidth: 10,
-            }
-        ]
-    }
-
-    const options = {
-        responsive: true,
-        plugins: {
-            legend: {
-                display: false,
-                // position: 'right',
-            },
-        },
-    };
 </script>
 
-<style setup>
-    @import "@css/club/general.css";
+<style scoped>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 </style>
