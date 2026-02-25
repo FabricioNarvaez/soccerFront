@@ -116,55 +116,55 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
-import HeaderSubtitle from '@components/common/HeaderSubtitle.vue';
-import StatusMessage from "@components/common/StatusMessage.vue";
+    import { ref, computed } from 'vue';
+    import HeaderSubtitle from '@components/common/HeaderSubtitle.vue';
+    import StatusMessage from "@components/common/StatusMessage.vue";
 
-const props = defineProps({
-    squad: {
-        type: Array,
-        default: () => []
-    }
-});
-
-const isModalOpen = ref(false);
-const selectedPlayer = ref(null);
-
-const openModal = (player) => {
-    selectedPlayer.value = player;
-    isModalOpen.value = true;
-    document.body.style.overflow = 'hidden';
-};
-
-const closeModal = () => {
-    isModalOpen.value = false;
-    selectedPlayer.value = null;
-    document.body.style.overflow = 'auto';
-};
-
-const groupedPlayers = computed(() => {
-    if (!props.squad || props.squad.length === 0) return [];
-
-    const order = ['Portero', 'Defensa', 'Centrocampista', 'Delantero'];
-    const groups = {};
-
-    props.squad.forEach(player => {
-        const pos = player.position || 'Otros';
-        if (!groups[pos]) groups[pos] = [];
-        groups[pos].push(player);
+    const props = defineProps({
+        squad: {
+            type: Array,
+            default: () => []
+        }
     });
 
-    return Object.keys(groups)
-        .sort((a, b) => {
-            const indexA = order.indexOf(a);
-            const indexB = order.indexOf(b);
-            return (indexA === -1 ? 99 : indexA) - (indexB === -1 ? 99 : indexB);
-        })
-        .map(pos => ({
-            position: pos,
-            players: groups[pos].sort((a, b) => (a.playerNumber || 99) - (b.playerNumber || 99))
-        }));
-});
+    const isModalOpen = ref(false);
+    const selectedPlayer = ref(null);
+
+    const openModal = (player) => {
+        selectedPlayer.value = player;
+        isModalOpen.value = true;
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+        isModalOpen.value = false;
+        selectedPlayer.value = null;
+        document.body.style.overflow = 'auto';
+    };
+
+    const groupedPlayers = computed(() => {
+        if (!props.squad || props.squad.length === 0) return [];
+
+        const order = ['Portero', 'Defensa', 'Centrocampista', 'Delantero'];
+        const groups = {};
+
+        props.squad.forEach(player => {
+            const pos = player.position || 'Otros';
+            if (!groups[pos]) groups[pos] = [];
+            groups[pos].push(player);
+        });
+
+        return Object.keys(groups)
+            .sort((a, b) => {
+                const indexA = order.indexOf(a);
+                const indexB = order.indexOf(b);
+                return (indexA === -1 ? 99 : indexA) - (indexB === -1 ? 99 : indexB);
+            })
+            .map(pos => ({
+                position: pos,
+                players: groups[pos].sort((a, b) => (a.playerNumber || 99) - (b.playerNumber || 99))
+            }));
+    });
 </script>
 
 <style scoped>
