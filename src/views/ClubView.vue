@@ -56,6 +56,7 @@
                 :teamData="teamData" 
                 :nextMatchInfo="nextMatchInfo"
             />
+            <Squad v-else-if="actualPath === 'Plantilla'" :squad="teamData.playersDetails" />
             
             <div v-else class="py-20 text-center">
                 <StatusMessage :text="'Esta sección está en desarrollo. En breve, estará disponible.'" />
@@ -72,6 +73,7 @@
     import { ref, watch, onMounted } from "vue";
     import { useRoute } from 'vue-router';
     import GeneralInfo from '@components/club/GeneralInfo.vue';
+    import Squad from '@components/club/Squad.vue';
     import StatusMessage from "@components/common/StatusMessage.vue";
 
     const APIUrl = import.meta.env.VITE_API_URL;
