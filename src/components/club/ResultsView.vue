@@ -36,8 +36,16 @@
                                         <span class="text-[11px] font-bold text-slate-700">{{ goal.name }}</span>
                                     </div>
                                     <div v-for="(card, i) in match.local.cards" :key="'cl'+i" class="flex items-center justify-center gap-2">
-                                        <div class="w-2.5 h-3.5 rounded-[1px] shadow-sm transform rotate-6" 
-                                             :style="{ backgroundColor: card.type === 'Y' ? '#fbbf24' : '#dc2626' }"></div>
+                                        <div class="transform rotate-6 shadow-sm rounded-[1px]" 
+                                            :style="{ 
+                                                backgroundColor: card.type === 'Y' ? '#fbbf24' : '#dc2626',
+                                                width: '10px',
+                                                height: '14px',
+                                                minWidth: '10px',
+                                                minHeight: '14px',
+                                                display: 'block'
+                                            }"
+                                        ></div>
                                         <span class="text-[10px] font-bold text-slate-400 uppercase italic">{{ card.name }}</span>
                                     </div>
                                 </div>
@@ -63,8 +71,16 @@
                                         <span class="text-[11px] font-bold text-slate-700">{{ goal.name }}</span>
                                     </div>
                                     <div v-for="(card, i) in match.visitor.cards" :key="'cv'+i" class="flex items-center justify-center gap-2">
-                                        <div class="w-2.5 h-3.5 rounded-[1px] shadow-sm transform -rotate-6" 
-                                             :style="{ backgroundColor: card.type === 'Y' ? '#fbbf24' : '#dc2626' }"></div>
+                                        <div class="transform rotate-6 shadow-sm rounded-[1px]" 
+                                            :style="{ 
+                                                backgroundColor: card.type === 'Y' ? '#fbbf24' : '#dc2626',
+                                                width: '10px',
+                                                height: '14px',
+                                                minWidth: '10px',
+                                                minHeight: '14px',
+                                                display: 'block'
+                                            }"
+                                        ></div>
                                         <span class="text-[10px] font-bold text-slate-400 uppercase italic">{{ card.name }}</span>
                                     </div>
                                 </div>
