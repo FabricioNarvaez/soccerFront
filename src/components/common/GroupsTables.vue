@@ -5,7 +5,7 @@
             :link="'/clasificaciones'" 
             :linkText="'Clasificación completa'" 
         />
-
+        <ViewHeader v-else :title="'Tablas de Clasificación'"/>
         <StatusMessage v-if="teamsStore.loading" :text="'Cargando Tablas de clasificación...'"/>
 
         <div v-else-if="(teamsStore.groupA && teamsStore.groupA.length) || (teamsStore.groupB && teamsStore.groupB.length)" class="mt-4 space-y-6">
@@ -99,6 +99,7 @@
 <script setup>
     import { useRouter } from 'vue-router';
     import HeaderSubtitle from '@components/common/HeaderSubtitle.vue';
+    import ViewHeader from '@components/common/ViewHeader.vue';
     import StatusMessage from "@components/common/StatusMessage.vue";
     
     import { useTeamsStore } from '@store/teamsStore.js';
@@ -112,7 +113,7 @@
         },
         isBigTable: {
             type:Boolean,
-            default: false
+            default: true
         }
     });
 

@@ -28,7 +28,7 @@ const routes = [
   {
     path: "/clasificaciones",
     name: "Clasificaciones",
-    component: () => import("../views/ClassificationsView.vue"),
+    component: () => import("../components/common/GroupsTables.vue"),
     meta: { priority: 1.0 }
   },
   {
