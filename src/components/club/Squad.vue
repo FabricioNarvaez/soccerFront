@@ -1,6 +1,6 @@
 <template>
     <div class="space-y-8">
-        <section class="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+        <section>
             <HeaderSubtitle 
                 subtitle="Plantilla Oficial" 
                 :link="'/contacto'"
