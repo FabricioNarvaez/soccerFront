@@ -1,14 +1,7 @@
 <template>
     <div class="min-h-screen">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <header class="mb-12 border-b border-slate-200 pb-8">
-                <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight italic">
-                EQUIPOS DEL TORNEO
-                </h1>
-                <p class="mt-3 text-xl text-slate-600">
-                Temporada Verano
-                </p>
-            </header>
+            <ViewHeader :title="'EQUIPOS DEL TORNEO'" :subtitle="'Temporada Verano'"/>
             <StatusMessage v-if="teamsStore.loading" :text="'Cargando Equipos...'"/>
 
             <div v-else-if="teamsStore.allTeams.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
@@ -64,6 +57,7 @@
 <script setup>
     import { onMounted } from 'vue';
     import { useTeamsStore } from '@store/teamsStore.js';
+    import ViewHeader from '@components/common/ViewHeader.vue';
     import StatusMessage from "@components/common/StatusMessage.vue";
 
     const teamsStore = useTeamsStore();
