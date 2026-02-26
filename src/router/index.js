@@ -38,6 +38,12 @@ const routes = [
     meta: { priority: 1.0 }
   },
   {
+    path: "/playoffs/uefa",
+    name: "UEFA",
+    component: () => import("../views/UEFAView.vue"),
+    meta: { priority: 1.0 }
+  },
+  {
     path: "/equipo/General",
     name: "Equipo | General",
     component: () => import("../views/ClubView.vue"),
