@@ -50,7 +50,7 @@
             </div>
         </nav>
 
-        <main class="container mx-auto py-8 px-4">
+        <main class="container mx-auto py-8 md:px-0 px-4">
             <GeneralInfo
                 v-if="actualPath === 'General'" 
                 :teamData="teamData" 
@@ -58,6 +58,7 @@
             />
             <Squad v-else-if="actualPath === 'Plantilla'" :squad="teamData.playersDetails" />
             <ResultsView v-else-if="actualPath === 'Resultados'" :teamId="id" />
+            <Sanctions v-else-if="actualPath === 'Sanciones'" :teamId="id" />
             
             <div v-else class="py-20 text-center">
                 <StatusMessage :text="'Esta sección está en desarrollo. En breve, estará disponible.'" />
@@ -76,6 +77,7 @@
     import GeneralInfo from '@components/club/GeneralInfo.vue';
     import Squad from '@components/club/Squad.vue';
     import ResultsView from '@components/club/ResultsView.vue';
+    import Sanctions from '@components/club/Sanctions.vue';
     import StatusMessage from "@components/common/StatusMessage.vue";
 
     const APIUrl = import.meta.env.VITE_API_URL;
