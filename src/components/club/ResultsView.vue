@@ -1,94 +1,95 @@
 <template>
     <div class="space-y-8">
-            <div class="mt-8 space-y-8">
-                <div v-for="match in processedResults" :key="match.matchId" 
-                    class="relative overflow-hidden rounded-2xl border-2 transition-all duration-300 hover:shadow-xl"
-                    :style="{ 
-                        borderColor: match.statusClasses?.border, 
-                        backgroundColor: match.statusClasses?.bgLight 
-                    }"
-                >
-                    <div class="absolute left-0 top-0 bottom-0 w-2" 
-                         :style="{ backgroundColor: match.statusClasses?.bg }"></div>
+        <div class="mt-8 space-y-8">
+            <div v-for="match in processedResults" :key="match.matchId" 
+                class="relative overflow-hidden rounded-2xl border-2 transition-all duration-300 hover:shadow-xl group"
+                :style="{ 
+                    borderColor: match.statusClasses?.border, 
+                    backgroundColor: match.statusClasses?.bgLight 
+                }"
+            >
+                <div class="absolute -bottom-6 -right-4 pointer-events-none select-none overflow-hidden h-32 w-full flex justify-end items-end">
+                    <span 
+                        class="text-[120px] font-black italic leading-none opacity-[0.2] group-hover:opacity-[0.4] transition-opacity duration-500 uppercase"
+                        :style="{ color: match.statusClasses?.bg }"
+                    >
+                        {{ match.statusText }}
+                    </span>
+                </div>
 
-                    <div class="bg-slate-900 py-3 px-6 flex justify-between items-center">
-                        <div class="flex items-center gap-3">
-                            <span v-if="match.statusClasses" 
-                                class="text-[10px] font-black text-white px-2 py-0.5 rounded uppercase tracking-widest shadow-sm" 
-                                :style="{ backgroundColor: match.statusClasses.bg }">
-                                {{ match.statusText }}
-                            </span>
-                            <span class="text-[10px] font-black text-blue-400 uppercase tracking-widest">Jornada {{ match.round }}</span>
-                        </div>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{{ match.date }}</span>
+                <div class="absolute left-0 top-0 bottom-0 w-2" 
+                     :style="{ backgroundColor: match.statusClasses?.bg }"></div>
+
+                <div class="bg-slate-900 py-3 px-6 flex justify-between items-center relative z-10">
+                    <div class="flex items-center gap-3">
+                        <span v-if="match.statusClasses" 
+                            class="text-[10px] font-black text-white px-2 py-0.5 rounded uppercase tracking-widest shadow-sm" 
+                            :style="{ backgroundColor: match.statusClasses.bg }">
+                            {{ match.statusText }}
+                        </span>
+                        <span class="text-[10px] font-black text-blue-400 uppercase tracking-widest">Jornada {{ match.round }}</span>
                     </div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{{ match.date }}</span>
+                </div>
 
-                    <div class="p-8">
-                        <div class="grid grid-cols-3 gap-8 items-start">
+                <div class="p-8 relative z-10">
+                    <div class="grid grid-cols-3 gap-8 items-start">
+                        
+                        <div class="flex flex-col items-center">
+                            <img :src="match.local.shield" class="w-20 h-20 object-contain mb-4 drop-shadow-md" />
+                            <p class="text-[12px] font-black text-slate-800 uppercase tracking-tight text-center mb-6">{{ match.local.name }}</p>
                             
-                            <div class="flex flex-col items-center">
-                                <img :src="match.local.shield" class="w-20 h-20 object-contain mb-4 drop-shadow-md" />
-                                <p class="text-[12px] font-black text-slate-800 uppercase tracking-tight text-center mb-6">{{ match.local.name }}</p>
-                                
-                                <div class="w-full space-y-2.5">
-                                    <div v-for="(goal, i) in match.local.scorers" :key="'gl'+i" class="flex items-center justify-center gap-2">
-                                        <span class="text-xs">⚽</span>
-                                        <span class="text-[11px] font-bold text-slate-700">{{ goal.name }}</span>
-                                    </div>
-                                    <div v-for="(card, i) in match.local.cards" :key="'cl'+i" class="flex items-center justify-center gap-2">
-                                        <div class="transform rotate-6 shadow-sm rounded-[1px]" 
-                                            :style="{ 
-                                                backgroundColor: card.type === 'Y' ? '#fbbf24' : '#dc2626',
-                                                width: '10px',
-                                                height: '14px',
-                                                minWidth: '10px',
-                                                minHeight: '14px',
-                                                display: 'block'
-                                            }"
-                                        ></div>
-                                        <span class="text-[10px] font-bold text-slate-400 uppercase italic">{{ card.name }}</span>
-                                    </div>
+                            <div class="w-full space-y-2.5">
+                                <div v-for="(goal, i) in match.local.scorers" :key="'gl'+i" class="flex items-center justify-center gap-2">
+                                    <span class="text-xs">⚽</span>
+                                    <span class="text-[11px] font-bold text-slate-700">{{ goal.name }}</span>
+                                </div>
+                                <div v-for="(card, i) in match.local.cards" :key="'cl'+i" class="flex items-center justify-center gap-2">
+                                    <div class="transform rotate-6 shadow-sm rounded-[1px]" 
+                                        :style="{ 
+                                            backgroundColor: card.type === 'Y' ? '#fbbf24' : '#dc2626',
+                                            width: '10px', height: '14px', minWidth: '10px', minHeight: '14px', display: 'block'
+                                        }"
+                                    ></div>
+                                    <span class="text-[10px] font-bold text-slate-400 uppercase italic">{{ card.name }}</span>
                                 </div>
                             </div>
-
-                            <div class="flex flex-col items-center justify-center pt-2">
-                                <div class="flex items-center gap-5 bg-white px-8 py-4 rounded-3xl border-2 shadow-inner h-fit" 
-                                     :style="{ borderColor: match.statusClasses?.border }">
-                                    <span class="text-5xl font-black text-slate-800 tabular-nums">{{ match.local.goals }}</span>
-                                    <span class="text-2xl font-black text-slate-200">-</span>
-                                    <span class="text-5xl font-black text-slate-800 tabular-nums">{{ match.visitor.goals }}</span>
-                                </div>
-                                <span class="mt-6 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Finalizado</span>
-                            </div>
-
-                            <div class="flex flex-col items-center">
-                                <img :src="match.visitor.shield" class="w-20 h-20 object-contain mb-4 drop-shadow-md" />
-                                <p class="text-[12px] font-black text-slate-800 uppercase tracking-tight text-center mb-6">{{ match.visitor.name }}</p>
-                                
-                                <div class="w-full space-y-2.5">
-                                    <div v-for="(goal, i) in match.visitor.scorers" :key="'gv'+i" class="flex items-center justify-center gap-2">
-                                        <span class="text-xs">⚽</span>
-                                        <span class="text-[11px] font-bold text-slate-700">{{ goal.name }}</span>
-                                    </div>
-                                    <div v-for="(card, i) in match.visitor.cards" :key="'cv'+i" class="flex items-center justify-center gap-2">
-                                        <div class="transform rotate-6 shadow-sm rounded-[1px]" 
-                                            :style="{ 
-                                                backgroundColor: card.type === 'Y' ? '#fbbf24' : '#dc2626',
-                                                width: '10px',
-                                                height: '14px',
-                                                minWidth: '10px',
-                                                minHeight: '14px',
-                                                display: 'block'
-                                            }"
-                                        ></div>
-                                        <span class="text-[10px] font-bold text-slate-400 uppercase italic">{{ card.name }}</span>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
+
+                        <div class="flex flex-col items-center justify-center pt-2">
+                            <div class="flex items-center gap-5 bg-white px-8 py-4 rounded-3xl border-2 shadow-inner h-fit" 
+                                 :style="{ borderColor: match.statusClasses?.border }">
+                                <span class="text-5xl font-black text-slate-800 tabular-nums">{{ match.local.goals }}</span>
+                                <span class="text-2xl font-black text-slate-200">-</span>
+                                <span class="text-5xl font-black text-slate-800 tabular-nums">{{ match.visitor.goals }}</span>
+                            </div>
+                            <span class="mt-6 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Finalizado</span>
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <img :src="match.visitor.shield" class="w-20 h-20 object-contain mb-4 drop-shadow-md" />
+                            <p class="text-[12px] font-black text-slate-800 uppercase tracking-tight text-center mb-6">{{ match.visitor.name }}</p>
+                            
+                            <div class="w-full space-y-2.5">
+                                <div v-for="(goal, i) in match.visitor.scorers" :key="'gv'+i" class="flex items-center justify-center gap-2">
+                                    <span class="text-xs">⚽</span>
+                                    <span class="text-[11px] font-bold text-slate-700">{{ goal.name }}</span>
+                                </div>
+                                <div v-for="(card, i) in match.visitor.cards" :key="'cv'+i" class="flex items-center justify-center gap-2">
+                                    <div class="transform rotate-6 shadow-sm rounded-[1px]" 
+                                        :style="{ 
+                                            backgroundColor: card.type === 'Y' ? '#fbbf24' : '#dc2626',
+                                            width: '10px', height: '14px', minWidth: '10px', minHeight: '14px', display: 'block'
+                                        }"
+                                    ></div>
+                                    <span class="text-[10px] font-bold text-slate-400 uppercase italic">{{ card.name }}</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </template>
