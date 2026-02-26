@@ -6,7 +6,7 @@
             <LastResults />
         </div>
         <div class="lg:col-span-1">
-            <GroupsTables :isSmallTable="true"/>
+            <GroupsTables :isSmallTable="true" :isBigTable="false"/>
         </div>
     </div>
 </template>
