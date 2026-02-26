@@ -88,65 +88,65 @@
     </div>
 </template>
 
-<style scoped>
-.clip-path-fix {
-    clip-path: inset(0 -100vmax);
-}
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-.phase-title {
-    @apply text-xs font-black uppercase tracking-[0.4em] text-blue-400/60 mb-12;
-}
-.phase-title-final {
-    @apply text-center mt-6 font-black italic text-blue-400 tracking-widest text-lg uppercase;
-}
-.group-pair {
-    @apply relative flex flex-col;
-}
-.line-horizontal-out {
-    @apply absolute -right-10 top-1/2 w-10 h-[2px] bg-blue-500/30;
-}
-.line-vertical-connector {
-    @apply absolute -right-10 top-[3.25rem] bottom-[3.25rem] w-[2px] bg-blue-500/30;
-}
-.line-horizontal-advance {
-    @apply absolute -right-20 top-1/2 w-10 h-[2px] bg-blue-500/30;
-}
-.bg-[#0a0a2e] {
-    background-color: #0a0a2e;
-    background-image: radial-gradient(
-        circle at 20% 30%,
-        #161b5e 0%,
-        #0a0a2e 100%
-    );
-}
-</style>
-
 <script setup>
-import { ref } from "vue";
-import PlayoffMatch from "@components/playoffs/PlayoffMatch.vue";
+	import { ref } from "vue";
+	import PlayoffMatch from "@components/playoffs/PlayoffMatch.vue";
 
-const teams = ref([
-    {
-        name: "Cancheritos FC",
-        logo: "https://res.cloudinary.com/dzd68sxue/image/upload/v1695395236/WEBP/Cancheritos_qdbnsw.webp",
-        score: 3,
-    },
-    {
-        name: "Pájaro Azul",
-        logo: "https://res.cloudinary.com/dzd68sxue/image/upload/v1695398424/WEBP/pajaro-azul-qge5bh_xmfsyj.webp",
-        score: 1,
-    },
-    {
-        name: "Rayo Verde",
-        logo: "https://placehold.co/100x100/16a34a/white?text=RV",
-        score: 2,
-    },
-    {
-        name: "Titanes FC",
-        logo: "https://placehold.co/100x100/1e293b/white?text=T",
-        score: 0,
-    },
-]);
+	const teams = ref([
+		{
+			name: "Cancheritos FC",
+			logo: "https://res.cloudinary.com/dzd68sxue/image/upload/v1695395236/WEBP/Cancheritos_qdbnsw.webp",
+			score: 3,
+		},
+		{
+			name: "Pájaro Azul",
+			logo: "https://res.cloudinary.com/dzd68sxue/image/upload/v1695398424/WEBP/pajaro-azul-qge5bh_xmfsyj.webp",
+			score: 1,
+		},
+		{
+			name: "Rayo Verde",
+			logo: "https://placehold.co/100x100/16a34a/white?text=RV",
+			score: 2,
+		},
+		{
+			name: "Titanes FC",
+			logo: "https://placehold.co/100x100/1e293b/white?text=T",
+			score: 0,
+		},
+	]);
 </script>
+
+<style scoped>
+	.clip-path-fix {
+		clip-path: inset(0 -100vmax);
+	}
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	.phase-title {
+		@apply text-xs font-black uppercase tracking-[0.4em] text-blue-400/60 mb-12;
+	}
+	.phase-title-final {
+		@apply text-center mt-6 font-black italic text-blue-400 tracking-widest text-lg uppercase;
+	}
+	.group-pair {
+		@apply relative flex flex-col;
+	}
+	.line-horizontal-out {
+		@apply absolute -right-10 top-1/2 w-10 h-[2px] bg-blue-500/30;
+	}
+	.line-vertical-connector {
+		@apply absolute -right-10 top-[3.25rem] bottom-[3.25rem] w-[2px] bg-blue-500/30;
+	}
+	.line-horizontal-advance {
+		@apply absolute -right-20 top-1/2 w-10 h-[2px] bg-blue-500/30;
+	}
+	.bg-[#0a0a2e] {
+		background-color: #0a0a2e;
+		background-image: radial-gradient(
+			circle at 20% 30%,
+			#161b5e 0%,
+			#0a0a2e 100%
+		);
+	}
+</style>
