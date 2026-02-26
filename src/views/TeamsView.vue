@@ -16,7 +16,7 @@
                 class="group relative bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 ease-out border border-slate-100 overflow-hidden transform hover:-translate-y-2"
                 >
                     <RouterLink :to="{ path: '/equipo/General', query: { id: team._id, name: team.name }}">
-                        <div class="aspect-square bg-gradient-to-br from-blue-400 to-white flex items-center justify-center p-10 group-hover:from-orange-400 group-hover:to-green transition-colors duration-500">
+                        <div class="aspect-square bg-gradient-to-br from-blue-400 to-white flex items-center justify-center p-10 group-hover:from-blue-600 group-hover:to-blue-600 transition-colors duration-500">
                             <img 
                                 :src="team.shield" 
                                 :alt="`Escudo de ${team.name}`"
