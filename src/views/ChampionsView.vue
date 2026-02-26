@@ -1,221 +1,152 @@
 <template>
-  <div class="playoff-table">
-    <div v-if="champion" class="champion">
-      <h2>Champion</h2>
-      <div class="winner">
-        <span>{{ champion }}</span>
-      </div>
-    </div>
-    <div class="rounds">
-      <div class="round" v-for="(round, index) in rounds" :key="index">
-        <h3>Round {{ index + 1 }}</h3>
-        <div class="match" v-for="(match, i) in round" :key="i">
-          <div class="team">
-            <span>{{ match.team1 }}</span>
-          </div>
-          <div class="result">
-            <span v-if="match.result">{{ match.result }}</span>
-            <span v-else>{{ match.date }}</span>
-          </div>
-          <div class="team">
-            <span>{{ match.team2 }}</span>
-          </div>
+    <div class="min-h-screen bg-[#0a0a2e] text-white p-6 md:p-12 overflow-x-auto no-scrollbar shadow-[0_0_0_100vmax_#0a0a2e] clip-path-fix">
+        <div class="mb-16 ml-4">
+            <h1 class="text-6xl font-black italic tracking-tighter uppercase text-white inline-block">
+                Champions
+            </h1>
+            <div class="h-1 w-32 bg-blue-600 mt-2 shadow-[0_0_15px_#2563eb]"></div>
         </div>
-      </div>
+
+        <div class="flex items-start gap-0 pb-20 min-w-max pt-10">
+            <div class="flex flex-col items-center">
+                <h2 class="phase-title">Octavos de Final</h2>
+                <div class="flex flex-col gap-12 pr-20">
+                    <div v-for="i in 4" class="relative group-pair" :key="'g-oct' + i">
+                        <div class="flex flex-col gap-8">
+                            <div v-for="j in 2" class="relative":key="'oct-m' + i + j">
+                                <PlayoffMatch
+                                    :team1="teams[0]"
+                                    :team2="teams[1]"
+                                />
+                                <div class="line-horizontal-out"></div>
+                            </div>
+                        </div>
+                        <div class="line-vertical-connector"></div>
+                        <div class="line-horizontal-advance"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center">
+                <h2 class="phase-title">Cuartos de Final</h2>
+                <div class="flex flex-col gap-[14.5rem] px-20 pt-[3.8rem]">
+                    <div v-for="i in 2" class="relative group-pair" :key="'g-cua' + i">
+                        <div class="flex flex-col gap-[10.5rem]">
+                            <div v-for="j in 2" class="relative" :key="'cua-m' + i + j">
+                                <PlayoffMatch
+                                    :team1="teams[2]"
+                                    :team2="teams[3]"
+                                />
+                                <div class="line-horizontal-out"></div>
+                            </div>
+                        </div>
+                        <div class="line-vertical-connector"></div>
+                        <div class="line-horizontal-advance"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center">
+                <h2 class="phase-title">Semifinal</h2>
+                <div class="flex flex-col px-20 pt-[12.5rem]">
+                    <div class="relative group-pair">
+                        <div class="flex flex-col gap-[31rem]">
+                            <div v-for="i in 2" class="relative" :key="'semi' + i">
+                                <PlayoffMatch
+                                    :team1="teams[0]"
+                                    :team2="teams[2]"
+                                />
+                                <div class="line-horizontal-out"></div>
+                            </div>
+                        </div>
+                        <div class="line-vertical-connector"></div>
+                        <div class="line-horizontal-advance !w-24 !-right-24 shadow-[0_0_8px_#3b82f6]"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center pl-20 pt-[3.8rem]">
+                <h2 class="phase-title opacity-0">Espaciador</h2>
+
+                <div class="relative flex flex-col items-center justify-center min-h-[700px]">
+                    <div class="mb-12 group text-center">
+                        <div class="absolute -inset-10 bg-blue-500/15 blur-[60px] rounded-full"></div>
+                        <img class="w-44 mx-auto drop-shadow-[0_0_30px_rgba(59,130,246,0.5)] relative z-10" src="/champions.webp"/>
+                        <h2 class="phase-title-final !mt-4">Gran Final</h2>
+                    </div>
+
+                    <div class="relative z-20">
+                        <PlayoffMatch
+                            :team1="teams[0]"
+                            :team2="teams[3]"
+                            :isFinal="true"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
-<script>
-export default {
-  name: "PlayoffTable",
-  props: {
-    rounds: {
-      type: Array,
-      required: true,
-      default: () => [
-        [
-          { team1: "Team A", team2: "Team B", result: "3 - 1" },
-          { team1: "Team C", team2: "Team D", date: "2024-12-30" },
-        ],
-        [
-          { team1: "Winner A", team2: "Winner B", result: "2 - 2 (4-3 penales)" },
-        ],
-      ],
-    },
-    // champion: {
-    //   type: String,
-    //   default: "TBD Team",
-    // },
-  },
-};
-</script>
-
 <style scoped>
-.playoff-table {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Roboto', sans-serif;
-  gap: 2rem;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+.clip-path-fix {
+    clip-path: inset(0 -100vmax);
 }
-
-.rounds {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
 }
-
-.round {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+.phase-title {
+    @apply text-xs font-black uppercase tracking-[0.4em] text-blue-400/60 mb-12;
 }
-
-.round h3 {
-  font-size: 1.5rem;
-  color: var(--darkBluePalette);
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-  font-weight: 700;
+.phase-title-final {
+    @apply text-center mt-6 font-black italic text-blue-400 tracking-widest text-lg uppercase;
 }
-
-.match {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 1.5rem;
-  background: var(--lightGrey);
-  border: 2px solid var(--greyPalette);
-  border-radius: 10px;
-  width: 220px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+.group-pair {
+    @apply relative flex flex-col;
 }
-
-.match:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+.line-horizontal-out {
+    @apply absolute -right-10 top-1/2 w-10 h-[2px] bg-blue-500/30;
 }
-
-.team {
-  font-size: 1rem;
-  font-weight: bold;
-  color: var(--black);
-  text-transform: uppercase;
+.line-vertical-connector {
+    @apply absolute -right-10 top-[3.25rem] bottom-[3.25rem] w-[2px] bg-blue-500/30;
 }
-
-.result {
-  font-size: 0.9rem;
-  font-style: italic;
-  font-weight: 500;
-  color: var(--darkBrownPalette);
-  margin: 0.3rem 0;
-  background: var(--lightBrown);
-  padding: 0.2rem 0.5rem;
-  border-radius: 5px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  text-align: center;
+.line-horizontal-advance {
+    @apply absolute -right-20 top-1/2 w-10 h-[2px] bg-blue-500/30;
 }
-
-
-/* Champions */
-.champion {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(145deg, #0d1117, #161b22); /* Fondo oscuro profesional */
-  padding: 3rem;
-  border-radius: 20px;
-  border: 3px solid #ffd700; /* Borde dorado */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 215, 0, 0.3); /* Brillo interno */
-  position: relative;
-  overflow: hidden;
-  width: 80%;
-  max-width: 600px;
-  margin: 2rem auto;
+.bg-[#0a0a2e] {
+    background-color: #0a0a2e;
+    background-image: radial-gradient(
+        circle at 20% 30%,
+        #161b5e 0%,
+        #0a0a2e 100%
+    );
 }
-
-.champion::before,
-.champion::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
-  animation: glow 6s linear infinite;
-  z-index: 0;
-}
-
-.champion::before {
-  width: 200px;
-  height: 200px;
-  top: -50px;
-  left: -50px;
-}
-
-.champion::after {
-  width: 300px;
-  height: 300px;
-  bottom: -80px;
-  right: -80px;
-}
-
-@keyframes glow {
-  0% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-}
-
-.champion h2 {
-  font-size: 2.5rem;
-  color: #ffd700;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  z-index: 1;
-  position: relative;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
-}
-
-.winner {
-  font-size: 3rem;
-  font-weight: 900;
-  color: #fff;
-  z-index: 1;
-  position: relative;
-  text-transform: uppercase;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 30px #ffd700;
-  animation: winner-glow 3s infinite;
-}
-
-@keyframes winner-glow {
-  0%, 100% {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 30px #ffd700;
-    transform: scale(1);
-  }
-  50% {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 50px #ffd700;
-    transform: scale(1.05);
-  }
-}
-
 </style>
+
+<script setup>
+import { ref } from "vue";
+import PlayoffMatch from "@components/playoffs/PlayoffMatch.vue";
+
+const teams = ref([
+    {
+        name: "Cancheritos FC",
+        logo: "https://res.cloudinary.com/dzd68sxue/image/upload/v1695395236/WEBP/Cancheritos_qdbnsw.webp",
+        score: 3,
+    },
+    {
+        name: "Pájaro Azul",
+        logo: "https://res.cloudinary.com/dzd68sxue/image/upload/v1695398424/WEBP/pajaro-azul-qge5bh_xmfsyj.webp",
+        score: 1,
+    },
+    {
+        name: "Rayo Verde",
+        logo: "https://placehold.co/100x100/16a34a/white?text=RV",
+        score: 2,
+    },
+    {
+        name: "Titanes FC",
+        logo: "https://placehold.co/100x100/1e293b/white?text=T",
+        score: 0,
+    },
+]);
+</script>
