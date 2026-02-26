@@ -1,5 +1,5 @@
 <template>
-    <header class="mb-12 border-b border-slate-200 pb-8">
+    <header class="mt-5 mb-12 border-b border-slate-200 pb-8">
         <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight italic uppercase">
             {{ title }}
         </h1>

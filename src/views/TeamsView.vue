@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen p-4 mt-5">
+    <div class="min-h-screen p-4">
             <ViewHeader :title="'EQUIPOS DEL TORNEO'" :subtitle="'Temporada Verano'"/>
             <StatusMessage v-if="teamsStore.loading" :text="'Cargando Equipos...'"/>
 
