@@ -1,6 +1,5 @@
 <template>
-    <div class="min-h-screen">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="min-h-screen p-4 mt-5">
             <ViewHeader :title="'EQUIPOS DEL TORNEO'" :subtitle="'Temporada Verano'"/>
             <StatusMessage v-if="teamsStore.loading" :text="'Cargando Equipos...'"/>
 
@@ -49,8 +48,6 @@
             <div v-else class="text-center py-20 bg-white rounded-3xl border-2 border-dashed border-slate-200">
                 <p class="text-slate-400 text-lg">No hay equipos disponibles en este momento.</p>
             </div>
-
-        </div>
     </div>
 </template>
 
