@@ -2,7 +2,7 @@
     <div class="mb-8 mx-4 md:mx-0">
         <div class="flex justify-between items-end mb-8">
             <div class="flex justify-between w-full">
-                <ViewHeader :title="'Máximos Goleadores'"/>
+                <ViewHeader :title="'Mejores Porteros'"/>
             
                 <div class="flex items-center gap-3 text-sm font-bold text-slate-500">
                     <span>MOSTRAR:</span>
@@ -84,19 +84,19 @@ import ViewHeader from '@components/common/ViewHeader.vue';
 const limit = ref(10);
 
 const players = ref([
-    { id: 1, name: "Marcus Rashford", team: "Manchester United", goals: 12, playerNumber: 10, photo: "" },
-    { id: 2, name: "Santiago Giménez", team: "Feyenoord", goals: 9, playerNumber: 29, photo: "" },
-    { id: 3, name: "Victor Boniface", team: "Bayer Leverkusen", goals: 8, playerNumber: 22, photo: "" },
-    { id: 4, name: "Gonçalo Ramos", team: "PSV Eindhoven", goals: 7, playerNumber: 9, photo: "" },
-    { id: 5, name: "Donyell Malen", team: "Borussia Dortmund", goals: 6, playerNumber: 9, photo: "" },
-    { id: 6, name: "Randal Kolo Muani", team: "Eintracht Frankfurt", goals: 6, playerNumber: 27, photo: "" },
-    { id: 7, name: "Gonçalo Guedes", team: "Valencia CF", goals: 5, playerNumber: 7, photo: "" },
-    { id: 8, name: "Donyell Malen", team: "Borussia Dortmund", goals: 4, playerNumber: 9, photo: "" },
-    { id: 9, name: "Randal Kolo Muani", team: "Eintracht Frankfurt", goals: 4, playerNumber: 27, photo: "" },
-    { id: 10, name: "Gonçalo Guedes", team: "Valencia CF", goals: 3, playerNumber: 7, photo: "" },
-    { id: 11, name: "Donyell Malen", team: "Borussia Dortmund", goals: 2, playerNumber: 9, photo: "" },
-    { id: 12, name: "Randal Kolo Muani", team: "Eintracht Frankfurt", goals: 2, playerNumber: 27, photo: "" },
     { id: 13, name: "Gonçalo Guedes", team: "Valencia CF", goals: 1, playerNumber: 7, photo: "" },
+    { id: 12, name: "Randal Kolo Muani", team: "Eintracht Frankfurt", goals: 2, playerNumber: 27, photo: "" },
+    { id: 11, name: "Donyell Malen", team: "Borussia Dortmund", goals: 2, playerNumber: 9, photo: "" },
+    { id: 10, name: "Gonçalo Guedes", team: "Valencia CF", goals: 3, playerNumber: 7, photo: "" },
+    { id: 9, name: "Randal Kolo Muani", team: "Eintracht Frankfurt", goals: 4, playerNumber: 27, photo: "" },
+    { id: 8, name: "Donyell Malen", team: "Borussia Dortmund", goals: 4, playerNumber: 9, photo: "" },
+    { id: 7, name: "Gonçalo Guedes", team: "Valencia CF", goals: 5, playerNumber: 7, photo: "" },
+    { id: 6, name: "Randal Kolo Muani", team: "Eintracht Frankfurt", goals: 6, playerNumber: 27, photo: "" },
+    { id: 5, name: "Donyell Malen", team: "Borussia Dortmund", goals: 6, playerNumber: 9, photo: "" },
+    { id: 4, name: "Gonçalo Ramos", team: "PSV Eindhoven", goals: 7, playerNumber: 9, photo: "" },
+    { id: 3, name: "Victor Boniface", team: "Bayer Leverkusen", goals: 8, playerNumber: 22, photo: "" },
+    { id: 2, name: "Santiago Giménez", team: "Feyenoord", goals: 9, playerNumber: 29, photo: "" },
+    { id: 1, name: "Marcus Rashford", team: "Manchester United", goals: 12, playerNumber: 10, photo: "" },
 ]);
 
 const displayedPlayers = computed(() => {

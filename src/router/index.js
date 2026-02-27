@@ -49,6 +49,11 @@ const routes = [
     component: () => import("../views/TopScorersView.vue"),
   },
   {
+    path: "/mejoresPorteros",
+    name: "Mejores Porteros",
+    component: () => import("../views/BestGoalkeepersView.vue"),
+  },
+  {
     path: "/equipo/General",
     name: "Equipo | General",
     component: () => import("../views/ClubView.vue"),
