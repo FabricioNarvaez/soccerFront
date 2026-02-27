@@ -71,7 +71,7 @@
                 <div class="relative flex flex-col items-center justify-center min-h-[700px]">
                     <div class="mb-12 group text-center">
                         <div class="absolute -inset-10 bg-blue-500/15 blur-[60px] rounded-full"></div>
-                        <img class="w-44 mx-auto drop-shadow-[0_0_30px_rgba(59,130,246,0.5)] relative z-10" src="/champions.webp"/>
+                        <img class="h-52 w-auto mx-auto drop-shadow-[0_0_30px_rgba(59,130,246,0.5)] relative z-10" src="/champions.png"/>
                         <h2 class="phase-title-final !mt-4">Gran Final</h2>
                     </div>
 
