@@ -44,6 +44,11 @@ const routes = [
     meta: { priority: 1.0 }
   },
   {
+    path: "/goleadores",
+    name: "Goleadores",
+    component: () => import("../views/TopScorersView.vue"),
+  },
+  {
     path: "/equipo/General",
     name: "Equipo | General",
     component: () => import("../views/ClubView.vue"),

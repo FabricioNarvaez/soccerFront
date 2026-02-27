@@ -31,8 +31,8 @@
                         <Icon icon="bxs:down-arrow" class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" />
                     </div>
                     <div class="absolute top-full -left-5 z-10 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out translate-y-2 group-hover:translate-y-0 bg-[#206192] shadow-lg border-t-4 border-amber-400 min-w-[150px] flex flex-col">
-                        <RouterLink to="/playoffs/pichichi" class="dropdown-link">Pichichi</RouterLink>
-                        <RouterLink to="/playoffs/porteroDestacado" class="dropdown-link border-t border-white/10">Portero</RouterLink>
+                        <RouterLink to="/goleadores" class="dropdown-link">Tabla de Goleadores</RouterLink>
+                        <RouterLink to="/mejoresPorteros" class="dropdown-link border-t border-white/10">Mejores Porteros</RouterLink>
                     </div>
                 </div>
 
