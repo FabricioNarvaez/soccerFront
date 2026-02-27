@@ -120,17 +120,17 @@ describe('Header Component - Mobile', () => {
 
         const MVPHeader = screen.getByLabelText('MVP');
         
-        expect(screen.getByLabelText('Pichichi')).not.toBeVisible(); 
-        expect(screen.getByLabelText('Portero')).not.toBeVisible();
+        expect(screen.getByLabelText('Tabla de Goleadores')).not.toBeVisible(); 
+        expect(screen.getByLabelText('Mejores Porteros')).not.toBeVisible();
 
         await fireEvent.click(MVPHeader);
 
-        expect(screen.getByLabelText('Pichichi')).toBeInTheDocument();
-        expect(screen.getByLabelText('Portero')).toBeInTheDocument();
+        expect(screen.getByLabelText('Tabla de Goleadores')).toBeInTheDocument();
+        expect(screen.getByLabelText('Mejores Porteros')).toBeInTheDocument();
 
         await fireEvent.click(MVPHeader);
 
-        expect(screen.getByLabelText('Pichichi')).not.toBeVisible();
-        expect(screen.getByLabelText('Portero')).not.toBeVisible();
+        expect(screen.getByLabelText('Tabla de Goleadores')).not.toBeVisible();
+        expect(screen.getByLabelText('Mejores Porteros')).not.toBeVisible();
     });
 });

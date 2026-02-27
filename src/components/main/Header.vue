@@ -115,8 +115,8 @@
                                     />
                                 </div>
                                 <div v-show="isActiveDropdownMVP" class="flex flex-col pl-4 py-2 space-y-1 bg-[#1a4e76]">
-                                    <RouterLink @click="toggleMenu" to="/playoffs/pichichi" class="mobile-sub-link" aria-label="Pichichi">Pichichi</RouterLink>
-                                    <RouterLink @click="toggleMenu" to="/playoffs/porteroDestacado" class="mobile-sub-link" aria-label="Portero">Portero</RouterLink>
+                                    <RouterLink @click="toggleMenu" to="/goleadores" class="mobile-sub-link" aria-label="Tabla de Goleadores">Tabla de Goleadores</RouterLink>
+                                    <RouterLink @click="toggleMenu" to="/mejoresPorteros" class="mobile-sub-link" aria-label="Mejores Porteros">Mejores Porteros</RouterLink>
                                 </div>
                             </div>
 
